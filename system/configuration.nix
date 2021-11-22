@@ -76,17 +76,27 @@
    };
    users.defaultUserShell=pkgs.elvish;
    environment.systemPackages = with pkgs; [
-	   vim git neovim 
+	   vim git 
 		   starship exa bat alacritty ripgrep fd fzf starship gcc gitui
 		   wget
 		   picom firefox 
 		   zsh elvish
-		   vimPlugins.packer-nvim
 		   rustup
 		   python39
-		   nodejs-16_x
+		   nodejs-16_x yarn
    ];
    
+   programs.neovim={
+   	enable = true;
+	defaultEditor = true;
+	   configure = {
+		customRC = builtins.readFile /home/bl/.config/nvim/init.vim;
+		   packages.myVimPackage = with pkgs.vimPlugins;{
+			   start = [packer-nvim];
+		   };
+	   };
+   };
+
    #services.picom.inactiveOpacity = 0.7;
    #services.picom.opacityRules = [
 #	"100:class_g = 'Alacritty'"

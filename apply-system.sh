@@ -1,4 +1,2 @@
 #/bin/sh
-pushd ~/Nyx
-sudo nixos-rebuild switch -I nixos-config=./system/configuration.nix
-popd
+sudo nixos-rebuild switch -I nixos-config=/home/bl/Nyx/system/configuration.nix
