@@ -101,6 +101,10 @@
     rnix-lsp
     nixpkgs-fmt
     zellij
+		curl
+		sl
+		lua
+		luajit
   ];
 
   programs.neovim = {

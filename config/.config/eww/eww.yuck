@@ -1,0 +1,71 @@
+(defwidget bar []
+  (centerbox :orientation "h"
+    (workspaces)
+    (music)
+    (sidestuff)))
+
+(defwidget sidestuff []
+  (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
+    (metric :label "🍵"
+            :value volume
+            :onchange "")
+    (metric :label "🍳"
+            :value ram
+            :onchange "")
+    (box :class "label" time
+      )
+    ))
+;(metric :label "💾"
+            ;:value {round((1 - (EWW_DISK["/"].free / EWW_DISK["/"].total)) * 100, 0)}
+            ;:onchange "")
+(defwidget workspaces []
+  (box :class "workspaces"
+       :orientation "h"
+       :space-evenly true
+       :halign "start"
+       :spacing 5
+    (literal :content {wm-tags})))
+
+(defwidget music []
+  (box :class "music"
+       :orientation "h"
+       :space-evenly false
+       :halign "center"
+    {music != "" ? "🎵${music}" : ""}))
+
+
+(defwidget metric [label value onchange]
+  (box :orientation "h"
+       :class "metric"
+       :space-evenly false
+    (box :class "label" label)
+    (scale :min 0
+           :max 101
+           :active {onchange != ""}
+           :value value
+           :onchange onchange)))
+
+(deflisten music :initial ""
+  "playerctl --follow metadata --format '{{ artist }} - {{ title }}' || true")
+
+(defpoll volume :interval "1s"
+  "scripts/getvol")
+(defpoll ram :interval "1s"
+  "scripts/getram")
+
+(defpoll time :class "label" :interval "10s"
+  "date '+%H:%M %b %d, %Y  '")
+
+(deflisten wm-tags
+  "leftwm-state -w 0 -t ~/.config/leftwm/themes/current/template.liquid")
+
+(defwindow bar0
+  :monitor 0
+  :windowtype "dock"
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :width "93%"
+                      :height "5px"
+                      :anchor "top left")
+  :reserve (struts :side "top" :distance "2%")
+  (bar))
