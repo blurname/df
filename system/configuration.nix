@@ -5,11 +5,17 @@
 { config, pkgs, ... }:
 
 {
+
   imports =
     [
-      # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
+		nix = {
+			package = pkgs.nixFlakes;
+			extraOptions = ''
+				experimental-features = nix-command flakes	
+			'';
+		};
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -105,13 +111,16 @@
 		sl
 		lua
 		luajit
+		unzip
+		sumneko-lua-language-server
+		rust-analyzer
   ];
 
   programs.neovim = {
     enable = true;
     defaultEditor = true;
     configure = {
-      customRC = builtins.readFile /home/bl/.config/nvim/init.vim;
+      customRC = builtins.readFile "/home/bl/.config/nvim/init.vim";
       packages.myVimPackage = with pkgs.vimPlugins;{
         start = [ packer-nvim ];
       };
@@ -129,18 +138,8 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
   networking.firewall.enable = false;
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "unstable"; # Did you read the comment?
 
 }
