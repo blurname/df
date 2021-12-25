@@ -9,6 +9,7 @@
   imports =
     [
       ./hardware-configuration.nix
+#<home-manager/nixos>
     ];
 		nix = {
 			package = pkgs.nixFlakes;
@@ -26,6 +27,10 @@
   networking = {
     hostName = "nixos";
     useDHCP = true;
+		#proxy ={
+			#httpProxy="http://127.0.0.1:7890";
+			#httpsProxy="http://127.0.0.1:7890";
+		#};
     #    interfaces={
     #    enp0s3.ip4=[{
     #      address = "192.168.1.2";
@@ -120,7 +125,7 @@
     enable = true;
     defaultEditor = true;
     configure = {
-      customRC = builtins.readFile "/home/bl/.config/nvim/init.vim";
+      customRC = builtins.readFile /home/bl/.config/nvim/init.vim;
       packages.myVimPackage = with pkgs.vimPlugins;{
         start = [ packer-nvim ];
       };
