@@ -21,7 +21,7 @@
       fsType = "vfat";
     };
 
-  swapDevices = [ ];
+  swapDevices = [{device="/var/swapfile";size=4096;} ];
 
   virtualisation.virtualbox.guest.enable = true;
 }

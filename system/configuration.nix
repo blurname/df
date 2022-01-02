@@ -48,7 +48,7 @@
   #networking.interfaces.enp0s3.useDHCP = true;
   services.openssh = {
     enable = true;
-    passwordAuthentication = true;
+    passwordAuthentication = false;
   };
 
   # Configure network proxy if necessary
@@ -85,8 +85,11 @@
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     password = "a";
+		openssh.authorizedKeys.keys=[
+"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDlstol98Hft8h6d6LKTjgaczPvA3uwIWp3cGHMaHij42ivAJQhLurN0yUO34D3Tnw65I9IibKeOJ9UbH301yZOlX/Q5KqzbyyjuBotsyyzH4FQicGVnHNLr3pWq3d9Inhr8Hk862bBb96ts9zranlIcXOFPyCnAexlZpV7QAGG19K9BdQLUIFifADlNGUc9Fq9knR2TZ+l7VLbkVT2eASGMGpsqoxBV3QurKdNGj/gGLNM5jAHp77rLhKPnimBmYJoyzovOCLa7EGBA3AK4eiKbgH0PP5cIj0ccNvbbFrI/miVjJ4yckHWBeZPQoBh83zbuoLGdrsigqkXmANiHeFeKBUqLHGgzB/L60S0UNJ1pfoLSFwWYsEcKfdNPnr+F1glPzUM4eBb8O1TlgTFioNSYoibI5FHoE1BgWaXYyJiD8qhG7zrMtDFM1gBan9dANEsfqahWp2paaD/aJQdJz8WZKOEhKC1u50jOg4yRoJUhW2eDBBUKT9mvu0SA7e49ws= bl@DESKTOP-TDF969O"
+		];
   };
-  users.defaultUserShell = pkgs.elvish;
+  users.defaultUserShell = pkgs.bash;
   environment.systemPackages = with pkgs; [
     vim
     git
@@ -119,6 +122,9 @@
 		unzip
 		sumneko-lua-language-server
 		rust-analyzer
+		mcfly
+		bottom
+		htop
   ];
 
   programs.neovim = {
@@ -138,10 +144,6 @@
   #];
   nix.binaryCaches = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" "https://mirrors.ustc.edu.cn/nix-channels/store" "https://mirror.sjtu.edu.cn/nix-channels/store" ];
 
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
 
   networking.firewall.enable = false;
 
