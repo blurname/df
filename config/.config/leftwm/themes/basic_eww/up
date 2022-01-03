@@ -27,7 +27,7 @@ leftwm-command "LoadTheme $SCRIPTPATH/theme.toml"
 
 # Set background
 if [ -x "$(command -v feh)" ]; then
-	feh --bg-fill ~/wallpapers/moon1.jpg
+	feh --bg-fill ~/wallpapers/wall.jpg
 fi
 xset r rate 200 30
 xmodmap ~/.Xmodmap

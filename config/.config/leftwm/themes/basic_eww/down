@@ -11,10 +11,10 @@ echo "UnloadTheme" > $XDG_RUNTIME_DIR/leftwm/commands.pipe
 
 #pkill compton
 pkill picom
-pkill trayer
+#pkill trayer
 #pkill fcitx5
 #pkill polybar
 #pkill conky
-if [ -x "$(command -v eww)" ]; then
-  eww kill
-fi
+#if [ -x "$(command -v eww)" ]; then
+  #eww kill
+#fi
