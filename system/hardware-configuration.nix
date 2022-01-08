@@ -6,22 +6,22 @@
 {
   imports = [ ];
 
-  boot.initrd.availableKernelModules = [ "ata_piix" "ohci_pci" "ahci" "sd_mod" "sr_mod" ];
+
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ ];
-  boot.extraModulePackages = [ ];
+  boot.kernelModules = [ "kvm-intel" ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/5a5ccfdd-97eb-49d7-8348-43541072f049";
-      fsType = "ext4";
-    };
+    { device = "/dev/disk/by-uuid/f84947d7-1afe-40ba-bae9-96c101d29d8a";
+	  fsType = "ext4";
+  };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/C1B7-3DCF";
-      fsType = "vfat";
-    };
+  { device = "/dev/disk/by-uuid/469E-24BF";
+	  fsType = "vfat";
+  };
 
   swapDevices = [{device="/var/swapfile";size=4096;} ];
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
-  virtualisation.virtualbox.guest.enable = true;
 }

@@ -13,7 +13,10 @@ fn c {||clear }
 fn s {||e:neofetch}
 
 fn lg {||e:lazygit}
-fn n {||cd ~/Nyx}
+
+fn cdn {||cd ~/Nyx}
+fn cdp {||cd ../}
+
 fn nas {||bash ~/Nyx/apply-system.sh }
 fn nes {||nvim ~/Nyx/system/configuration.nix }
 
@@ -23,9 +26,9 @@ fn mksh {|a|
 }
 
 fn e {|a|e:nvim $a}
+fn erc {||nvim ~/.elvish/rc.elv}
 
 eval (starship init elvish) 2> /dev/null
-eval (zoxide init elvish | slurp) 2> /dev/null
 #epm:install github.com/zzamboni/elvish-completions
 #epm:install github.com/zzamboni/elvish-modules
 #use github.com/zzamboni/elvish-completions/cd

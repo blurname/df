@@ -115,7 +115,7 @@ font:
     #family: jetbrainsmono nerd font mono
     #family: firacode nerd font mono
     #family: notoserif nerd font
-    family: Iosevka
+    #family: iosevka
       #family: caskaydiacove nerd font mono
       #family: FiraCode Nerd Font Mono
     # family: Inconsolata
@@ -181,7 +181,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 11.0
+  size: 8.0
 
   # Offse is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
