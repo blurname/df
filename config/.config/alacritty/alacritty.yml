@@ -115,10 +115,10 @@ font:
     #family: jetbrainsmono nerd font mono
     #family: firacode nerd font mono
     #family: notoserif nerd font
-    #family: iosevka
+    family: iosevka
       #family: caskaydiacove nerd font mono
       #family: FiraCode Nerd Font Mono
-    # family: Inconsolata
+     #family: Inconsolata
 
     # The `style` can be specified to pick a specific face.
     style: Regular

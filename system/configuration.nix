@@ -146,7 +146,6 @@
 			bottom
 			htop
 			gcc
-			iosevka
 			rofi
 			qv2ray
 			v2ray
@@ -157,7 +156,6 @@
 			xclip
 			tdesktop
 			google-chrome
-#nerdfonts
 			];
 
 	programs.neovim = {
@@ -170,6 +168,10 @@
 			};
 		};
 	};
+	fonts.fonts = with pkgs;[
+	iosevka
+	source-han-serif
+	];
 
 	services.picom.inactiveOpacity = 0.7;
 	services.picom.opacityRules = [

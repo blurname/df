@@ -20,6 +20,9 @@ fn cdp {||cd ../}
 fn nas {||bash ~/Nyx/apply-system.sh }
 fn nes {||nvim ~/Nyx/system/configuration.nix }
 
+fn GCM {|a|git commit -m $a}
+fn GCL {|a|git clone 'https://github.com.cnpmjs.org/'$a}
+
 fn mksh {|a|
 	e:touch $a
 	e:chmod 777 $a
