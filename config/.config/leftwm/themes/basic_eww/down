@@ -16,5 +16,5 @@ pkill trayer
 #pkill polybar
 #pkill conky
 #if [ -x "$(command -v eww)" ]; then
-  #eww kill
+#eww kill
 #fi

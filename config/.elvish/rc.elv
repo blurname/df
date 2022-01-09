@@ -22,6 +22,8 @@ fn nes {||nvim ~/Nyx/system/configuration.nix }
 
 fn GCM {|a|git commit -m $a}
 fn GCL {|a|git clone 'https://github.com.cnpmjs.org/'$a}
+fn GPS {|| git push}
+fn GPL {|| git pull}
 
 fn mksh {|a|
 	e:touch $a

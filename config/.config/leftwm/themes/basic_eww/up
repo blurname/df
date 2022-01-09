@@ -42,5 +42,6 @@ xmodmap ~/.config/.Xmodmap
     #eww open bar$index
   #let index=index+1
 #done
+#eww open bar0
 
 trayer --edge top --align right --width 200 --height 23 --alpha 30

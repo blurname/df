@@ -9,7 +9,7 @@
 	imports =
 		[
 		/etc/nixos/hardware-configuration.nix
-			#<home-manager/nixos>
+#<home-manager/nixos>
 		];
 	nix = {
 		package = pkgs.nixFlakes;
@@ -68,9 +68,26 @@
 # Enable the X11 windowing system.
 #services.xserver.enable = true;
 #services.xserver.
+	hardware.nvidia.prime ={
+		sync.enable = true;
+		nvidiaBusId = "PCI:1:0:0";
+		intelBusId = "PCI:0:2:0";
+	};
 	services.xserver = {
+		videoDrivers = [ "nvidia" ];
 		enable = true;
 		windowManager.leftwm.enable = true;
+#displayManager = {
+#lightdm = {
+#enable = true;
+#greeters={
+#tiny.label = {
+#user = "bl";
+#pass = "a";
+#};
+#};
+#};
+#};
 	};
 
 # Configure keymap in X11
@@ -79,14 +96,14 @@
 # Enable sound.
 	sound.enable = true;
 #hardware.pulseaudio.enable = true;
-	#home-manager.users.bl ={pkgs,...}:{
+#home-manager.users.bl ={pkgs,...}:{
 #  home.pacages = with pkgs;[
 #    atool httpie
 #  ];
 #  programs.bash.enable = true;
-		#programs.git.userName ="blurname";
-		#programs.git.userEmail ="naughtybao@outlook.com";
-	#};
+#programs.git.userName ="blurname";
+#programs.git.userEmail ="naughtybao@outlook.com";
+#};
 
 
 
@@ -156,6 +173,10 @@
 			xclip
 			tdesktop
 			google-chrome
+			brightnessctl
+			eww
+			neofetch
+			qbittorrent
 			];
 
 	programs.neovim = {
@@ -169,14 +190,15 @@
 		};
 	};
 	fonts.fonts = with pkgs;[
-	iosevka
-	source-han-serif
+		source-han-serif
+	]++[
+	(nerdfonts.override { fonts = [ "Iosevka" ]; })
 	];
 
-	services.picom.inactiveOpacity = 0.7;
-	services.picom.opacityRules = [
-		"60:class_g = 'Alacritty'"
-	];
+#services.picom.inactiveOpacity = 0.7;
+#services.picom.opacityRules = [
+#"60:class_g = 'Alacritty'"
+#];
 	nix.binaryCaches = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" "https://mirrors.ustc.edu.cn/nix-channels/store" "https://mirror.sjtu.edu.cn/nix-channels/store" ];
 
 
