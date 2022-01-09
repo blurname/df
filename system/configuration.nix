@@ -50,9 +50,12 @@
 # replicates the default behaviour.
 #networking.useDHCP = true;
 #networking.interfaces.enp0s3.useDHCP = true;
-	services.openssh = {
-		enable = true;
-		passwordAuthentication = false;
+	services = {
+#mysql={enable = true;package = pkgs.mariadb;};
+		openssh = {
+			enable = true;
+			passwordAuthentication = false;
+		};
 	};
 
 # Configure network proxy if necessary
@@ -76,18 +79,20 @@
 	services.xserver = {
 		videoDrivers = [ "nvidia" ];
 		enable = true;
+		displayManager = {
+			setupCommands = "qv2ray &\n ";
+			lightdm = {
+				enable = true;
+				background =/home/bl/wallpapers/vlcsnap-2021-04-11-00h08m46s220.png;
+				#greeters={
+					#tiny.label = {
+						#user = "bl";
+						#pass = "a";
+					#};
+				#};
+			};
+		};
 		windowManager.leftwm.enable = true;
-#displayManager = {
-#lightdm = {
-#enable = true;
-#greeters={
-#tiny.label = {
-#user = "bl";
-#pass = "a";
-#};
-#};
-#};
-#};
 	};
 
 # Configure keymap in X11
@@ -112,14 +117,14 @@
 	users={
 		users.bl = {
 			isNormalUser = true;
-			extraGroups = [ "wheel" "bao" ]; # Enable ‘sudo’ for the user.
+			extraGroups = [ "wheel" "bao" "docker" "audio" ]; # Enable ‘sudo’ for the user.
 				password = "a";
 			openssh.authorizedKeys.keys=[
 				"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDlstol98Hft8h6d6LKTjgaczPvA3uwIWp3cGHMaHij42ivAJQhLurN0yUO34D3Tnw65I9IibKeOJ9UbH301yZOlX/Q5KqzbyyjuBotsyyzH4FQicGVnHNLr3pWq3d9Inhr8Hk862bBb96ts9zranlIcXOFPyCnAexlZpV7QAGG19K9BdQLUIFifADlNGUc9Fq9knR2TZ+l7VLbkVT2eASGMGpsqoxBV3QurKdNGj/gGLNM5jAHp77rLhKPnimBmYJoyzovOCLa7EGBA3AK4eiKbgH0PP5cIj0ccNvbbFrI/miVjJ4yckHWBeZPQoBh83zbuoLGdrsigqkXmANiHeFeKBUqLHGgzB/L60S0UNJ1pfoLSFwWYsEcKfdNPnr+F1glPzUM4eBb8O1TlgTFioNSYoibI5FHoE1BgWaXYyJiD8qhG7zrMtDFM1gBan9dANEsfqahWp2paaD/aJQdJz8WZKOEhKC1u50jOg4yRoJUhW2eDBBUKT9mvu0SA7e49ws= bl@DESKTOP-TDF969O"
 			];
 		};
 		defaultUserShell = pkgs.elvish;
-		extraUsers.bl.extraGroups = ["audio"];
+#extraUsers.bl.extraGroups = ["audio"];
 	};
 	security.sudo.extraRules = [
 	{
@@ -177,6 +182,8 @@
 			eww
 			neofetch
 			qbittorrent
+			vlc
+			libsForQt5.kdeconnect-kde
 			];
 
 	programs.neovim = {
@@ -194,7 +201,7 @@
 	]++[
 	(nerdfonts.override { fonts = [ "Iosevka" ]; })
 	];
-
+	virtualisation.docker.enable = true;
 #services.picom.inactiveOpacity = 0.7;
 #services.picom.opacityRules = [
 #"60:class_g = 'Alacritty'"
