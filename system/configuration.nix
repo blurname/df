@@ -135,6 +135,11 @@
 		}
 		];
 	}];
+  nixpkgs.overlays = [
+    (import (builtins.fetchTarball {
+      url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
+    }))
+  ];
 	nixpkgs.config.allowUnfree = true;
 	environment.systemPackages = with pkgs; [
 		vim
@@ -184,6 +189,7 @@
 			qbittorrent
 			vlc
 			libsForQt5.kdeconnect-kde
+			neovim-nightly
 			];
 
 	programs.neovim = {
