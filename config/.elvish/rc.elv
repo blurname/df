@@ -32,6 +32,7 @@ fn mksh {|a|
 
 fn e {|a|e:nvim $a}
 fn erc {||nvim ~/.elvish/rc.elv}
+fn exm {||nvim ~/.xmonad/xmonad.hs}
 
 eval (starship init elvish) 2> /dev/null
 #epm:install github.com/zzamboni/elvish-completions

@@ -9,6 +9,7 @@
 	imports =
 		[
 		/etc/nixos/hardware-configuration.nix
+		./programs.nix
 #<home-manager/nixos>
 		];
 	nix = {
@@ -76,31 +77,6 @@
 		nvidiaBusId = "PCI:1:0:0";
 		intelBusId = "PCI:0:2:0";
 	};
-	services.xserver = {
-		videoDrivers = [ "nvidia" ];
-		enable = true;
-		#displayManager = {
-			#setupCommands = "qv2ray &\n ";
-			#lightdm = {
-				#enable = true;
-				#background =/home/bl/wallpapers/vlcsnap-2021-04-11-00h08m46s220.png;
-				##greeters={
-					##tiny.label = {
-						##user = "bl";
-						##pass = "a";
-					##};
-				##};
-			#};
-		#};
-		#windowManager.leftwm.enable = true;
-		windowManager.xmonad={
-			enable = true;
-			extraPackages = haskellPackages: [
-				  haskellPackages.xmonad-contrib
-					haskellPackages.monad-logger
-			];
-		};
-	};
 
 # Configure keymap in X11
 #services.xserver.layout = "us";
@@ -142,6 +118,7 @@
 		}
 		];
 	}];
+
   nixpkgs.overlays = [
     (import (builtins.fetchTarball {
       url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
@@ -198,24 +175,9 @@
 			libsForQt5.kdeconnect-kde
 			neovim-nightly
 			haskell-language-server
+			xmobar
 			];
 
-	programs.neovim = {
-		enable = true;
-		defaultEditor = true;
-		configure = {
-			customRC = builtins.readFile /home/bl/.config/nvim/init.vim;
-			packages.myVimPackage = with pkgs.vimPlugins;{
-				start = [ packer-nvim ];
-			};
-		};
-	};
-	programs.npm = {
-		enable = true;
-		npmrc =''
-			registry=https://registry.npmmirror.com/
-			'';
-	};
 	
 	fonts.fonts = with pkgs;[
 		source-han-serif
