@@ -29,8 +29,8 @@
 	networking = {
 		hostName = "nyx";
 		proxy ={
-			allProxy="http://127.0.0.1:8889";
-#httpsProxy="http://127.0.0.1:8889";
+			allProxy="http://127.0.0.1:8889"; 
+			#httpsProxy="http://127.0.0.1:8889";
 		};
 #    interfaces={
 #    enp0s3.ip4=[{
@@ -79,20 +79,27 @@
 	services.xserver = {
 		videoDrivers = [ "nvidia" ];
 		enable = true;
-		displayManager = {
-			setupCommands = "qv2ray &\n ";
-			lightdm = {
-				enable = true;
-				background =/home/bl/wallpapers/vlcsnap-2021-04-11-00h08m46s220.png;
-				#greeters={
-					#tiny.label = {
-						#user = "bl";
-						#pass = "a";
-					#};
-				#};
-			};
+		#displayManager = {
+			#setupCommands = "qv2ray &\n ";
+			#lightdm = {
+				#enable = true;
+				#background =/home/bl/wallpapers/vlcsnap-2021-04-11-00h08m46s220.png;
+				##greeters={
+					##tiny.label = {
+						##user = "bl";
+						##pass = "a";
+					##};
+				##};
+			#};
+		#};
+		#windowManager.leftwm.enable = true;
+		windowManager.xmonad={
+			enable = true;
+			extraPackages = haskellPackages: [
+				  haskellPackages.xmonad-contrib
+					haskellPackages.monad-logger
+			];
 		};
-		windowManager.leftwm.enable = true;
 	};
 
 # Configure keymap in X11
@@ -190,6 +197,7 @@
 			vlc
 			libsForQt5.kdeconnect-kde
 			neovim-nightly
+			haskell-language-server
 			];
 
 	programs.neovim = {
@@ -202,6 +210,13 @@
 			};
 		};
 	};
+	programs.npm = {
+		enable = true;
+		npmrc =''
+			registry=https://registry.npmmirror.com/
+			'';
+	};
+	
 	fonts.fonts = with pkgs;[
 		source-han-serif
 	]++[

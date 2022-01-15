@@ -44,4 +44,4 @@ xmodmap ~/.config/.Xmodmap
 #done
 #eww open bar0
 
-trayer --edge top --align right --width 200 --height 23 --alpha 30
+#trayer --edge top --align right --width 200 --height 23 --alpha 30
