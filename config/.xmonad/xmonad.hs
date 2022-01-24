@@ -10,7 +10,9 @@
 import XMonad
 import Data.Monoid
 import System.Exit
+import XMonad.Hooks.ManageDocks
 import XMonad.Util.SpawnOnce
+import XMonad.Util.Run
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -54,6 +56,7 @@ myWorkspaces    = ["nvim","web","3","4","5","6","7","8","9"]
 --
 myNormalBorderColor  = "#37474F"
 myFocusedBorderColor = "#c34a8c"
+
 
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
@@ -182,7 +185,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = tiled ||| Mirror tiled ||| Full
+myLayout = avoidStruts (tiled ||| Mirror tiled ||| Full)
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
@@ -245,10 +248,12 @@ myLogHook = return ()
 --
 -- By default, do nothing.
 myStartupHook = do 
-						spawnOnce "feh --bg-fill ~/wallpapers/wall.jpg"
-						spawnOnce "xset r rate 200 30"
-						spawnOnce "xmodmap ~/.config/.Xmodmap"
-						spawnOnce "picom &"
+      spawnOnce "feh --bg-fill ~/wallpapers/wall.jpg"
+      spawn "xset r rate 200 30"
+      spawn "xmodmap ~/.config/.Xmodmap"
+      spawn "pkill trayer"
+      spawn ("sleep 2 && trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0  --height 16")
+      spawnOnce "picom &"
 
 
 ------------------------------------------------------------------------
@@ -256,7 +261,9 @@ myStartupHook = do
 
 -- Run xmonad with the settings you specify. No need to modify this.
 --
-main = xmonad defaults
+main = do
+  xmproc <-spawnPipe "xmobar -x 0 /home/bl/.xmonad/xmobarrc"
+  xmonad $ docks defaults
 
 -- A structure containing your configuration settings, overriding
 -- fields in the default config. Any you don't override, will

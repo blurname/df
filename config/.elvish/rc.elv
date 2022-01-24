@@ -2,6 +2,15 @@
 #use str
 #use epm
 
+set paths = [
+      ~/.opam/default/bin
+      ~/on/rakudo-star-*[nomatch-ok]/install/{bin,share/perl6/site/bin}
+      ~/.racket/*[nomatch-ok]/bin
+      ~/.npm-global/bin
+      ~/.cargo/bin
+      ~/.local/bin
+      $@paths
+    ]
 
 set E:RUSTUP_UPDATE_ROOT = "https://mirrors.ustc.edu.cn/rust-static/rustup"
 set E:RUSTUP_DIST_SERVER = "https://mirrors.tuna.tsinghua.edu.cn/rustup"
@@ -30,9 +39,10 @@ fn mksh {|a|
 	e:chmod 777 $a
 }
 
-fn e {|a|e:nvim $a}
+fn v {|a|e:nvim $a}
 fn erc {||nvim ~/.elvish/rc.elv}
 fn exm {||nvim ~/.xmonad/xmonad.hs}
+fn enrc {||nvim ~/.config/nvim/entry.vim}
 
 eval (starship init elvish) 2> /dev/null
 #epm:install github.com/zzamboni/elvish-completions

@@ -1,0 +1,30 @@
+Config { font = "xft:Iosevka:pixelsize=10"
+       , additionalFonts = []
+       , borderColor = "black"
+       , border = TopB
+       , bgColor = "#2E3440"
+       , fgColor = "#d8dee9"
+       , alpha = 255
+       , position = TopSize L 95 18
+       , textOffset = -1
+       , iconOffset = -1
+       , lowerOnStart = True
+       , pickBroadest = False
+       , persistent = False
+       , hideOnStart = False
+       , iconRoot = "."
+       , allDesktops = True
+       , overrideRedirect = True
+       , commands = [ 
+                     Run Cpu ["-L","0","-H","50",
+                               "--normal","#a3be8c","--high","red"] 10
+                    , Run Memory ["-t","Mem: <usedratio>%"] 10
+                    , Run Swap [] 10
+                    , Run Com "uname" ["-s","-r"] "" 36000
+                    , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%cpu% | %memory% }\
+                    \{ <fc=#d08770>%date% </fc>"
+       }

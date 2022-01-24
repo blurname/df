@@ -25,6 +25,13 @@
 					haskellPackages.monad-logger
 			];
 		};
+    libinput={
+    enable = true;
+      touchpad={
+        middleEmulation = true;
+        tapping =true;
+      };
+    };
 	};
 	programs.neovim = {
 		enable = true;
@@ -36,12 +43,12 @@
 			};
 		};
 	};
-	programs.npm = {
-		enable = true;
-		npmrc =''
-			registry=https://registry.npmmirror.com/
-			'';
-	};
+	#programs.npm = {
+		#enable = true;
+		#npmrc =''
+			#registry=https://registry.npmmirror.com/
+			#'';
+	#};
 
 	}
 

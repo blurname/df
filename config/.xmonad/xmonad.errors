@@ -1,7 +1,0 @@
-
-xmonad.hs:248:1: warning: [-Wtabs]
-    Tab character found here, and in 23 further locations.
-    Please use spaces instead.
-    |
-248 |                                                 spawnOnce "feh --bg-fill ~/wallpapers/wall.jpg"
-    | ^^^^^^^^
