@@ -72,11 +72,11 @@
   # Enable the X11 windowing system.
   #services.xserver.enable = true;
   #services.xserver.
-  hardware.nvidia.prime = {
-    sync.enable = true;
-    nvidiaBusId = "PCI:1:0:0";
-    intelBusId = "PCI:0:2:0";
-  };
+  #hardware.nvidia.prime = {
+    #sync.enable = true;
+    #nvidiaBusId = "PCI:1:0:0";
+    #intelBusId = "PCI:0:2:0";
+  #};
 
   # Configure keymap in X11
   #services.xserver.layout = "us";
@@ -176,6 +176,8 @@
     rnix-lsp
     sumneko-lua-language-server
     rust-analyzer
+    zathura
+    vscode
   ];
 
 

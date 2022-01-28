@@ -2,7 +2,7 @@
 {
 
 	services.xserver = {
-		videoDrivers = [ "nvidia" ];
+		#videoDrivers = [ "nvidia" ];
 		enable = true;
 		#displayManager = {
 			#setupCommands = "qv2ray &\n ";
@@ -30,6 +30,7 @@
       touchpad={
         middleEmulation = true;
         tapping =true;
+        naturalScrolling = false;
       };
     };
 	};
@@ -43,12 +44,13 @@
 			};
 		};
 	};
-	#programs.npm = {
-		#enable = true;
-		#npmrc =''
-			#registry=https://registry.npmmirror.com/
-			#'';
-	#};
+  programs.npm = {
+    enable = true;
+    npmrc =''
+      prefix = /home/bl/.npm-global
+      registry=https://registry.npmmirror.com/
+      '';
+  };
 
 	}
 

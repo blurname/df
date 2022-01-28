@@ -16,6 +16,9 @@ set E:RUSTUP_UPDATE_ROOT = "https://mirrors.ustc.edu.cn/rust-static/rustup"
 set E:RUSTUP_DIST_SERVER = "https://mirrors.tuna.tsinghua.edu.cn/rustup"
 set E:CARGO_HTTP_MULTIPLEXING = "false"
 set E:EDITOR = "nvim"
+#set E:HTTP_PROXY = "http://127.0.0.1:8889"
+#set E:HTTPS_PROXY = "https://127.0.0.1:8889"
+
 
 fn l {||e:exa -la}
 fn c {||clear }
@@ -23,23 +26,31 @@ fn s {||e:neofetch}
 
 fn lg {||e:lazygit}
 
+# dictionary jump
 fn cdn {||cd ~/Nyx}
 fn cdp {||cd ../}
 
+#dotfile
 fn nas {||bash ~/Nyx/apply-system.sh }
 fn nes {||nvim ~/Nyx/system/configuration.nix }
 
+#git
 fn GCM {|a|git commit -m $a}
 fn GCL {|a|git clone 'https://github.com.cnpmjs.org/'$a}
 fn GPS {|| git push}
 fn GPL {|| git pull}
+fn GRH {|| git reset --hard HEAD~}
+
+#docker
+fn DCLA {||docker ps -a}
+fn DCLS {||docker ps}
 
 fn mksh {|a|
 	e:touch $a
-	e:chmod 777 $a
+	e:chmod 764 $a
 }
 
-fn v {|a|e:nvim $a}
+fn e {|a|e:nvim $a}
 fn erc {||nvim ~/.elvish/rc.elv}
 fn exm {||nvim ~/.xmonad/xmonad.hs}
 fn enrc {||nvim ~/.config/nvim/entry.vim}
