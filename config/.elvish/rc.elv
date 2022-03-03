@@ -35,25 +35,40 @@ fn nas {||bash ~/Nyx/apply-system.sh }
 fn nes {||nvim ~/Nyx/system/configuration.nix }
 
 #git
+fn GAA {||git add .}
 fn GCM {|a|git commit -m $a}
-fn GCL {|a|git clone 'https://github.com.cnpmjs.org/'$a}
+fn GCL {|a|git clone 'https://github.com/'$a}
 fn GPS {|| git push}
+fn GPSF {|| git push --force}
 fn GPL {|| git pull}
-fn GRH {|| git reset --hard HEAD~}
+fn GRHH {|| git reset --hard HEAD~}
+fn GRHR {|remote| git reset --hard $remote }
+fn GRSH {|| git reset --soft HEAD~}
+
+fn GCOB {|a| git checkout -b $a}
+fn GCOT {|a| git checkout --track $a}
+fn GBD {|a| git branch --delete --force $a}
+fn GBDR {|remote| git branch --}
+
+fn GRI {|a| git rebase -i $a}
+fn GRA {|| git rebase --abort}
+fn GRC {|| git rebase --continue}
+fn GCPA {|| git cherry-pick --abort}
+fn GCPC {|| git cherry-pick --continue}
 
 #docker
 fn DCLA {||docker ps -a}
 fn DCLS {||docker ps}
 
 fn mksh {|a|
-	e:touch $a
-	e:chmod 764 $a
+	touch $a
+	chmod 764 $a
 }
 
-fn e {|a|e:nvim $a}
+fn e {|a|nvim $a}
 fn erc {||nvim ~/.elvish/rc.elv}
 fn exm {||nvim ~/.xmonad/xmonad.hs}
-fn enrc {||nvim ~/.config/nvim/entry.vim}
+fn nvimrc {||nvim ~/.config/nvim/entry.vim}
 
 eval (starship init elvish) 2> /dev/null
 #epm:install github.com/zzamboni/elvish-completions
