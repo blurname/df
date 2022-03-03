@@ -3,9 +3,6 @@
 #use epm
 
 set paths = [
-      ~/.opam/default/bin
-      ~/on/rakudo-star-*[nomatch-ok]/install/{bin,share/perl6/site/bin}
-      ~/.racket/*[nomatch-ok]/bin
       ~/.npm-global/bin
       ~/.cargo/bin
       ~/.local/bin
@@ -23,6 +20,10 @@ set E:EDITOR = "nvim"
 fn l {||e:exa -la}
 fn c {||clear }
 fn s {||e:neofetch}
+fn cb {||cd ../}
+fn cbb {||cd ../../ }
+fn cbbb {||cd ../../../ }
+fn cbbbb {||cd ../../../../ }
 
 fn lg {||e:lazygit}
 
