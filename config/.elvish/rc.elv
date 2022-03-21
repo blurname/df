@@ -6,6 +6,9 @@ set paths = [
       ~/.npm-global/bin
       ~/.cargo/bin
       ~/.local/bin
+      ~/.deno/bin
+      /bin
+      /usr/bin
       $@paths
     ]
 
@@ -37,7 +40,7 @@ fn nes {||nvim ~/Nyx/system/configuration.nix }
 
 #git
 fn GAA {||git add .}
-fn GCM {|a|git commit -m $a}
+fn GCM {|a|git commit -am $a}
 fn GCL {|a|git clone 'https://github.com/'$a}
 fn GPS {|| git push}
 fn GPSF {|| git push --force}
@@ -46,8 +49,12 @@ fn GRHH {|| git reset --hard HEAD~}
 fn GRHR {|remote| git reset --hard $remote }
 fn GRSH {|| git reset --soft HEAD~}
 
+fn GCO {|a| git checkout $a}
 fn GCOB {|a| git checkout -b $a}
+fn GCOR {|a| git checkout -b $a origin\/$a}
+
 fn GCOT {|a| git checkout --track $a}
+fn GBL {|| git branch}
 fn GBD {|a| git branch --delete --force $a}
 fn GBDR {|remote| git branch --}
 
@@ -69,7 +76,7 @@ fn mksh {|a|
 fn e {|a|nvim $a}
 fn erc {||nvim ~/.elvish/rc.elv}
 fn exm {||nvim ~/.xmonad/xmonad.hs}
-fn nvimrc {||nvim ~/.config/nvim/entry.vim}
+fn envimrc {||nvim ~/.config/nvim/entry.vim}
 
 eval (starship init elvish) 2> /dev/null
 #epm:install github.com/zzamboni/elvish-completions
