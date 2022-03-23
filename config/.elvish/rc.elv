@@ -15,71 +15,92 @@ set paths = [
 set E:RUSTUP_UPDATE_ROOT = "https://mirrors.ustc.edu.cn/rust-static/rustup"
 set E:RUSTUP_DIST_SERVER = "https://mirrors.tuna.tsinghua.edu.cn/rustup"
 set E:CARGO_HTTP_MULTIPLEXING = "false"
+set E:LESSCHARSET = "utf-8"
 set E:EDITOR = "nvim"
 #set E:HTTP_PROXY = "http://127.0.0.1:8889"
 #set E:HTTPS_PROXY = "https://127.0.0.1:8889"
 
 
-fn l {||e:exa -la}
-fn c {||clear }
-fn s {||e:neofetch}
-fn cb {||cd ../}
-fn cbb {||cd ../../ }
-fn cbbb {||cd ../../../ }
-fn cbbbb {||cd ../../../../ }
+fn l {|| e:exa -la}
+fn c {|| clear }
+fn s {|| e:neofetch}
+fn cb {|| cd ../}
+fn cbb {|| cd ../../ }
+fn cbbb {|| cd ../../../ }
+fn cbbbb {|| cd ../../../../ }
 
-fn lg {||e:lazygit}
+fn bd {|| bat ~/.elvish/rc.elv}
+
+fn lg {|| e:lazygit}
 
 # dictionary jump
-fn cdn {||cd ~/Nyx}
-fn cdp {||cd ../}
+fn cdn {|| cd ~/Nyx}
+fn cdp {|| cd ../}
 
-#dotfile
-fn nas {||bash ~/Nyx/apply-system.sh }
-fn nes {||nvim ~/Nyx/system/configuration.nix }
+# dotfile
+fn e {|@a| nvim $@a}
+fn nas {|| bash ~/Nyx/apply-system.sh }
+fn nes {|| nvim ~/Nyx/system/configuration.nix }
+fn erc {|| nvim ~/.elvish/rc.elv}
+fn exm {|| nvim ~/.xmonad/xmonad.hs}
+fn envimrc {|| nvim ~/.config/nvim/entry.vim}
 
-#git
-fn GAA {||git add .}
-fn GCM {|a|git commit -am $a}
-fn GCL {|a|git clone 'https://github.com/'$a}
-fn GPS {|| git push}
-fn GPSF {|| git push --force}
-fn GPL {|| git pull}
-fn GRHH {|| git reset --hard HEAD~}
-fn GRHR {|remote| git reset --hard $remote }
-fn GRSH {|| git reset --soft HEAD~}
+# git
+fn gaa {|| git add .}
+fn gcm {|a| git commit -am $a}
+fn gcl {|a| git clone 'https://github.com/'$a}
+fn gpush {|| git push}
+fn gpsf {|| git push --force}
+fn gpla {|| git pull}
+fn gpls {|remoteBranch| git pull origin/$remoteBranch}
+fn grhh {|| git reset --hard HEAD~}
+fn grhr {|remote| git reset --hard $remote }
+fn grsh {|| git reset --soft HEAD~}
 
-fn GCO {|a| git checkout $a}
-fn GCOB {|a| git checkout -b $a}
-fn GCOR {|a| git checkout -b $a origin\/$a}
+fn gl {|| git log}
+fn gd {|| git diff}
+fn gs {|| git status}
 
-fn GCOT {|a| git checkout --track $a}
-fn GBL {|| git branch}
-fn GBD {|a| git branch --delete --force $a}
-fn GBDR {|remote| git branch --}
+fn gf {|| git fetch}
+fn gco {|a| git checkout $a}
+fn gcob {|a| git checkout -b $a}
+fn gcor {|a| git checkout -b $a origin/$a}
+fn gcot {|a| git checkout --track $a}
+fn gbl {|| git branch}
+fn gbla {|| git branch -a}
+fn gbd {|a| git branch --delete --force $a}
+fn gbdr {|remote| git branch --}
 
-fn GRI {|a| git rebase -i $a}
-fn GRA {|| git rebase --abort}
-fn GRC {|| git rebase --continue}
-fn GCPA {|| git cherry-pick --abort}
-fn GCPC {|| git cherry-pick --continue}
+fn gri {|a| git rebase -i $a}
+fn gra {|| git rebase --abort}
+fn grc {|| git rebase --continue}
+fn gcpa {|| git cherry-pick --abort}
+fn gcpc {|| git cherry-pick --continue}
+fn gtore {|| git credential.helper store}
 
-#docker
-fn DCLA {||docker ps -a}
-fn DCLS {||docker ps}
+# docker
+fn dcla {||docker ps -a}
+fn dcls {||docker ps}
 
+# script
 fn mksh {|a|
-	touch $a
+	touch $a.sh
+	chmod 764 $a.sh
+  nvim $a
+}
+fn mkelv {|a|
+	touch $a.elv
 	chmod 764 $a
+  nvim $a.elv
 }
 
-fn e {|a|nvim $a}
-fn erc {||nvim ~/.elvish/rc.elv}
-fn exm {||nvim ~/.xmonad/xmonad.hs}
-fn envimrc {||nvim ~/.config/nvim/entry.vim}
+# bindings
+set edit:insert:binding[Alt-w] = $edit:insert:binding[Alt-f]
+set edit:insert:binding[Alt-h] = $edit:insert:binding[Home]
+set edit:insert:binding[Alt-l] = $edit:insert:binding[End]
 
 eval (starship init elvish) 2> /dev/null
 #epm:install github.com/zzamboni/elvish-completions
-#epm:install github.com/zzamboni/elvish-modules
-#use github.com/zzamboni/elvish-completions/cd
-#use github.com/zzamboni/elvish-completions/git
+# epm:install github.com/zzamboni/elvish-modules
+# use github.com/zzamboni/elvish-completions/cd
+# use github.com/zzamboni/elvish-completions/git
