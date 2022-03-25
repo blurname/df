@@ -46,7 +46,10 @@ fn exm {|| nvim ~/.xmonad/xmonad.hs}
 fn envimrc {|| nvim ~/.config/nvim/entry.vim}
 
 # git
-fn gaa {|| git add .}
+fn gwip {|| 
+  git add .
+  git commit -m "--wip-- [skip ci]" -n
+} 
 fn gcm {|a| git commit -am $a}
 fn gcl {|a| git clone 'https://github.com/'$a}
 fn gpush {|| git push}
