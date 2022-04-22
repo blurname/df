@@ -55,12 +55,13 @@ fn gcl {|a| git clone 'https://github.com/'$a}
 fn gpush {|| git push}
 fn gpsf {|| git push --force}
 fn gpla {|| git pull}
-fn gpls {|remoteBranch| git pull origin/$remoteBranch}
+fn gpls {|remoteBranch| git pull origin/$remoteBranch $remoteBranch}
 fn grhh {|| git reset --hard HEAD~}
 fn grhr {|remote| git reset --hard $remote }
 fn grsh {|| git reset --soft HEAD~}
 
-fn gl {|| git log}
+#fn gl {|| git log --pretty=format:"%Cred%h %Cgreen%an %Cblue%s"}
+fn gl {|| git log --oneline}
 fn gd {|| git diff}
 fn gs {|| git status}
 
@@ -72,11 +73,12 @@ fn gcot {|a| git checkout --track $a}
 fn gbl {|| git branch}
 fn gbla {|| git branch -a}
 fn gbd {|a| git branch --delete --force $a}
-fn gbdr {|remote| git branch --}
+#fn gbdr {|remote| git branch --}
 
 fn gri {|a| git rebase -i $a}
 fn gra {|| git rebase --abort}
 fn grc {|| git rebase --continue}
+fn gcpi {|a| git cherry-pick $a}
 fn gcpa {|| git cherry-pick --abort}
 fn gcpc {|| git cherry-pick --continue}
 fn gtore {|| git credential.helper store}
@@ -84,6 +86,10 @@ fn gtore {|| git credential.helper store}
 # docker
 fn dcla {||docker ps -a}
 fn dcls {||docker ps}
+
+#npm 
+fn ni {|| npm i}
+fn nkp {|a| npx kill-port $a}
 
 # script
 fn mksh {|a|
