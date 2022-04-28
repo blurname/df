@@ -52,8 +52,13 @@ fn gwip {||
 } 
 fn gcm {|a| git commit -am $a}
 fn gcl {|a| git clone 'https://github.com/'$a}
-fn gpush {|| git push}
+fn gpsd {|| git push}
 fn gpsf {|| git push --force}
+fn gpsn {||
+  var name = (git branch --show-current)
+  put $name
+  git push origin $name
+}
 fn gpla {|| git pull}
 fn gpls {|remoteBranch| git pull origin/$remoteBranch $remoteBranch}
 fn grhh {|| git reset --hard HEAD~}
@@ -82,6 +87,7 @@ fn gcpi {|a| git cherry-pick $a}
 fn gcpa {|| git cherry-pick --abort}
 fn gcpc {|| git cherry-pick --continue}
 fn gtore {|| git credential.helper store}
+
 
 # docker
 fn dcla {||docker ps -a}
