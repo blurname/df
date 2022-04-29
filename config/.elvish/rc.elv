@@ -65,8 +65,8 @@ fn grhh {|| git reset --hard HEAD~}
 fn grhr {|remote| git reset --hard $remote }
 fn grsh {|| git reset --soft HEAD~}
 
-#fn gl {|| git log --pretty=format:"%Cred%h %Cgreen%an %Cblue%s"}
-fn gl {|| git log --oneline}
+fn gl {|| git log --pretty=format:"%Cred%h %C(yellow)%ad %Cgreen[%an] > %Cblue%s %Cred%d" --date=short}
+#fn gl {|| git log --oneline}
 fn gd {|| git diff}
 fn gs {|| git status}
 
@@ -101,13 +101,15 @@ fn nkp {|a| npx kill-port $a}
 fn mksh {|a|
 	touch $a.sh
 	chmod 764 $a.sh
-  nvim $a
+  nvim $a.sh
 }
 fn mkelv {|a|
 	touch $a.elv
 	chmod 764 $a
   nvim $a.elv
 }
+
+fn mockupdate {|| bash ~/iupdate.sh}
 
 # bindings
 set edit:insert:binding[Alt-w] = $edit:insert:binding[Alt-f]
