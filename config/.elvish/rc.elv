@@ -1,7 +1,4 @@
-
-#use str
-#use epm
-
+#( •̀ ω •́ )✧
 set paths = [
       ~/.npm-global/bin
       ~/.cargo/bin
@@ -46,12 +43,22 @@ fn exm {|| nvim ~/.xmonad/xmonad.hs}
 fn envimrc {|| nvim ~/.config/nvim/entry.vim}
 
 # git
+# postfix:
+# d => directly,
+# s => specific,
+# a => all,
+# f => force,
+# i => interactive / index,
+# n => new
+# 
+
 fn gwip {|| 
   git add .
   git commit -m "--wip-- [skip ci]" -n
 } 
-fn gcm {|a| git commit -am $a}
-fn gcl {|a| git clone 'https://github.com/'$a}
+fn gcm {|commitMessage| git commit -am $commitMessage}
+fn gcl {|repoName| git clone 'https://github.com/'$repoName}
+
 fn gpsd {|| git push}
 fn gpsf {|| git push --force}
 fn gpsn {||
@@ -59,18 +66,27 @@ fn gpsn {||
   put $name
   git push origin $name
 }
+
 fn gpla {|| git pull}
 fn gpls {|remoteBranch| git pull origin/$remoteBranch $remoteBranch}
+
 fn grhh {|| git reset --hard HEAD~}
+fn grhc {|hashId| git reset --hard $hashId}
 fn grhr {|remote| git reset --hard $remote }
 fn grsh {|| git reset --soft HEAD~}
 
-fn gl {|| git log --pretty=format:"%Cred%h %C(yellow)%ad %Cgreen[%an] > %Cblue%s %Cred%d" --date=short}
-#fn gl {|| git log --oneline}
+fn gssd {|| git stash save}
+fn gssn {|stashName| git stash save $stashName}
+fn gsl {|| git stash list}
+fn gsad {|| git stash apply}
+fn gsai {|index| git stash apply $index}
+
+fn gl {|| git log --pretty=format:"%Cred%h %C(yellow)%ad %Cgreen[%an] %Cblue%s %Cred%d" --date=short}
 fn gd {|| git diff}
 fn gs {|| git status}
 
 fn gf {|| git fetch}
+fn gfs {|branch| git fetch origin $branch}
 fn gco {|a| git checkout $a}
 fn gcob {|a| git checkout -b $a}
 fn gcor {|a| git checkout -b $a origin/$a}
@@ -78,7 +94,6 @@ fn gcot {|a| git checkout --track $a}
 fn gbl {|| git branch}
 fn gbla {|| git branch -a}
 fn gbd {|a| git branch --delete --force $a}
-#fn gbdr {|remote| git branch --}
 
 fn gri {|a| git rebase -i $a}
 fn gra {|| git rebase --abort}
@@ -93,7 +108,7 @@ fn gtore {|| git credential.helper store}
 fn dcla {||docker ps -a}
 fn dcls {||docker ps}
 
-#npm 
+# npm 
 fn ni {|| npm i}
 fn nkp {|a| npx kill-port $a}
 
@@ -117,7 +132,3 @@ set edit:insert:binding[Alt-h] = $edit:insert:binding[Home]
 set edit:insert:binding[Alt-l] = $edit:insert:binding[End]
 
 eval (starship init elvish) 2> /dev/null
-#epm:install github.com/zzamboni/elvish-completions
-# epm:install github.com/zzamboni/elvish-modules
-# use github.com/zzamboni/elvish-completions/cd
-# use github.com/zzamboni/elvish-completions/git
