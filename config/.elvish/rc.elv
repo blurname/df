@@ -52,6 +52,11 @@ fn envimrc {|| nvim ~/.config/nvim/entry.vim}
 # n => new
 # 
 
+fn gitconfiginit {||
+  git config user.name "blurname"
+  git config user.email "naughtybao@outlook.com"
+}
+
 fn gwip {|| 
   git add .
   git commit -m "--wip-- [skip ci]" -n
@@ -64,7 +69,7 @@ fn gpsf {|| git push --force}
 fn gpsn {||
   var name = (git branch --show-current)
   put $name
-  git push origin $name
+  git push --set-upstream origin $name
 }
 
 fn gpla {|| git pull}
@@ -123,6 +128,10 @@ fn mkelv {|a|
 	chmod 764 $a
   nvim $a.elv
 }
+
+# deno
+fn drw {|path| deno run --watch $path }
+fn draa {|path| deno run --allow-all $path}
 
 fn mockupdate {|| bash ~/iupdate.sh}
 
