@@ -9,8 +9,8 @@ set paths = [
       $@paths
     ]
 
-set E:RUSTUP_UPDATE_ROOT = "https://mirrors.ustc.edu.cn/rust-static/rustup"
-set E:RUSTUP_DIST_SERVER = "https://mirrors.tuna.tsinghua.edu.cn/rustup"
+set E:RUSTUP_DIST_SERVER = "https://rsproxy.cn"
+set E:RUSTUP_UPDATE_ROOT = "https://rsproxy.cn/rustup"
 set E:CARGO_HTTP_MULTIPLEXING = "false"
 set E:LESSCHARSET = "utf-8"
 set E:EDITOR = "nvim"
@@ -55,6 +55,7 @@ fn envimrc {|| nvim ~/.config/nvim/entry.vim}
 fn gitconfiginit {||
   git config user.name "blurname"
   git config user.email "naughtybao@outlook.com"
+  git config credential.helper store
 }
 
 fn gwip {|| 
