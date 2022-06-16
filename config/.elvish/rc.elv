@@ -14,8 +14,8 @@ set E:RUSTUP_UPDATE_ROOT = "https://rsproxy.cn/rustup"
 set E:CARGO_HTTP_MULTIPLEXING = "false"
 set E:LESSCHARSET = "utf-8"
 set E:EDITOR = "nvim"
-#set E:HTTP_PROXY = "http://127.0.0.1:8889"
-#set E:HTTPS_PROXY = "https://127.0.0.1:8889"
+#set E:HTTP_PROXY = "http://127.0.0.1:10809"
+#set E:HTTPS_PROXY = "https://127.0.0.1:10809"
 
 
 fn l {|| e:exa -la}
@@ -41,6 +41,8 @@ fn nes {|| nvim ~/Nyx/system/configuration.nix }
 fn erc {|| nvim ~/.elvish/rc.elv}
 fn exm {|| nvim ~/.xmonad/xmonad.hs}
 fn envimrc {|| nvim ~/.config/nvim/entry.vim}
+
+fn log {|| put 'asdf'}
 
 # git
 # postfix:
@@ -70,7 +72,7 @@ fn gpsf {|| git push --force}
 fn gpsn {||
   var name = (git branch --show-current)
   put $name
-  git push --set-upstream origin $name
+  git push --set-upstream origin $name --force
 }
 
 fn gpla {|| git pull}
@@ -78,7 +80,11 @@ fn gpls {|remoteBranch| git pull origin/$remoteBranch $remoteBranch}
 
 fn grhh {|| git reset --hard HEAD~}
 fn grhc {|hashId| git reset --hard $hashId}
-fn grhr {|remote| git reset --hard $remote }
+fn grhr {||
+  var name = (git branch --show-current)
+  put $name
+  git reset --hard origin/$name 
+}
 fn grsh {|| git reset --soft HEAD~}
 
 fn gssd {|| git stash save}
@@ -95,7 +101,7 @@ fn gf {|| git fetch}
 fn gfs {|branch| git fetch origin $branch}
 fn gco {|a| git checkout $a}
 fn gcob {|a| git checkout -b $a}
-fn gcor {|a| git checkout -b $a origin/$a}
+fn gcor {|branch| git checkout -b $branch origin/$branch}
 fn gcot {|a| git checkout --track $a}
 fn gbl {|| git branch}
 fn gbla {|| git branch -a}
@@ -103,7 +109,10 @@ fn gbd {|a| git branch --delete --force $a}
 
 fn gri {|a| git rebase -i $a}
 fn gra {|| git rebase --abort}
-fn grc {|| git rebase --continue}
+fn grc {||
+  git add .
+  git rebase --continue
+}
 fn gcpi {|a| git cherry-pick $a}
 fn gcpa {|| git cherry-pick --abort}
 fn gcpc {|| git cherry-pick --continue}
@@ -135,6 +144,14 @@ fn drw {|path| deno run --watch $path }
 fn draa {|path| deno run --allow-all $path}
 
 fn mockupdate {|| bash ~/iupdate.sh}
+
+fn mvnpmrc {||
+  if () {
+
+  } else {
+
+  }
+}
 
 # bindings
 set edit:insert:binding[Alt-w] = $edit:insert:binding[Alt-f]
