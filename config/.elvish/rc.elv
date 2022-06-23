@@ -14,8 +14,8 @@ set E:RUSTUP_UPDATE_ROOT = "https://rsproxy.cn/rustup"
 set E:CARGO_HTTP_MULTIPLEXING = "false"
 set E:LESSCHARSET = "utf-8"
 set E:EDITOR = "nvim"
-#set E:HTTP_PROXY = "http://127.0.0.1:10809"
-#set E:HTTPS_PROXY = "https://127.0.0.1:10809"
+# set E:HTTP_PROXY = "http://127.0.0.1:10809"
+# set E:HTTPS_PROXY = "https://127.0.0.1:10809"
 
 
 fn l {|| e:exa -la}
@@ -45,7 +45,7 @@ fn envimrc {|| nvim ~/.config/nvim/entry.vim}
 fn log {|| put 'asdf'}
 
 # git
-# postfix:
+# suffix:
 # d => directly,
 # s => specific,
 # a => all,
@@ -60,11 +60,14 @@ fn gitconfiginit {||
   git config credential.helper store
 }
 
-fn gwip {|| 
+fn gwip {|m| 
   git add .
-  git commit -m "--wip-- [skip ci]" -n
+  git commit -m "WIP: "+$m -n
 } 
-fn gcm {|commitMessage| git commit -am $commitMessage}
+fn gcm {|commitMessage|
+  git add .
+  git commit -am $commitMessage
+  }
 fn gcl {|repoName| git clone 'https://github.com/'$repoName}
 
 fn gpsd {|| git push}
@@ -123,9 +126,8 @@ fn gtore {|| git credential.helper store}
 fn dcla {||docker ps -a}
 fn dcls {||docker ps}
 
-# npm 
-fn ni {|| npm i}
-fn nkp {|a| npx kill-port $a}
+# global npm package command 
+fn nkp {|a| kill-port $a}
 
 # script
 fn mksh {|a|
@@ -144,14 +146,6 @@ fn drw {|path| deno run --watch $path }
 fn draa {|path| deno run --allow-all $path}
 
 fn mockupdate {|| bash ~/iupdate.sh}
-
-fn mvnpmrc {||
-  if () {
-
-  } else {
-
-  }
-}
 
 # bindings
 set edit:insert:binding[Alt-w] = $edit:insert:binding[Alt-f]
