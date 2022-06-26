@@ -28,7 +28,7 @@ fn cbbbb {|| cd ../../../../ }
 
 fn bd {|| bat ~/.elvish/rc.elv}
 
-fn lg {|| e:lazygit}
+fn gi {|| e:gitui}
 
 # dictionary jump
 fn cdn {|| cd ~/Nyx}
@@ -36,8 +36,8 @@ fn cdp {|| cd ../}
 
 # dotfile
 fn e {|@a| nvim $@a}
-fn nas {|| bash ~/Nyx/apply-system.sh }
-fn nes {|| nvim ~/Nyx/system/configuration.nix }
+fn nas {|| bash ~/Nyx/001-NixOS/apply-system.sh }
+fn nes {|| nvim ~/Nyx/001-NixOS/configuration.nix }
 fn erc {|| nvim ~/.elvish/rc.elv}
 fn exm {|| nvim ~/.xmonad/xmonad.hs}
 fn envimrc {|| nvim ~/.config/nvim/entry.vim}
@@ -128,6 +128,7 @@ fn dcls {||docker ps}
 
 # global npm package command 
 fn nkp {|a| kill-port $a}
+fn nts {|@file| node -r '@swc-node/register' $@file}
 
 # script
 fn mksh {|a|
@@ -141,9 +142,28 @@ fn mkelv {|a|
   nvim $a.elv
 }
 
+# du
+fn dush {|@path|
+  du -sh  $@path
+}
+
+# mv path
+fn rmovedry {|old new|
+  rsync --verbose --archive --dry-run $old $new
+}
+
+fn rmove {|old new|
+  rsync --verbose --archive $old $new
+}
+
 # deno
 fn drw {|path| deno run --watch $path }
 fn draa {|path| deno run --allow-all $path}
+
+# self ts script
+fn bl {|command| 
+  ts-node ~/prjs/bl-kit/src/node/scripts/main.ts $command
+}
 
 fn mockupdate {|| bash ~/iupdate.sh}
 
