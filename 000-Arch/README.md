@@ -1,0 +1,6 @@
+# arch-install
+
+## Usage
+
+```bash
+```
