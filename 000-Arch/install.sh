@@ -321,7 +321,7 @@ configure_install_custom() {
     packages+=' git paru pikaur rsync jq tree kdialog p7zip unarchiver unzip openssh frpc man-pages strace ripgrep exa bat '
 
     # KDE applications
-    packages+=' dolphin kate gwenview okular poppler-data ark spectacle kdeconnect kcalc'
+    packages+=' dolphin kate gwenview okular poppler-data spectacle kdeconnect kcalc'
 
     # Common applications
     packages+=' vim peek vlc gimp obs-studio keepassxc syncthing picom rofi xfce4-power-manager network-manager-applet logseq'
