@@ -62,7 +62,7 @@ fn gitconfiginit {||
 
 fn gwip {|m| 
   git add .
-  git commit -m "WIP: "+$m -n
+  git commit -m "WIP: "$m -n
 } 
 fn gcm {|commitMessage|
   git add .
@@ -86,6 +86,7 @@ fn grhc {|hashId| git reset --hard $hashId}
 fn grhr {||
   var name = (git branch --show-current)
   put $name
+  git fetch
   git reset --hard origin/$name 
 }
 fn grsh {|| git reset --soft HEAD~}
@@ -162,7 +163,7 @@ fn draa {|path| deno run --allow-all $path}
 
 # self ts script
 fn bl {|command| 
-  ts-node ~/prjs/bl-kit/src/node/scripts/main.ts $command
+  tsx ~/prjs/bl-kit/src/node/scripts/main.ts $command
 }
 
 fn mockupdate {|| bash ~/iupdate.sh}
