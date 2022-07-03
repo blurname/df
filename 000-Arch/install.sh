@@ -12,7 +12,7 @@
 ########## start ##########
 I_DRIVE_MAIN='/dev/nvme0n1'
 I_HOSTNAME='lsy'
-I_ROOT_PASS='toor'
+I_ROOT_PASS='dsg'
 I_USER_NAME='bl'
 I_USER_PASS='a'
 ########### end ###########
@@ -289,7 +289,7 @@ configure_install_kde() {
     color green '>>> Installing KDE'
 
     pacman -S --noconfirm xorg networkmanager
-    systemctl enable sddm
+    # systemctl enable sddm
     systemctl enable NetworkManager
 }
 
@@ -309,28 +309,28 @@ configure_install_custom() {
     local packages=''
 
     # Programming languages
-    packages+=' nodejs go'
-
+    packages+=' rustup nodejs go'
+ 
     # Network tools
-    packages+=' crda dnsmasq bind net-tools inetutils traceroute nmap openbsd-netcat axel wget clash privoxy proxychains-ng'
+    packages+=' crda dnsmasq bind net-tools inetutils traceroute nmap openbsd-netcat axel wget clash privoxy proxychains-ng v2ray v2raya'
 
     # Management and monitoring
     packages+=' htop iftop lsof neofetch stress arch-install-scripts'
 
     # Other CLI tools
-    packages+=' pikaur rsync jq tree kdialog p7zip unarchiver unzip openssh frpc man-pages strace'
+    packages+=' git paru pikaur rsync jq tree kdialog p7zip unarchiver unzip openssh frpc man-pages strace ripgrep exa bat '
 
     # KDE applications
-    packages+=' dolphin kate konsole gwenview okular poppler-data ark spectacle kdeconnect kcalc'
+    packages+=' dolphin kate gwenview okular poppler-data ark spectacle kdeconnect kcalc'
 
     # Common applications
-    packages+=' vim peek vlc gimp obs-studio keepassxc syncthing'
+    packages+=' vim peek vlc gimp obs-studio keepassxc syncthing picom rofi xfce4-power-manager network-manager-applet logseq'
 
     # Web browsers
     packages+=' chromium firefox'
 
     # Input method and fonts
-    packages+=' fcitx5-im fcitx5-chinese-addons fcitx5-pinyin-zhwiki ttf-ubuntu-font-family noto-fonts-cjk noto-fonts-emoji wqy-microhei'
+    # packages+=' fcitx5-im fcitx5-chinese-addons fcitx5-pinyin-zhwiki ttf-ubuntu-font-family noto-fonts-cjk noto-fonts-emoji wqy-microhei'
 
     pacman -S --noconfirm $packages
 }
@@ -344,8 +344,8 @@ configure_clean_packages() {
 configure_create_user() {
     color green '>>> Creating initial user'
 
-    pacman -S --noconfirm zsh sudo
-    useradd -m -k '' -G wheel -s /bin/zsh "$I_USER_NAME"
+    pacman -S --noconfirm elvish sudo
+    useradd -m -k '' -G wheel -s /bin/elvish "$I_USER_NAME"
     (
         echo "$I_USER_PASS"
         echo "$I_USER_PASS"
@@ -356,6 +356,7 @@ configure_set_sudoers() {
     color green '>>> Configuring sudo'
 
     sed -i 's/# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/g' /etc/sudoers
+    echo "${I_USER_NAME} ALL=(ALL) NOPASSWD:ALL" | sudo SUDO_EDITOR='tee -a' visudo
 }
 
 if [[ "$1" == 'setup' ]]; then

@@ -30,7 +30,7 @@ if [ -x "$(command -v feh)" ]; then
 	feh --bg-fill ~/wallpapers/wall.jpg
 fi
 xset r rate 200 30
-xmodmap ~/.config/.Xmodmap
+xmodmap /home/bl/.config/.Xmodmap
 
 #open eww 'bar' windows
 #this is a bit of an uggly hack, a more elegant way will hopefully be possible with a future `eww` version

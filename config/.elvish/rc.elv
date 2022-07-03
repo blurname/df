@@ -54,6 +54,11 @@ fn log {|| put 'asdf'}
 # n => new
 # 
 
+fn gitconfiginitglobal {||
+  git config --global user.name "blurname"
+  git config --global user.email "naughtybao@outlook.com"
+}
+
 fn gitconfiginit {||
   git config user.name "blurname"
   git config user.email "naughtybao@outlook.com"

@@ -1,5 +1,5 @@
 modkey = "Mod4"
-workspaces = []
+#workspaces = []
 tags = ["🍵", "🍟", "🍛", "🌿", "🍒", "🍫", "🍰", "🍧", "🍎"]
 
 layouts = [
@@ -141,15 +141,15 @@ command = "PreviousLayout"
 modifier = ["modkey", "Control"]
 key = "k"
 
-#[[keybind]]
-#command = "FocusWorkspaceNext"
-#modifier = ["modkey"]
-#key = "Right"
+[[keybind]]
+command = "FocusWorkspaceNext"
+modifier = ["modkey"]
+key = "Right"
 
-#[[keybind]]
-#command = "FocusWorkspacePrevious"
-#modifier = ["modkey"]
-#key = "Left"
+[[keybind]]
+command = "FocusWorkspacePrevious"
+modifier = ["modkey"]
+key = "Left"
 
 [[keybind]]
 command = "GotoTag"
