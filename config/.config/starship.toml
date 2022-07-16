@@ -1,7 +1,7 @@
 format = """
-$directory\
 $username\
 $hostname\
+$directory\
 $git_branch\
 $all"""
 [username]
@@ -10,8 +10,8 @@ style_user = "bold blue"
 format = "[$user]($style) "
 [hostname]
 style = "green"
-format = "[$ssh_symbol$hostname]($style)"
+format = "[$ssh_symbol$hostname]($style) "
 [git_branch]
-format = " [$symbol$branch(:$remote_branch)]($style) "
-symbol = "🌱 "
+format = "[$symbol$branch(:$remote_branch)]($style) "
+#symbol = "🌱 "
 truncation_symbol = ""

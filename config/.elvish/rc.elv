@@ -39,6 +39,7 @@ fn e {|@a| nvim $@a}
 fn nas {|| bash ~/Nyx/001-NixOS/apply-system.sh }
 fn nes {|| nvim ~/Nyx/001-NixOS/configuration.nix }
 fn erc {|| nvim ~/.elvish/rc.elv}
+fn ep {|| nvim ./package.json}
 fn exm {|| nvim ~/.xmonad/xmonad.hs}
 fn envimrc {|| nvim ~/.config/nvim/entry.vim}
 
@@ -109,6 +110,7 @@ fn gs {|| git status}
 fn gf {|| git fetch}
 fn gfs {|branch| git fetch origin $branch}
 fn gco {|a| git checkout $a}
+fn gcom {|| git checkout master}
 fn gcob {|a| git checkout -b $a}
 fn gcor {|branch| git checkout -b $branch origin/$branch}
 fn gcot {|a| git checkout --track $a}
@@ -167,8 +169,8 @@ fn drw {|path| deno run --watch $path }
 fn draa {|path| deno run --allow-all $path}
 
 # self ts script
-fn bl {|command| 
-  tsx ~/prjs/bl-kit/src/node/scripts/main.ts $command
+fn bl {|@command| 
+  tsx ~/prjs/bl-kit/src/node/scripts/main.ts $@command
 }
 
 fn mockupdate {|| bash ~/iupdate.sh}
