@@ -43,17 +43,16 @@ fn ep {|| nvim ./package.json}
 fn exm {|| nvim ~/.xmonad/xmonad.hs}
 fn envimrc {|| nvim ~/.config/nvim/entry.vim}
 
-fn log {|| put 'asdf'}
-
 # git
 # suffix:
-# d => directly,
-# s => specific,
-# a => all,
-# f => force,
-# i => interactive / index,
-# n => new
-# 
+# c -> continue
+# d -> directly
+# s -> specific
+# r -> remote
+# a -> all/abort
+# f -> force
+# i -> interactive/index
+# n -> new
 
 fn gitconfiginitglobal {||
   git config --global user.name "blurname"
@@ -68,12 +67,14 @@ fn gitconfiginit {||
 
 fn gwip {|m| 
   git add .
-  git commit -m "WIP: "$m -n
+  git commit -am "WIP: "$m -n
 } 
+
 fn gcm {|commitMessage|
   git add .
   git commit -am $commitMessage
-  }
+}
+
 fn gcl {|repoName| git clone 'https://github.com/'$repoName}
 
 fn gpsd {|| git push}
@@ -112,7 +113,15 @@ fn gfs {|branch| git fetch origin $branch}
 fn gco {|a| git checkout $a}
 fn gcom {|| git checkout master}
 fn gcob {|a| git checkout -b $a}
-fn gcor {|branch| git checkout -b $branch origin/$branch}
+fn gcobr {|branch| git checkout -b $branch origin/$branch}
+fn gcobf {|a|
+  gbd $a
+  gcob $a
+}
+fn gcor {|b| 
+  gco $b
+  grhr
+}
 fn gcot {|a| git checkout --track $a}
 fn gbl {|| git branch}
 fn gbla {|| git branch -a}
@@ -127,7 +136,6 @@ fn grc {||
 fn gcpi {|a| git cherry-pick $a}
 fn gcpa {|| git cherry-pick --abort}
 fn gcpc {|| git cherry-pick --continue}
-fn gtore {|| git credential.helper store}
 
 
 # docker
@@ -155,13 +163,22 @@ fn dush {|@path|
   du -sh  $@path
 }
 
-# mv path
-fn rmovedry {|old new|
+# cp path
+fn rcpdry {|old new|
   rsync --verbose --archive --dry-run $old $new
 }
 
-fn rmove {|old new|
+fn rcp {|old new|
   rsync --verbose --archive $old $new
+}
+
+# mv path
+fn rmovedry {|old new|
+  rsync --verbose --archive --delete-after --dry-run $old $new
+}
+
+fn rmove {|old new|
+  rsync --verbose --archive --delete-after $old $new
 }
 
 # deno
