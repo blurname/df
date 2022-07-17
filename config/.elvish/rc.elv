@@ -104,7 +104,7 @@ fn gsl {|| git stash list}
 fn gsad {|| git stash apply}
 fn gsai {|index| git stash apply $index}
 
-fn gl {|| git log --pretty=format:"%Cred%h %C(yellow)%ad %Cgreen[%an] %Cblue%s %Cred%d" --date=short}
+fn gl {|@b| git log --pretty=format:"%Cred%h %C(yellow)%ad %Cgreen[%an] %Cblue%s %Cred%d" --date=short $@b}
 fn gd {|| git diff}
 fn gs {|| git status}
 
@@ -198,3 +198,4 @@ set edit:insert:binding[Alt-h] = $edit:insert:binding[Home]
 set edit:insert:binding[Alt-l] = $edit:insert:binding[End]
 
 eval (starship init elvish) 2> /dev/null
+eval (carapace _carapace|slurp)

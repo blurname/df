@@ -1,0 +1,6 @@
+name: bl
+commands:
+  - name: switchNpmrc
+  - name: duCurrentFolder
+  - name: calcTsPercentInProject
+  - name: calcWorkingTime
