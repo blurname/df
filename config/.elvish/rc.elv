@@ -114,6 +114,7 @@ fn gco {|a| git checkout $a}
 fn gcom {|| git checkout master}
 fn gcob {|a| git checkout -b $a}
 fn gcobr {|branch| git checkout -b $branch origin/$branch}
+fn gbd {|a| git branch --delete --force $a}
 fn gcobf {|a|
   gbd $a
   gcob $a
@@ -125,7 +126,6 @@ fn gcor {|b|
 fn gcot {|a| git checkout --track $a}
 fn gbl {|| git branch}
 fn gbla {|| git branch -a}
-fn gbd {|a| git branch --delete --force $a}
 
 fn gri {|a| git rebase -i $a}
 fn gra {|| git rebase --abort}
