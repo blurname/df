@@ -74,6 +74,9 @@ fn gcm {|commitMessage|
   git add .
   git commit -am $commitMessage
 }
+fn gcamend {||
+  git commit --amend
+}
 
 fn gcl {|repoName| git clone 'https://github.com/'$repoName}
 
@@ -110,6 +113,7 @@ fn gs {|| git status}
 
 fn gf {|| git fetch}
 fn gfs {|branch| git fetch origin $branch}
+fn gfp {|| git fetch -- prune}
 fn gco {|a| git checkout $a}
 fn gcom {|| git checkout master}
 fn gcob {|a| git checkout -b $a}
@@ -124,7 +128,7 @@ fn gcor {|b|
   grhr
 }
 fn gcot {|a| git checkout --track $a}
-fn gbl {|| git branch}
+fn gbl {|| git branch --sort=-committerdate }
 fn gbla {|| git branch -a}
 
 fn gri {|a| git rebase -i $a}
