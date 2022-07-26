@@ -14,6 +14,7 @@ set E:RUSTUP_UPDATE_ROOT = "https://rsproxy.cn/rustup"
 set E:CARGO_HTTP_MULTIPLEXING = "false"
 set E:LESSCHARSET = "utf-8"
 set E:EDITOR = "nvim"
+set E:BEMENU_BACKEND = "wayland"
 # set E:HTTP_PROXY = "http://127.0.0.1:10809"
 # set E:HTTPS_PROXY = "https://127.0.0.1:10809"
 

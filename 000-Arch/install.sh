@@ -60,11 +60,13 @@ configure() {
     configure_set_bootloader
     configure_install_kde
     configure_set_archlinuxcn
-    configure_install_custom
     configure_create_user
     # configure_install_dotfiles
     configure_set_sudoers
-    configure_clean_packages
+}
+software(){
+    configure_install_custom
+    #configure_clean_packages
 }
 
 specify_archlinux_mirror() {
@@ -309,7 +311,7 @@ configure_install_custom() {
     local packages=''
 
     # Programming languages
-    packages+=' rustup nodejs go'
+    #packages+=' rustup nodejs go'
  
     # Network tools
     packages+=' crda dnsmasq bind net-tools inetutils traceroute nmap openbsd-netcat axel wget clash privoxy proxychains-ng v2ray v2raya'
@@ -321,10 +323,10 @@ configure_install_custom() {
     packages+=' git paru pikaur rsync jq tree kdialog p7zip unarchiver unzip openssh frpc man-pages strace ripgrep exa bat '
 
     # KDE applications
-    packages+=' dolphin kate gwenview okular poppler-data spectacle kdeconnect kcalc'
+    packages+=' dolphin kate gwenview spectacle kdeconnect kcalc'
 
     # Common applications
-    packages+=' vim peek vlc gimp obs-studio keepassxc syncthing picom rofi xfce4-power-manager network-manager-applet logseq'
+    packages+=' vim peek vlc gimp obs-studio keepassxc syncthing picom xfce4-power-manager network-manager-applet'
 
     # Web browsers
     packages+=' chromium firefox'
@@ -333,6 +335,26 @@ configure_install_custom() {
     # packages+=' fcitx5-im fcitx5-chinese-addons fcitx5-pinyin-zhwiki ttf-ubuntu-font-family noto-fonts-cjk noto-fonts-emoji wqy-microhei'
 
     pacman -S --noconfirm $packages
+}
+
+install_aur_packages(){
+    color green '>>> Installing custom packages'
+
+    local packages=''
+    # nvim
+    packages+=' neovim-git python-pynvim nvim-packer-git carapace-bin'
+
+    # sway
+    packages+=' sway waybar bemenu-wayland swaybg'
+
+    # bluetooth
+    packages+=' kmix blueman pulseaudio-bluetooth '
+
+    # app
+    packages+=' logseq-desktop gitui'
+
+    paru -S --noconfirm $packages
+
 }
 
 configure_clean_packages() {
@@ -358,9 +380,17 @@ configure_set_sudoers() {
     sed -i 's/# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/g' /etc/sudoers
     echo "${I_USER_NAME} ALL=(ALL) NOPASSWD:ALL" | sudo SUDO_EDITOR='tee -a' visudo
 }
+config_service() {
+  systemctl enable v2raya
+  systemctl enable bluetooth
+}
 
 if [[ "$1" == 'setup' ]]; then
     setup
 elif [[ "$1" == 'configure' ]]; then
     configure
+elif [[ "$1" == 'software' ]]; then
+    software
+elif [[ "$1" == 'aur' ]]; then
+    install_aur_packages
 fi
