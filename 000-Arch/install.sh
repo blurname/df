@@ -175,7 +175,7 @@ setup_unmount_filesystems() {
 setup_install_base() {
     color green '>>> Installing base system'
 
-    pacstrap /mnt base base-devel linux linux-firmware nano
+    pacstrap /mnt base base-devel linux linux-firmware vim
 }
 
 setup_set_fstab() {
@@ -311,7 +311,7 @@ configure_install_custom() {
     local packages=''
 
     # Programming languages
-    #packages+=' rustup nodejs go'
+    packages+=' rustup nodejs go'
  
     # Network tools
     packages+=' crda dnsmasq bind net-tools inetutils traceroute nmap openbsd-netcat axel wget clash privoxy proxychains-ng v2ray v2raya'
@@ -323,7 +323,7 @@ configure_install_custom() {
     packages+=' git paru pikaur rsync jq tree kdialog p7zip unarchiver unzip openssh frpc man-pages strace ripgrep exa bat '
 
     # KDE applications
-    packages+=' dolphin kate gwenview spectacle kdeconnect kcalc'
+    packages+=' dolphin kate gwenview spectacle kdeconnect kcalc kmix'
 
     # Common applications
     packages+=' vim peek vlc gimp obs-studio keepassxc syncthing picom xfce4-power-manager network-manager-applet'
@@ -341,6 +341,9 @@ install_aur_packages(){
     color green '>>> Installing custom packages'
 
     local packages=''
+
+    # shell
+    packages+=' carapace-bin'
     # nvim
     packages+=' neovim-git python-pynvim nvim-packer-git carapace-bin'
 
@@ -348,7 +351,7 @@ install_aur_packages(){
     packages+=' sway waybar bemenu-wayland swaybg'
 
     # bluetooth
-    packages+=' kmix blueman pulseaudio-bluetooth '
+    packages+=' blueman pulseaudio-bluetooth '
 
     # app
     packages+=' logseq-desktop gitui'
@@ -372,6 +375,8 @@ configure_create_user() {
         echo "$I_USER_PASS"
         echo "$I_USER_PASS"
     ) | passwd "$I_USER_NAME"
+    gpasswd -a 'bl' docker
+    gpasswd -a 'bl' audio
 }
 
 configure_set_sudoers() {
