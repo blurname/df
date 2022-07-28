@@ -89,7 +89,7 @@ fn gpsn {||
   git push --set-upstream origin $name --force
 }
 
-fn gpla {|| git pull}
+fn gpla {|| git pull --rebase}
 fn gpls {|remoteBranch| git pull origin/$remoteBranch $remoteBranch}
 
 fn grhh {|| git reset --hard HEAD~}
