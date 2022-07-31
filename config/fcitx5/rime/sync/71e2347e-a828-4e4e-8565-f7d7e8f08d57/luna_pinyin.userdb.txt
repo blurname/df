@@ -1,0 +1,7 @@
+# Rime user dictionary
+#@/db_name	luna_pinyin
+#@/db_type	userdb
+#@/rime_version	1.7.3
+#@/tick	2
+#@/user_id	71e2347e-a828-4e4e-8565-f7d7e8f08d57
+xiao he 	小鶴	c=2 d=1.99501 t=2
