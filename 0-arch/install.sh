@@ -58,15 +58,26 @@ configure() {
     configure_set_hosts
     configure_set_root_pass
     configure_set_bootloader
-    configure_install_kde
-    configure_set_archlinuxcn
     configure_create_user
+    configure_set_archlinuxcn
     # configure_install_dotfiles
     configure_set_sudoers
 }
 software(){
     configure_install_custom
-    #configure_clean_packages
+    install_aur_packages
+    df
+    config_service
+    configure_clean_packages
+}
+
+df(){
+  cd /home/bl
+  git clone https://github.com/blurname/df.git
+  bash /home/bl/df/script/001-link-config.sh
+  bash /home/bl/df/script/002-npmchore.sh
+  cd /home/bl/.config
+  git clone https://github.com/blurname/nvim.git
 }
 
 specify_archlinux_mirror() {
@@ -178,6 +189,7 @@ setup_install_base() {
     pacstrap /mnt base base-devel linux linux-firmware vim
 }
 
+# note: boot partion's uuid is wrong, use blkid to get the right, and modify it in /etc/fstab
 setup_set_fstab() {
     color green '>>> Setting fstab'
 
@@ -287,21 +299,12 @@ EOF
     fi
 }
 
-configure_install_kde() {
-    color green '>>> Installing KDE'
-
-    pacman -S --noconfirm xorg networkmanager
-    # systemctl enable sddm
-    systemctl enable NetworkManager
-}
-
 configure_set_archlinuxcn() {
     color green '>>> Setting archlinuxcn repo'
 
     sed -i 's/#Color/Color/g' /etc/pacman.conf
     echo '[archlinuxcn]
-    Server = http://mirrors.ustc.edu.cn/archlinuxcn/$arch
-# Server = http://mirror.tuna.tsinghua.edu.cn/archlinuxcn/$arch' >>/etc/pacman.conf
+    Server = http://mirrors.ustc.edu.cn/archlinuxcn/$arch' >>/etc/pacman.conf
     pacman -Sy --noconfirm archlinuxcn-keyring
 }
 
@@ -310,6 +313,8 @@ configure_install_custom() {
 
     local packages=''
 
+    packages+=' xorg networkmanager'
+    # systemctl enable sddm
     # Programming languages
     packages+=' rustup nodejs go'
  
@@ -326,7 +331,7 @@ configure_install_custom() {
     packages+=' dolphin kate gwenview spectacle kdeconnect kcalc kmix'
 
     # Common applications
-    packages+=' vim peek vlc gimp obs-studio keepassxc syncthing picom xfce4-power-manager network-manager-applet'
+    packages+=' vim peek vlc gimp obs-studio keepassxc syncthing picom xfce4-power-manager network-manager-applet feh'
 
     # Web browsers
     packages+=' chromium firefox'
@@ -338,27 +343,32 @@ configure_install_custom() {
 }
 
 install_aur_packages(){
-    color green '>>> Installing custom packages'
+    color green '>>> Installing aur packages'
 
     local packages=''
 
     # shell
-    packages+=' carapace-bin'
+    packages+=' carapace-bin starship '
     # nvim
-    packages+=' neovim-git python-pynvim nvim-packer-git carapace-bin'
+    packages+=' neovim-git python-pynvim nvim-packer-git'
 
     # sway
-    packages+=' sway waybar bemenu-wayland swaybg'
+    packages+=' sway waybar bemenu-wayland swaybg wofi'
 
     # bluetooth
-    packages+=' blueman pulseaudio-bluetooth '
+    packages+=' blueman pulseaudio-bluetooth'
 
     # app
     packages+=' logseq-desktop-bin visual-studio-code-bin  gitui'
 
+    # Input method 
+    packages+=' fcitx5-im fcitx5-rime rime-double-pinyin'
+
+    # font
+    packages +=' adobe-source-han-serif-cn-fonts nerd-fonts-complete ttf-iosevka'
+
 
     paru -S --noconfirm $packages
-
 }
 
 configure_clean_packages() {
@@ -389,6 +399,7 @@ configure_set_sudoers() {
 config_service() {
   systemctl enable v2raya
   systemctl enable bluetooth
+  systemctl enable NetworkManager
 }
 
 if [[ "$1" == 'setup' ]]; then
@@ -397,6 +408,4 @@ elif [[ "$1" == 'configure' ]]; then
     configure
 elif [[ "$1" == 'software' ]]; then
     software
-elif [[ "$1" == 'aur' ]]; then
-    install_aur_packages
 fi

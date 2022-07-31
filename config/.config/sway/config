@@ -20,12 +20,12 @@ set $term alacritty
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $menu bemenu-run
+set $menu wofi --show run
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg /home/bl/df/wallpaper/leidi.png fill
 #
 # Example configuration:
 #
@@ -216,7 +216,9 @@ hide_edge_borders smart
 bar {
     swaybar_command waybar
 }
+xwayland enabled
 exec nm-applet --indicator
 exec blueman-tray
 exec kmix &
+exec fcitx5 &
 include /etc/sway/config.d/*
