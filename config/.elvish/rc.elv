@@ -192,7 +192,7 @@ fn draa {|path| deno run --allow-all $path}
 
 # self ts script
 fn bl {|@command| 
-  tsx ~/prjs/bl-kit/src/node/scripts/main.ts $@command
+  tsx ~/prjs/bl-ts/src/node/scripts/main.ts $@command
 }
 
 fn mockupdate {|| bash ~/iupdate.sh}
