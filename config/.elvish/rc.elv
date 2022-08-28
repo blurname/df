@@ -93,7 +93,7 @@ fn gpla {|| git pull --rebase}
 fn gpls {|remoteBranch| git pull origin/$remoteBranch $remoteBranch}
 
 fn grhh {|| git reset --hard HEAD~}
-fn grhc {|hashId| git reset --hard $hashId}
+fn grhn {|hashId| git reset --hard $hashId}
 fn grhr {||
   var name = (git branch --show-current)
   put $name
