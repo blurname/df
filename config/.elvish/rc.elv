@@ -142,6 +142,7 @@ fn gcpi {|a| git cherry-pick $a}
 fn gcpa {|| git cherry-pick --abort}
 fn gcpc {|| git cherry-pick --continue}
 
+fn GDA {|| git restore .}
 
 # docker
 fn dcla {||docker ps -a}
