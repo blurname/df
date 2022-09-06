@@ -359,7 +359,7 @@ install_aur_packages(){
     packages+=' blueman pulseaudio-bluetooth'
 
     # app
-    packages+=' logseq-desktop-bin visual-studio-code-bin  gitui'
+    packages+=' logseq-desktop-bin visual-studio-code-bin lazygit'
 
     # Input method 
     packages+=' fcitx5-im fcitx5-rime rime-double-pinyin'
