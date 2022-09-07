@@ -22,6 +22,7 @@ set E:BEMENU_BACKEND = "wayland"
 fn l {|| e:exa -la}
 fn c {|| clear }
 fn s {|| e:neofetch}
+fn lg {|| lazygit}
 fn cb {|| cd ../}
 fn cbb {|| cd ../../ }
 fn cbbb {|| cd ../../../ }
@@ -143,6 +144,8 @@ fn gcpa {|| git cherry-pick --abort}
 fn gcpc {|| git cherry-pick --continue}
 
 fn GDA {|| git restore .}
+fn GPR {|target| glab mr new -b $target -f -y}
+fn GPRD {|target desc| glab mr new -b $target -d $desc -y}
 
 # docker
 fn dcla {||docker ps -a}
@@ -197,6 +200,14 @@ fn bl {|@command|
 }
 
 fn mockupdate {|| bash ~/iupdate.sh}
+
+fn mbNI {|| npm install }
+fn mbBP {|| npm run version-bump ; npm run tag-push}
+fn mbR {|@target| tsx ../scripts/mb-git-imock-package-replace.mts $@target}
+fn mbD {|| node ../scripts/mb-git-detect-ci-status.mjs}
+fn mbDR {|@target| mbD; mbR $@target}
+fn mbBPDR {|@target| mbBP; mbD; mbR $@target}
+fn mbCommit {|| node ../scripts/mb-git-imock-package-commit.mjs}
 
 # bindings
 set edit:insert:binding[Alt-w] = $edit:insert:binding[Alt-f]
