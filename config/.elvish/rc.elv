@@ -9,6 +9,7 @@ set paths = [
       $@paths
     ]
 
+set E:TERM = 'xterm-256color'
 set E:RUSTUP_DIST_SERVER = "https://rsproxy.cn"
 set E:RUSTUP_UPDATE_ROOT = "https://rsproxy.cn/rustup"
 set E:CARGO_HTTP_MULTIPLEXING = "false"
@@ -23,16 +24,14 @@ fn l {|| e:exa -la}
 fn c {|| clear }
 fn s {|| e:neofetch}
 fn lg {|| lazygit}
+
+fn bd {|| bat ~/.elvish/rc.elv}
+
+# dictionary jump
 fn cb {|| cd ../}
 fn cbb {|| cd ../../ }
 fn cbbb {|| cd ../../../ }
 fn cbbbb {|| cd ../../../../ }
-
-fn bd {|| bat ~/.elvish/rc.elv}
-
-fn gi {|| e:gitui}
-
-# dictionary jump
 fn cdn {|| cd ~/Nyx}
 fn cdp {|| cd ../}
 
@@ -54,7 +53,7 @@ fn envimrc {|| nvim ~/.config/nvim/entry.vim}
 # a -> all/abort
 # f -> force
 # i -> interactive/index
-# n -> new
+# n -> new/name
 
 fn gitconfiginitglobal {||
   git config --global user.name "blurname"
@@ -113,9 +112,12 @@ fn gl {|@b| git log --pretty=format:"%Cred%h %C(yellow)%ad %Cgreen[%an] %Cblue%s
 fn gd {|| git diff}
 fn gs {|| git status}
 
+# fetch
 fn gf {|| git fetch}
 fn gfs {|branch| git fetch origin $branch}
 fn gfp {|| git fetch -- prune}
+
+# checkout
 fn gco {|a| git checkout $a}
 fn gcom {|| git checkout master}
 fn gcob {|a| git checkout -b $a}
@@ -130,9 +132,12 @@ fn gcor {|b|
   grhr
 }
 fn gcot {|a| git checkout --track $a}
+
+# branch
 fn gbl {|| git branch --sort=-committerdate }
 fn gbla {|| git branch -a}
 
+# rebase & cherry-pick
 fn gri {|a| git rebase -i $a}
 fn gra {|| git rebase --abort}
 fn grc {||
@@ -143,7 +148,10 @@ fn gcpi {|a| git cherry-pick $a}
 fn gcpa {|| git cherry-pick --abort}
 fn gcpc {|| git cherry-pick --continue}
 
+# misc
 fn GDA {|| git restore .}
+
+# glab
 fn GPR {|target| glab mr new -b $target -f -y}
 fn GPRD {|target desc| glab mr new -b $target -d $desc -y}
 
@@ -155,7 +163,7 @@ fn dcls {||docker ps}
 fn nkp {|a| kill-port $a}
 fn nts {|@file| node -r '@swc-node/register' $@file}
 
-# script
+# new a script
 fn mksh {|a|
 	touch $a.sh
 	chmod 764 $a.sh
@@ -176,7 +184,6 @@ fn dush {|@path|
 fn rcpdry {|old new|
   rsync --verbose --archive --dry-run $old $new
 }
-
 fn rcp {|old new|
   rsync --verbose --archive $old $new
 }
@@ -185,7 +192,6 @@ fn rcp {|old new|
 fn rmovedry {|old new|
   rsync --verbose --archive --delete-after --dry-run $old $new
 }
-
 fn rmove {|old new|
   rsync --verbose --archive --delete-after $old $new
 }
@@ -199,15 +205,17 @@ fn bl {|@command|
   tsx ~/prjs/bl-ts/src/node/scripts/main.ts $@command
 }
 
+# mb
 fn mockupdate {|| bash ~/iupdate.sh}
-
 fn mbNI {|| npm install }
 fn mbBP {|| npm run version-bump ; npm run tag-push}
-fn mbR {|@target| tsx ../scripts/mb-git-imock-package-replace.mts $@target}
-fn mbD {|| node ../scripts/mb-git-detect-ci-status.mjs}
+fn mbR {|@target| tsx /home/bl/git/bl-scripts/0009-mb-git-package-replace.ts $@target}
+fn mbD {|| tsx /home/bl/git/bl-scripts/0010-mb-git-detect-ci-status.mts}
 fn mbDR {|@target| mbD; mbR $@target}
 fn mbBPDR {|@target| mbBP; mbD; mbR $@target}
-fn mbCommit {|| node ../scripts/mb-git-imock-package-commit.mjs}
+fn mbCommit {|| tsx /home/bl/git/bl-scripts/0008-mb-git-package-commit.ts}
+fn mbDropVersion {|@commitHash| tsx /home/bl/git/bl-scripts/0008-mb-git-drop-version.mts $@commitHash}
+fn mbEnvStart {|| elvish /home/bl/git/bl-scripts/0011-mb-start-env.elv}
 
 # bindings
 set edit:insert:binding[Alt-w] = $edit:insert:binding[Alt-f]
