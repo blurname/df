@@ -215,7 +215,7 @@ fn mbDR {|@target| mbD; mbR $@target}
 fn mbBPDR {|@target| mbBP; mbD; mbR $@target}
 fn mbCommit {|| tsx /home/bl/git/bl-scripts/0008-mb-git-package-commit.ts}
 fn mbDropVersion {|@commitHash| tsx /home/bl/git/bl-scripts/0008-mb-git-drop-version.mts $@commitHash}
-fn mbEnvStart {|| elvish /home/bl/git/bl-scripts/0011-mb-start-env.elv}
+fn mbStartEnv {|| elvish /home/bl/git/bl-scripts/0011-mb-start-env.elv}
 
 # bindings
 set edit:insert:binding[Alt-w] = $edit:insert:binding[Alt-f]
