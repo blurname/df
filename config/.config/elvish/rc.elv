@@ -208,13 +208,14 @@ fn bl {|@command|
 # mb
 fn mockupdate {|| bash ~/iupdate.sh}
 fn mbNI {|| npm install }
+fn Nis {|| npm i; npm run start}
 fn mbBP {|| npm run version-bump ; npm run tag-push}
 fn mbR {|@target| tsx /home/bl/git/bl-scripts/0009-mb-git-package-replace.ts $@target}
 fn mbD {|| tsx /home/bl/git/bl-scripts/0010-mb-git-detect-ci-status.mts}
 fn mbDR {|@target| mbD; mbR $@target}
 fn mbBPDR {|@target| mbBP; mbD; mbR $@target}
 fn mbCommit {|| tsx /home/bl/git/bl-scripts/0008-mb-git-package-commit.ts}
-fn mbDropVersion {|@commitHash| tsx /home/bl/git/bl-scripts/0008-mb-git-drop-version.mts $@commitHash}
+fn mbDropVersion {|@commitHash| tsx /home/bl/git/bl-scripts/0007-mb-git-drop-version.mjs $@commitHash}
 fn mbStartEnv {|| elvish /home/bl/git/bl-scripts/0011-mb-start-env.elv}
 
 # bindings
