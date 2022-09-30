@@ -215,7 +215,7 @@ fn mbD {|| tsx /home/bl/git/bl-scripts/0010-mb-git-detect-ci-status.mts}
 fn mbDR {|@target| mbD; mbR $@target}
 fn mbBPDR {|@target| mbBP; mbD; mbR $@target}
 fn mbCommit {|| tsx /home/bl/git/bl-scripts/0008-mb-git-package-commit.ts}
-fn mbDropVersion {|@commitHash| tsx /home/bl/git/bl-scripts/0007-mb-git-drop-version.mjs $@commitHash}
+fn mbDropVersion {|@args| tsx /home/bl/git/bl-scripts/0007-mb-git-drop-version.ts $@args}
 fn mbStartEnv {|| elvish /home/bl/git/bl-scripts/0011-mb-start-env.elv}
 
 # bindings
