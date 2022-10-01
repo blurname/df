@@ -4,3 +4,5 @@ commands:
   - name: duCurrentFolder
   - name: calcTsPercentInProject
   - name: computeWorkingTime
+  - name: gitDropVersion
+  - name: gitCommit

@@ -39,7 +39,7 @@ fn cdp {|| cd ../}
 fn e {|@a| nvim $@a}
 fn nas {|| bash ~/Nyx/001-NixOS/apply-system.sh }
 fn nes {|| nvim ~/Nyx/001-NixOS/configuration.nix }
-fn erc {|| nvim ~/.elvish/rc.elv}
+fn erc {|| nvim ~/.config/elvish/rc.elv}
 fn ep {|| nvim ./package.json}
 fn exm {|| nvim ~/.xmonad/xmonad.hs}
 fn envimrc {|| nvim ~/.config/nvim/entry.vim}
@@ -161,7 +161,6 @@ fn dcls {||docker ps}
 
 # global npm package command 
 fn nkp {|a| kill-port $a}
-fn nts {|@file| node -r '@swc-node/register' $@file}
 
 # new a script
 fn mksh {|a|
@@ -201,8 +200,8 @@ fn drw {|path| deno run --watch $path }
 fn draa {|path| deno run --allow-all $path}
 
 # self ts script
-fn bl {|@command| 
-  tsx ~/prjs/bl-ts/src/node/scripts/main.ts $@command
+fn bl {|@options| 
+  tsx ~/prjs/bl-ts/src/node/scripts/main.ts $@options
 }
 
 # mb
@@ -210,13 +209,12 @@ fn mockupdate {|| bash ~/iupdate.sh}
 fn mbNI {|| npm install }
 fn Nis {|| npm i; npm run start}
 fn mbBP {|| npm run version-bump ; npm run tag-push}
-fn mbR {|@target| tsx /home/bl/git/bl-scripts/0009-mb-git-package-replace.ts $@target}
-fn mbD {|| tsx /home/bl/git/bl-scripts/0010-mb-git-detect-ci-status.mts}
-fn mbDR {|@target| mbD; mbR $@target}
-fn mbBPDR {|@target| mbBP; mbD; mbR $@target}
-fn mbCommit {|| tsx /home/bl/git/bl-scripts/0008-mb-git-package-commit.ts}
-fn mbDropVersion {|@args| tsx /home/bl/git/bl-scripts/0007-mb-git-drop-version.ts $@args}
-fn mbStartEnv {|| elvish /home/bl/git/bl-scripts/0011-mb-start-env.elv}
+fn mbR {|@targetRepo| tsx /home/bl/git/bl-scripts/09-mb-git-package-replace.ts $@targetRepo}
+fn mbD {|| bl detectCIStatus}
+fn mbDR {|@targetRepo| mbD; mbR $@targetRepo}
+fn mbBPDR {|@targetRepo| mbBP; mbD; mbR $@targetRepo}
+# fn mbCommit {|| tsx /home/bl/git/bl-scripts/0008-mb-git-package-commit.ts}
+fn mbStartEnv {|| elvish /home/bl/git/bl-scripts/0b-mb-start-env.elv}
 
 # bindings
 set edit:insert:binding[Alt-w] = $edit:insert:binding[Alt-f]
