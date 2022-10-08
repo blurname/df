@@ -16,8 +16,8 @@ set E:CARGO_HTTP_MULTIPLEXING = "false"
 set E:LESSCHARSET = "utf-8"
 set E:EDITOR = "nvim"
 set E:BEMENU_BACKEND = "wayland"
-# set E:HTTP_PROXY = "http://127.0.0.1:10809"
-# set E:HTTPS_PROXY = "https://127.0.0.1:10809"
+#set E:HTTP_PROXY = "http://127.0.0.1:7890"
+#set E:HTTPS_PROXY = "https://127.0.0.1:7890"
 
 
 fn l {|| e:exa -la}
@@ -209,11 +209,11 @@ fn mockupdate {|| bash ~/iupdate.sh}
 fn mbNI {|| npm install }
 fn Nis {|| npm i; npm run start}
 fn mbBP {|| npm run version-bump ; npm run tag-push}
-fn mbR {|@targetRepo| tsx /home/bl/git/bl-scripts/09-mb-git-package-replace.ts $@targetRepo}
+fn mbR {|@targetRepo| bl mbGitReplacePackage $@targetRepo}
 fn mbD {|| bl detectCIStatus}
 fn mbDR {|@targetRepo| mbD; mbR $@targetRepo}
 fn mbBPDR {|@targetRepo| mbBP; mbD; mbR $@targetRepo}
-# fn mbCommit {|| tsx /home/bl/git/bl-scripts/0008-mb-git-package-commit.ts}
+fn mbCommit {|| bl gitCommit}
 fn mbStartEnv {|| elvish /home/bl/git/bl-scripts/0b-mb-start-env.elv}
 
 # bindings
