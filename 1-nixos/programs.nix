@@ -17,7 +17,11 @@
 				##};
 			#};
 		#};
-		windowManager.leftwm.enable = true;
+		# windowManager.leftwm.enable = true;
+		
+  # services.xserver.enable = true;
+	displayManager.sddm.enable = true;
+  desktopManager.plasma5.enable = true;
 		# windowManager.xmonad={
 		# 	enable = true;
 		# 	extraPackages = haskellPackages: [
