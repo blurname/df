@@ -37,8 +37,8 @@ fn cdp {|| cd ../}
 
 # dotfile
 fn e {|@a| nvim $@a}
-fn nas {|| bash ~/Nyx/001-NixOS/apply-system.sh }
-fn nes {|| nvim ~/Nyx/001-NixOS/configuration.nix }
+fn nas {|| bash ~/df/1-nixos/apply-system.sh }
+fn nes {|| nvim ~/df/1-nixosS/configuration.nix }
 fn erc {|| nvim ~/.config/elvish/rc.elv}
 fn ep {|| nvim ./package.json}
 fn exm {|| nvim ~/.xmonad/xmonad.hs}

@@ -48,10 +48,7 @@
     }
   ];
 
-  services.xserver.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
-
+  programs.sway.enable = true;
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     vim
@@ -60,6 +57,9 @@
     starship
     exa
     bat
+    nodejs
+    carapace
+    alacritty
   ];
 
   nix.settings.substituters = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
