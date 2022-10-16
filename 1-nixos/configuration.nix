@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
@@ -9,24 +5,16 @@
   imports =
     [
       /etc/nixos/hardware-configuration.nix
-      ./programs.nix
+      #./programs.nix
       #<home-manager/nixos>
     ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  #boot.loader.grub.enable = true;
-  #boot.loader.grub.device = "/dev/disk/by-uuid/469E-24BF";
 
-  #networking.hostName = "nixos"; # Define your hostname.
-  #networking.wireless.enable = false;  # Enables wireless support via wpa_supplicant.
   networking = {
     hostName = "nyx";
-    proxy = {
-      #allProxy = "http://127.0.0.1:8889";
-      #httpsProxy="http://127.0.0.1:8889";
-    };
     #    interfaces={
     #    enp0s3.ip4=[{
     #      address = "192.168.1.2";
@@ -49,16 +37,12 @@
   #networking.useDHCP = true;
   #networking.interfaces.enp0s3.useDHCP = true;
   services = {
-    #mysql={enable = true;package = pkgs.mariadb;};
     openssh = {
       enable = true;
       passwordAuthentication = true;
     };
   };
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -68,7 +52,6 @@
 
   # Enable the X11 windowing system.
   #services.xserver.enable = true;
-  #services.xserver.
   #hardware.nvidia.prime = {
     #sync.enable = true;
     #nvidiaBusId = "PCI:1:0:0";
@@ -80,6 +63,8 @@
 
   # Enable sound.
   sound.enable = true;
+  hardware.pulseaudio.enable = true;
+  nixpkgs.config.pulseaudio = true;
   #hardware.pulseaudio.enable = true;
   #home-manager.users.bl ={pkgs,...}:{
   #  home.pacages = with pkgs;[
@@ -91,6 +76,7 @@
   #};
 
 
+  programs.sway.enable = true;
 
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -101,7 +87,6 @@
       password = "a";
     };
     defaultUserShell = pkgs.elvish;
-    #extraUsers.bl.extraGroups = ["audio"];
   };
   security.sudo.extraRules = [
     {
@@ -126,18 +111,18 @@
     starship
     exa
     bat
-    #alacritty
+    alacritty
     ripgrep
     fd
     fzf
     gitui
     wget
     #picom
-    #firefox
+    firefox
     zsh
     rustup
     python39
-    nodejs-16_x
+    nodejs
     yarn
     nixpkgs-fmt
     zellij
@@ -149,43 +134,40 @@
     htop
     gcc
     #rofi
-    #qv2ray
     v2ray
     go
-    #xorg.xmodmap
     #xfce.xfce4-power-manager
     feh
     xclip
-    #tdesktop
+    
+    tdesktop
     #google-chrome
     #brightnessctl
     eww
     neofetch
-    #qbittorrent
+    qbittorrent
     vlc
-    #libsForQt5.kdeconnect-kde
-    # xmobar
+    libsForQt5.kdeconnect-kde
+    libsForQt5.kmix
     # neovim-nightly
     haskell-language-server
     rnix-lsp
     sumneko-lua-language-server
     rust-analyzer
-    #zathura
-    #vscode
+    waybar
+    wofi
+    vscode
+    carapace
+    pamix
   ];
 
 
- # fonts.fonts = with pkgs;[
- #   source-han-serif
- # ] ++ [
- #   (nerdfonts.override { fonts = [ "Iosevka" ]; })
- # ];
-  #virtualisation.docker.enable = true;
-  #services.picom.inactiveOpacity = 0.7;
-  #services.picom.opacityRules = [
-  #"60:class_g = 'Alacritty'"
-  #];
-  nix.settings.substituters = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" "https://mirrors.ustc.edu.cn/nix-channels/store" "https://mirror.sjtu.edu.cn/nix-channels/store" ];
+  fonts.fonts = with pkgs;[
+    source-han-serif
+    iosevka
+  ];
+  virtualisation.docker.enable = true;
+  nix.settings.substituters = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
 
   system.stateVersion = "unstable"; # Did you read the comment?
 
