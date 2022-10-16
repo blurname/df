@@ -50,17 +50,6 @@
     keyMap = "us";
   };
 
-  # Enable the X11 windowing system.
-  #services.xserver.enable = true;
-  #hardware.nvidia.prime = {
-    #sync.enable = true;
-    #nvidiaBusId = "PCI:1:0:0";
-    #intelBusId = "PCI:0:2:0";
-  #};
-
-  # Configure keymap in X11
-  #services.xserver.layout = "us";
-
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
@@ -148,7 +137,6 @@
     qbittorrent
     vlc
     libsForQt5.kdeconnect-kde
-    libsForQt5.kmix
     # neovim-nightly
     haskell-language-server
     rnix-lsp
@@ -159,6 +147,7 @@
     vscode
     carapace
     pamix
+    ncpamixer
   ];
 
 

@@ -58,6 +58,7 @@ fn envimrc {|| nvim ~/.config/nvim/entry.vim}
 fn gitconfiginitglobal {||
   git config --global user.name "blurname"
   git config --global user.email "naughtybao@outlook.com"
+  git config --global credential.helper store
 }
 
 fn gitconfiginit {||
