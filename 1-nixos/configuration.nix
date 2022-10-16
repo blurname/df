@@ -9,15 +9,9 @@
   imports =
     [
       /etc/nixos/hardware-configuration.nix
-      #./programs.nix
+      ./programs.nix
       #<home-manager/nixos>
     ];
-  nix = {
-    package = pkgs.nixFlakes;
-    extraOptions = ''
-      			experimental-features = nix-command flakes
-      			'';
-  };
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -150,7 +144,7 @@
     curl
     sl
     unzip
-    mcfly
+    # mcfly
     bottom
     htop
     gcc
@@ -170,7 +164,7 @@
     #qbittorrent
     vlc
     #libsForQt5.kdeconnect-kde
-    xmobar
+    # xmobar
     # neovim-nightly
     haskell-language-server
     rnix-lsp
@@ -191,7 +185,7 @@
   #services.picom.opacityRules = [
   #"60:class_g = 'Alacritty'"
   #];
-  nix.binaryCaches = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" "https://mirrors.ustc.edu.cn/nix-channels/store" "https://mirror.sjtu.edu.cn/nix-channels/store" ];
+  nix.settings.substituters = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" "https://mirrors.ustc.edu.cn/nix-channels/store" "https://mirror.sjtu.edu.cn/nix-channels/store" ];
 
   system.stateVersion = "unstable"; # Did you read the comment?
 

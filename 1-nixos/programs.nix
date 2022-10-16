@@ -17,14 +17,14 @@
 				##};
 			#};
 		#};
-		#windowManager.leftwm.enable = true;
-		windowManager.xmonad={
-			enable = true;
-			extraPackages = haskellPackages: [
-				  haskellPackages.xmonad-contrib
-					haskellPackages.monad-logger
-			];
-		};
+		windowManager.leftwm.enable = true;
+		# windowManager.xmonad={
+		# 	enable = true;
+		# 	extraPackages = haskellPackages: [
+		# 		  haskellPackages.xmonad-contrib
+		# 			haskellPackages.monad-logger
+		# 	];
+		# };
     libinput={
     enable = true;
       touchpad={
@@ -34,16 +34,16 @@
       };
     };
 	};
-	programs.neovim = {
-		enable = true;
-		defaultEditor = true;
-		configure = {
-			customRC = builtins.readFile /home/bl/.config/nvim/init.vim;
-			packages.myVimPackage = with pkgs.vimPlugins;{
-				start = [ packer-nvim ];
-			};
-		};
-	};
+	# programs.neovim = {
+	# 	enable = true;
+	# 	defaultEditor = true;
+	# 	configure = {
+	# 		customRC = builtins.readFile /home/bl/.config/nvim/init.vim;
+	# 		packages.myVimPackage = with pkgs.vimPlugins;{
+	# 			start = [ packer-nvim ];
+	# 		};
+	# 	};
+	# };
   programs.npm = {
     enable = true;
     npmrc =''
@@ -52,5 +52,5 @@
       '';
   };
 
-	}
+}
 
