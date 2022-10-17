@@ -9,8 +9,8 @@ const part = async () => { // need sudo
   await pExec('parted /dev/nvme0n1 -- set 2 esp on')
   await pExec('mkfs.ext4 -L nixos /dev/nvme0n1p1')
   await pExec('mkfs.fat -F 32 -n boot /dev/nvme0n1p2')
-  await pExec('mkdir -p /mnt/boot')
   await pExec('mount /dev/disk/by-label/nixos /mnt')
+  await pExec('mkdir -p /mnt/boot')
   await pExec('mount /dev/disk/by-label/boot /mnt/boot')
   await pExec('nixos-generate-config --root /mnt')
 }
