@@ -9,7 +9,7 @@ I am using it now
 
 ## 001-NixOS
 
-NixOS install script
+NixOS config
 
 ## config
 
