@@ -18,5 +18,6 @@
     wget
     feh
     neofetch
+    lf
   ];
 }

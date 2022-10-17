@@ -7,5 +7,6 @@
     libsForQt5.kdeconnect-kde
     firefox
     google-chrome
+    obsidian
   ];
 }

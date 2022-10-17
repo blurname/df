@@ -5,8 +5,8 @@
   imports =
     [
       /etc/nixos/hardware-configuration.nix
-      ./software/mod.nix
-      ./hardware/mod.nix
+      ./sub/software/mod.nix
+      ./sub/hardware/mod.nix
       #<home-manager/nixos>
     ];
 
@@ -48,6 +48,10 @@
         options = [ "SETENV" "NOPASSWD" ];
       }];
     }
+  ];
+  fonts.fonts = with pkgs;[
+    source-han-serif
+    iosevka
   ];
 
   nix.settings.substituters = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
