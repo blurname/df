@@ -5,19 +5,20 @@
     #nvidiaBusId = "PCI:1:0:0";
     #intelBusId = "PCI:0:2:0";
   #};
+  boot.kernelParams = ["module_blacklist=i915"];
   services.xserver = {
     enable = true;
     layout = "us";
     windowManager.leftwm.enable = true;
     displayManager.startx.enable = true;
-    #videoDrivers = [ "nvidia" ];
-    # windowManager.xmonad={
-		# 	enable = true;
-		# 	extraPackages = haskellPackages: [
-		# 		  haskellPackages.xmonad-contrib
-		# 			haskellPackages.monad-logger
-		# 	];
-		# };
+    videoDrivers = [ "nvidia" ];
+    windowManager.xmonad={
+		 	enable = true;
+		 	extraPackages = haskellPackages: [
+		 		  haskellPackages.xmonad-contrib
+		 			haskellPackages.monad-logger
+		 	];
+		 };
     libinput={
     enable = true;
       touchpad={
