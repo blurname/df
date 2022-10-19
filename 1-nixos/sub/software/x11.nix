@@ -9,6 +9,7 @@
     enable = true;
     layout = "us";
     windowManager.leftwm.enable = true;
+    displayManager.startx.enable = true;
     #videoDrivers = [ "nvidia" ];
     # windowManager.xmonad={
 		# 	enable = true;

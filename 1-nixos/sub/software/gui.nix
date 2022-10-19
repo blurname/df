@@ -1,5 +1,6 @@
 { config,pkgs,...}:
 {
+  services.gnome.gnome-keyring.enable = true;
   environment.systemPackages = with pkgs; [
     tdesktop
     qbittorrent
@@ -8,5 +9,6 @@
     firefox
     google-chrome
     obsidian
+    libsForQt5.dolphin
   ];
 }

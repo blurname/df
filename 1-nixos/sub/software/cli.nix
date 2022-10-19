@@ -19,5 +19,6 @@
     feh
     neofetch
     lf
+    lazygit
   ];
 }

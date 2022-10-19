@@ -1,8 +1,0 @@
-border_width = 1
-margin = 5
-default_border_color = "#37474F"
-floating_border_color = "#225588"
-focused_border_color = "#c34a8c"
-[[gutter]]
-side = "Top"
-value = 1
