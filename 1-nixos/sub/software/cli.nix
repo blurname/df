@@ -20,5 +20,6 @@
     neofetch
     lf
     lazygit
+    tmux
   ];
 }

@@ -1,6 +1,6 @@
 { config,pkgs,...}:
 {
-  environment.s ystemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     rustup
     python39
     nodejs

@@ -235,4 +235,4 @@ exec nm-applet --indicator
 exec blueman-tray
 exec kmix &
 exec fcitx5 &
-include /etc/sway/config.d/*
+#include /etc/sway/config.d/*
