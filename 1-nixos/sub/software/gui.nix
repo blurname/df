@@ -10,7 +10,9 @@
     google-chrome
     obsidian
     libsForQt5.dolphin
+    libsForQt5.dolphin-plugins
     libsForQt5.qt5ct
     tela-icon-theme
   ];
+
 }

@@ -14,5 +14,6 @@
     
     pamix
     ncpamixer
+    pavucontrol
   ];
 }
