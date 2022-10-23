@@ -217,6 +217,10 @@ fn mbBPDR {|@targetRepo| mbBP; mbD; mbR $@targetRepo}
 fn mbCommit {|| bl gitCommit}
 fn mbStartEnv {|| elvish /home/bl/git/bl-scripts/0b-mb-start-env.elv}
 
+# zellij
+fn zs {|| zellij -s b}
+fn za {|| zellij a b}
+
 # bindings
 set edit:insert:binding[Alt-w] = $edit:insert:binding[Alt-f]
 set edit:insert:binding[Alt-h] = $edit:insert:binding[Home]
