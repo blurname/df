@@ -3,10 +3,9 @@
   environment.systemPackages = with pkgs; [
     rustup
     python39
-    nodejs
     gcc
     go
-    yarn
+    nodejs yarn nodePackages.pnpm
     nixpkgs-fmt
   ];
   i18n.inputMethod = {

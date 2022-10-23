@@ -5,7 +5,7 @@
     starship
     exa
     bat
-    alacritty
+    alacritty kitty
     bottom
     htop
     carapace

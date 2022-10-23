@@ -6,3 +6,6 @@ commands:
   - name: computeWorkingTime
   - name: gitDropVersion
   - name: gitCommit
+  - name: detectCIStatus
+  - name: mbGitReplacePackage
+  - name: startZellij
