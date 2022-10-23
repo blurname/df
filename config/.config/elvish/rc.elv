@@ -221,6 +221,10 @@ fn mbStartEnv {|| elvish /home/bl/git/bl-scripts/0b-mb-start-env.elv}
 fn zs {|| zellij -s b}
 fn za {|| zellij a b}
 
+# power
+# shutodwn now
+fn SDHN {|| shutdown -h 0}
+
 # bindings
 set edit:insert:binding[Alt-w] = $edit:insert:binding[Alt-f]
 set edit:insert:binding[Alt-h] = $edit:insert:binding[Home]
