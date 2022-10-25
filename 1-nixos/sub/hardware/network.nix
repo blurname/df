@@ -1,12 +1,12 @@
 {pkgs,...}:{
   networking = {
     hostName = "nyx";
-    #    interfaces={
-    #    enp0s3.ip4=[{
-    #      address = "192.168.1.2";
-    #      prefixLength = 28;
-    #    }];
-    #    };
+#    interfaces={
+#    enp0s3.ip4=[{
+#      address = "192.168.1.2";
+#      prefixLength = 28;
+#    }];
+#    };
     networkmanager = {
       enable = true;
     };
@@ -21,9 +21,9 @@
       passwordAuthentication = true;
     };
   };
-  #networking.useDHCP = true;
-  #networking.interfaces.enp0s3.useDHCP = true;
-    environment.systemPackages = with pkgs; [
+#networking.useDHCP = true;
+#networking.interfaces.enp0s3.useDHCP = true;
+  environment.systemPackages = with pkgs; [
     nm-tray
   ];
 }

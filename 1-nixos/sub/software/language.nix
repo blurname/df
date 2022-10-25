@@ -2,11 +2,11 @@
 {
   environment.systemPackages = with pkgs; [
     rustup
-    python39
-    gcc
-    go
-    nodejs yarn nodePackages.pnpm
-    nixpkgs-fmt
+      python39
+      gcc gnumake
+      go
+      nodejs yarn nodePackages.pnpm
+      nixpkgs-fmt
   ];
   i18n.inputMethod = {
     enabled = "fcitx5";
@@ -16,15 +16,14 @@
     fcitx5.addons = with pkgs;
     [
       fcitx5-rime
-      fcitx5-chinese-addons
+        fcitx5-chinese-addons
     ];
   };
-  #   programs.npm = {
-  #   enable = true;
-  #   npmrc =''
-  #     prefix = /home/bl/.npm-global
-  #     registry=https://registry.npmmirror.com/
-  #     '';
-  # };
+#   programs.npm = {
+#   enable = true;
+#   npmrc =''
+#     prefix = /home/bl/.npm-global
+#     registry=https://registry.npmmirror.com/
+#     '';
+# };
 }  
-  
