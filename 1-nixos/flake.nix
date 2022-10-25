@@ -11,10 +11,11 @@
 		#inputs.nixpkgs.follows = "nixpkgs";
 		#};
 	};
-	outputs ={self,nixpkgs,...}:{
+	outputs = inputs@{self,nixpkgs,...}:{
 		nixosConfigurations={
-			nixos = nixpkgs.lib.nixosSystem{
+			nyx = nixpkgs.lib.nixosSystem{
 				system ="x86_64-linux";
+      			specialArgs = inputs;
 				modules=[./configuration.nix];
 			};
 		};

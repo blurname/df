@@ -13,6 +13,7 @@
     libsForQt5.dolphin-plugins
     libsForQt5.qt5ct
     tela-icon-theme
+    syncthing
   ];
 
 }
