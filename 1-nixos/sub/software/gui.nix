@@ -14,5 +14,16 @@
       libsForQt5.qt5ct
       tela-icon-theme
       syncthing
+      fcitx5-gtk
+      libsForQt5.fcitx5-qt
+      pcmanfm
   ];
+
+  i18n.inputMethod = {
+    enabled = "fcitx5";
+    fcitx5.addons = with pkgs;
+    [
+        fcitx5-chinese-addons
+    ];
+  };
 }
