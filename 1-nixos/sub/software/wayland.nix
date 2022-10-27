@@ -5,6 +5,8 @@
     wofi
     rofi-wayland
     swaylock
+    hyprpaper
+    eww-wayland
   ];
   
   programs.sway.enable = true;

@@ -17,6 +17,7 @@
       fcitx5-gtk
       libsForQt5.fcitx5-qt
       pcmanfm
+      trayer nm-tray syncthing-tray 
   ];
 
   i18n.inputMethod = {
