@@ -17,7 +17,7 @@
       fcitx5-gtk fcitx5-rime rime-data
       libsForQt5.fcitx5-qt
       pcmanfm
-      trayer nm-tray syncthing-tray 
+      trayer nm-tray syncthingtray 
   ];
 
   i18n.inputMethod = {
@@ -31,4 +31,12 @@
         fcitx5-chinese-addons
     ];
   };
+  services = {
+    syncthing = {
+        enable = true;
+        user = "bl";
+        #dataDir = "/home/myusername/Documents";    # Default folder for new synced folders
+        #configDir = "/home/myusername/Documents/.config/syncthing";   # Folder for Syncthing's settings and keys
+    };
+};
 }
