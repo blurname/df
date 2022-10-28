@@ -5,7 +5,7 @@
     wofi
     rofi-wayland
     swaylock
-    hyprpaper
+    hyprpaper swaybg
     eww-wayland
   ];
   
