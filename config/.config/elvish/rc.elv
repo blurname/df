@@ -32,16 +32,23 @@ fn cb {|| cd ../}
 fn cbb {|| cd ../../ }
 fn cbbb {|| cd ../../../ }
 fn cbbbb {|| cd ../../../../ }
-fn cdn {|| cd ~/Nyx}
-fn cdp {|| cd ../}
+fn cdf {|| cd ~/df}
 
 # dotfile
 fn e {|@a| nvim $@a}
 fn nas {|| bash ~/df/1-nixos/apply-system.sh }
-fn nes {|| nvim ~/df/1-nixos/configuration.nix }
+fn nes {|| nvim ~/df/1-nixos/flake.nix }
 fn erc {|| nvim ~/.config/elvish/rc.elv}
-fn ep {|| nvim ./package.json}
-fn exm {|| nvim ~/.xmonad/xmonad.hs}
+fn ep {||
+  try {
+# elvish has no builtin function to check if file exist
+    test -f .package.json
+      nvim ./package.json
+  } catch {
+    echo 'no package.json here'
+  }
+}
+# fn exm {|| nvim ~/.xmonad/xmonad.hs}
 fn envimrc {|| nvim ~/.config/nvim/entry.vim}
 
 # git
@@ -67,9 +74,9 @@ fn gitconfiginit {||
   git config credential.helper store
 }
 
-fn gwip {|m| 
+fn gwip {|@m| 
   git add .
-  git commit -am "WIP: "$m -n
+  git commit -am "WIP: "$@m -n
 } 
 
 fn gcm {|commitMessage|
@@ -109,7 +116,7 @@ fn gsl {|| git stash list}
 fn gsad {|| git stash apply}
 fn gsai {|index| git stash apply $index}
 
-fn gl {|@b| git log --pretty=format:"%Cred%h %C(yellow)%ad %Cgreen[%an] %Cblue%s %Cred%d" --date=short $@b}
+fn gl {|b| git log --pretty=format:"%Cred%h %C(yellow)%ad %Cgreen[%an] %Cblue%s %Cred%d" --date=short $@b}
 fn gd {|| git diff}
 fn gs {|| git status}
 
@@ -169,6 +176,7 @@ fn mksh {|a|
 	chmod 764 $a.sh
   nvim $a.sh
 }
+
 fn mkelv {|a|
 	touch $a.elv
 	chmod 764 $a
@@ -218,8 +226,13 @@ fn mbCommit {|| bl gitCommit}
 fn mbStartEnv {|| elvish /home/bl/git/bl-scripts/0b-mb-start-env.elv}
 
 # zellij
-fn zs {|| zellij -s b}
-fn za {|| zellij a b}
+fn zb {|| 
+  try {
+    e:zellij a b
+  } catch {
+    e:zellij -s b
+  }
+}
 
 # power
 # shutodwn now
