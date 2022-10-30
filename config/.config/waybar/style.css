@@ -80,7 +80,7 @@ window#waybar.chromium {
 #idle_inhibitor,
 #mpd {
     padding: 0 10px;
-    color: #ffffff;
+    /*color: #ffffff;*/
 }
 
 #window,
@@ -147,7 +147,7 @@ label:focus {
 }
 
 #tray {
-    background-color: #4c5661
+    /*background-color: #4c5661*/
 }
 
 #tray > .passive {

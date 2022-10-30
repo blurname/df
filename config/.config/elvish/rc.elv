@@ -42,8 +42,8 @@ fn erc {|| nvim ~/.config/elvish/rc.elv}
 fn ep {||
   try {
 # elvish has no builtin function to check if file exist
-    test -f .package.json
-      nvim ./package.json
+    test -f package.json
+    nvim ./package.json
   } catch {
     echo 'no package.json here'
   }

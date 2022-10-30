@@ -26,5 +26,6 @@
     pamix
     ncpamixer
     pavucontrol
+    pasystray
   ];
 }

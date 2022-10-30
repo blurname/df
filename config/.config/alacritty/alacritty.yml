@@ -372,7 +372,7 @@ font:
 # The value `0.0` is completely transparent and `1.0` is opaque.
 #background_opacity: 0.85
 window:
-  opacity: 0.90
+  opacity: 0.8
 
 #selection:
   # This string contains all characters that are used as separators for
