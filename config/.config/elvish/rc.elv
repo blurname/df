@@ -1,4 +1,6 @@
 #( •̀ ω •́ )✧
+use builtin
+use path
 set paths = [
       ~/.npm-global/bin
       ~/.cargo/bin
@@ -25,20 +27,36 @@ fn c {|| clear }
 fn s {|| e:neofetch}
 fn lg {|| lazygit}
 
-fn bd {|| bat ~/.elvish/rc.elv}
+fn bd {|| bat ~/.config/elvish/rc.elv}
 
 # dictionary jump
 fn cb {|| cd ../}
 fn cbb {|| cd ../../ }
-fn cbbb {|| cd ../../../ }
-fn cbbbb {|| cd ../../../../ }
+
 fn cdf {|| cd ~/df}
+
+# filePath -> cd fileDir and nvim file
+fn cdAndEdit {|filePath| 
+  var pathBase = (path:dir $filePath)
+  echo $pathBase
+  cd $pathBase
+  nvim $filePath
+}
 
 # dotfile
 fn e {|@a| nvim $@a}
 fn nas {|| bash ~/df/1-nixos/apply-system.sh }
-fn nes {|| nvim ~/df/1-nixos/flake.nix }
-fn erc {|| nvim ~/.config/elvish/rc.elv}
+fn nes {||
+  cdAndEdit ~/df/1-nixos/flake.nix
+}
+fn erc {||
+  cdAndEdit ~/.config/elvish/rc.elv
+}
+
+fn envimrc {||
+  cdAndEdit ~/.config/nvim/entry.vim
+}
+
 fn ep {||
   try {
 # elvish has no builtin function to check if file exist
@@ -48,8 +66,6 @@ fn ep {||
     echo 'no package.json here'
   }
 }
-# fn exm {|| nvim ~/.xmonad/xmonad.hs}
-fn envimrc {|| nvim ~/.config/nvim/entry.vim}
 
 # git
 # suffix:

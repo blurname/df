@@ -11,4 +11,5 @@
   
   programs.sway.enable = true;
   programs.xwayland.enable = true;
+  programs.hyprland.enable = true; 
 }

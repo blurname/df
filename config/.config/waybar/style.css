@@ -99,7 +99,7 @@ window#waybar.chromium {
 }
 
 #clock {
-    background-color: #64727D;
+    /*background-color: #64727D;*/
 }
 
 #battery {
