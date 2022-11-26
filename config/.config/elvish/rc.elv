@@ -132,7 +132,7 @@ fn gsl {|| git stash list}
 fn gsad {|| git stash apply}
 fn gsai {|index| git stash apply $index}
 
-fn gl {|b| git log --pretty=format:"%Cred%h %C(yellow)%ad %Cgreen[%an] %Cblue%s %Cred%d" --date=short $@b}
+fn gl {|@b| git log --pretty=format:"%Cred%h %C(yellow)%ad %Cgreen[%an] %Cblue%s %Cred%d" --date=short $@b}
 fn gd {|| git diff}
 fn gs {|| git status}
 
