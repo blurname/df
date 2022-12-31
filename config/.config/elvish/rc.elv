@@ -63,7 +63,12 @@ fn ep {||
     test -f package.json
     nvim ./package.json
   } catch {
-    echo 'no package.json here'
+      try {
+        test -f Cargo.toml
+          nvim ./Cargo.toml
+      } catch {
+        echo 'no metaFile here'
+      }
   }
 }
 

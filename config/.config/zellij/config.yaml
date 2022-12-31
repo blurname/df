@@ -38,7 +38,7 @@ keybinds:
         - action: [FocusPreviousPane, SwitchToMode: Normal,]
           key: [ Char: 'k']
         - action: [NewPane: ,]
-          key: [ Alt: 'n',]
+          key: [ Char: 'n',]
         - action: [CloseFocus, SwitchToMode: Normal,]
           key: [Char: 'w',]
         - action: [Detach,]
