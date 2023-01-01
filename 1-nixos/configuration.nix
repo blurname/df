@@ -33,7 +33,7 @@
     users.bl = {
       isNormalUser = true;
       extraGroups = [ "wheel" "bao" "docker" "audio" ]; # Enable ‘sudo’ for the user.
-        password = "a";
+        password = "b";
     };
     defaultUserShell = pkgs.elvish;
   };
