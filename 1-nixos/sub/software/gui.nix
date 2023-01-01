@@ -16,6 +16,8 @@
       pcmanfm onedrive
       trayer nm-tray syncthingtray 
       gns3-gui gns3-server
+      wl-clipboard cliphist
+      bemenu
   ];
 
   i18n.inputMethod = {
