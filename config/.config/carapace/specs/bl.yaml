@@ -3,9 +3,10 @@ commands:
   - name: switchNpmrc
   - name: duCurrentFolder
   - name: calcTsPercentInProject
-  - name: computeWorkingTime
+  - name: calcWorkingTime
   - name: gitDropVersion
   - name: gitCommit
   - name: detectCIStatus
-  - name: mbGitReplacePackage
+  - name: gitReplacePackage
   - name: startZellij
+  - name: generateShellCompletions

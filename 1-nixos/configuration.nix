@@ -33,7 +33,7 @@
     users.bl = {
       isNormalUser = true;
       extraGroups = [ "wheel" "bao" "docker" "audio" ]; # Enable ‘sudo’ for the user.
-        password = "b";
+        password = "b"; # change user password: passwd bl
     };
     defaultUserShell = pkgs.elvish;
   };
@@ -49,6 +49,7 @@
   fonts.fonts = with pkgs;[
     source-han-serif
       inconsolata-nerdfont
+      lxgw-wenkai
   ];
 
   nix.settings = {

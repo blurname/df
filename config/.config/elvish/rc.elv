@@ -231,7 +231,7 @@ fn draa {|path| deno run --allow-all $path}
 
 # self ts script
 fn bl {|@options| 
-  tsx ~/prjs/bl-ts/src/node/scripts/main.ts $@options
+  tsx ~/prjs/blurkit/src/node/scripts/main.ts $@options
 }
 
 # mb

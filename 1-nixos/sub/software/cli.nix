@@ -22,5 +22,6 @@
     lf
     lazygit
     tmux
+    dutree
   ];
 }
