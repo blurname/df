@@ -6,10 +6,10 @@
     rofi-wayland
     swaylock
     hyprpaper swaybg
-    eww-wayland
+    # eww-wayland
   ];
   
-  programs.sway.enable = true;
+  # programs.sway.enable = true;
   programs.xwayland.enable = true;
   programs.hyprland.enable = true; 
 }

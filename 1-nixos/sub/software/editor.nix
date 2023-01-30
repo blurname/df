@@ -11,7 +11,10 @@
     #neovim-nightly
     vscode
     # lsp
-    nil rust-analyzer haskell-language-server sumneko-lua-language-server
+    nil 
+    # haskell-language-server 
+    # lsp below has been controlled by coc-xxx
+    # rust-analyzer sumneko-lua-language-server
   ];
   	# programs.neovim = {
 		# enable = true;
