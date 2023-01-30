@@ -18,6 +18,7 @@
       gns3-gui gns3-server
       wl-clipboard cliphist
       bemenu
+      bleachbit
   ];
 
   i18n.inputMethod = {
