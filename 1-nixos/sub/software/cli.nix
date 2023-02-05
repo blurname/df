@@ -21,7 +21,6 @@
     neofetch
     lf
     lazygit
-    tmux
     dutree
   ];
 }

@@ -8,12 +8,12 @@
       libsForQt5.kdeconnect-kde
       firefox
       google-chrome
-      obsidian zotero
+      obsidian
       libsForQt5.qt5ct
       syncthing
       fcitx5-gtk fcitx5-rime rime-data
       libsForQt5.fcitx5-qt
-      pcmanfm onedrive
+      pcmanfm
       trayer nm-tray syncthingtray 
       gns3-gui gns3-server
       wl-clipboard cliphist
