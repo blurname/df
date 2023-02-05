@@ -230,12 +230,12 @@ fn drw {|path| deno run --watch $path }
 fn draa {|path| deno run --allow-all $path}
 
 # self ts script
-fn bl {|@options| 
-  tsx ~/prjs/blurkit/src/node/scripts/main.ts $@options
+# now chagned to npm package, but command blow is still for testing
+fn tbl {|@options| 
+  tsx ~/prjs/blurkit/packages/cli/src/main.ts $@options
 }
 
 # mb
-fn mockupdate {|| bash ~/iupdate.sh}
 fn mbNI {|| npm install }
 fn Nis {|| npm i; npm run start}
 fn mbBP {|| npm run version-bump ; npm run tag-push}
