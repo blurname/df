@@ -18,6 +18,8 @@ set E:CARGO_HTTP_MULTIPLEXING = "false"
 set E:LESSCHARSET = "utf-8"
 set E:EDITOR = "nvim"
 set E:BEMENU_BACKEND = "wayland"
+set E:MANPAGER = 'nvim +Man!'
+set E:MANWIDTH = 999
 #set E:HTTP_PROXY = "http://127.0.0.1:7890"
 #set E:HTTPS_PROXY = "https://127.0.0.1:7890"
 
