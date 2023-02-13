@@ -22,5 +22,7 @@
     lf
     lazygit
     dutree
+    llama
+    asciiquarium
   ];
 }

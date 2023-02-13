@@ -35,6 +35,8 @@ fn bd {|| bat ~/.config/elvish/rc.elv}
 fn cb {|| cd ../}
 fn cbb {|| cd ../../ }
 
+fn la {|| llama }
+
 fn cdf {|| cd ~/df}
 
 # filePath -> cd fileDir and nvim file

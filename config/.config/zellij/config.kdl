@@ -52,7 +52,7 @@ simplified_ui true
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
-theme "nord" 
+theme "nordfox" 
 
 // The name of the default layout to load on startup
 // Default: "default"
@@ -144,5 +144,18 @@ themes {
         cyan 136 192 208
         white 229 233 240
         orange 208 135 112
+    }
+    nordfox {
+      bg "#2e3440"
+      fg "#cdcecf"
+      red "#bf616a"
+      green "#a3be8c"
+      blue "#81a1c1"
+      yellow "#ebcb8b"
+      magenta "#b48ead"
+      orange "#c9826b"
+      cyan "#88c0d0"
+      black "#3b4252"
+      white "#e5e9f0"
     }
 }
