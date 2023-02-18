@@ -243,12 +243,13 @@ fn tbl {|@options|
 fn mbNI {|| npm install }
 fn Nis {|| npm i; npm run start}
 fn mbBP {|| npm run version-bump ; npm run tag-push}
-fn mbR {|@targetRepo| bl mbGitReplacePackage $@targetRepo}
+fn mbR {|@targetRepo| bl gitReplacePackage $@targetRepo}
 fn mbD {|| bl detectCIStatus}
 fn mbDR {|@targetRepo| mbD; mbR $@targetRepo}
 fn mbBPDR {|@targetRepo| mbBP; mbD; mbR $@targetRepo}
 fn mbCommit {|| bl gitCommit}
-fn mbStartEnv {|| elvish /home/bl/git/bl-scripts/0b-mb-start-env.elv}
+fn mbStartEnv {|| elvish /home/bl/prjs/blurkit/packages/cli/src/commands/0b-start-env.elv}
+fn dlog {|@name| node /home/bl/prjs/script/dlog.mjs $@name}
 
 # zellij
 fn zb {|| 
