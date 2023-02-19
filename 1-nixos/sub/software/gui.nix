@@ -19,6 +19,7 @@
       wl-clipboard cliphist
       bemenu
       bleachbit
+      android-file-transfer
   ];
 
   i18n.inputMethod = {
