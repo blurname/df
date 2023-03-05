@@ -19,10 +19,10 @@
     wget
     feh
     neofetch
-    lf
     lazygit
     dutree
-    llama
+# file manager
+    lf llama #felix-fm chafa
     asciiquarium
-  ];
+     ];
 }

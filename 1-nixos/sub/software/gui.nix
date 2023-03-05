@@ -20,6 +20,7 @@
       bemenu
       bleachbit
       android-file-transfer
+      microsoft-edge
   ];
 
   i18n.inputMethod = {

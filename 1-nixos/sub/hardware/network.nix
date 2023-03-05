@@ -15,12 +15,12 @@
     };
   };
 
-  services = {
-    openssh = {
-      enable = true;
-      passwordAuthentication = true;
-    };
-  };
+  #services = {
+    #openssh = {
+      #enable = true;
+      #passwordAuthentication = true;
+    #};
+  #};
 #networking.useDHCP = true;
 #networking.interfaces.enp0s3.useDHCP = true;
   environment.systemPackages = with pkgs; [
