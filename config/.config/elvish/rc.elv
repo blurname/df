@@ -22,7 +22,9 @@ set E:MANPAGER = 'nvim +Man!'
 set E:MANWIDTH = 999
 #set E:HTTP_PROXY = "http://127.0.0.1:7890"
 #set E:HTTPS_PROXY = "https://127.0.0.1:7890"
-
+set E:_JAVA_AWT_WM_NONREPARENTING = 1
+set E:XCURSOR_SIZE = 24
+set E:WLR_NO_HARDWARE_CURSORS = 1
 
 fn l {|| e:exa -la}
 fn c {|| clear }
