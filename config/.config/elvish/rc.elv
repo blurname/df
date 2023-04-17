@@ -262,6 +262,9 @@ fn zb {||
   }
 }
 
+fn tt {|| timedatectl}
+
+
 # power
 # shutodwn now
 fn SDHN {|| shutdown -h 0}
