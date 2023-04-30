@@ -30,7 +30,7 @@
       sublime4
       gtk4
       grim slurp
-      obs-studio
+      obs-studio unrar
   ];
 
   i18n.inputMethod = {
