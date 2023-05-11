@@ -8,7 +8,7 @@
   fonts.fontDir.enable = true;
   services.gnome.gnome-keyring.enable = true;
   environment.systemPackages = with pkgs; [
-    tdesktop
+      tdesktop
       qbittorrent
       vlc
       libsForQt5.kdeconnect-kde
@@ -27,7 +27,7 @@
       bemenu
       bleachbit
       android-file-transfer
-      microsoft-edge
+      #microsoft-edge
       sublime4
       gtk4
       grim slurp

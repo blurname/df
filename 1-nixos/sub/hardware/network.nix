@@ -23,7 +23,7 @@
   #};
 #networking.useDHCP = true;
 #networking.interfaces.enp0s3.useDHCP = true;
-  environment.systemPackages = with pkgs; [
-    nm-tray
-  ];
+  #environment.systemPackages = with pkgs; [
+    #nm-tray
+  #];
 }

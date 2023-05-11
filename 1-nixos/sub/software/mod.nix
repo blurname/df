@@ -7,7 +7,7 @@
     ./gui.nix
     ./language.nix
     ./wayland.nix
-    ./x11.nix
+    #./x11.nix
   ];
   
   nixpkgs.config.allowUnfree = true;

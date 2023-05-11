@@ -1,6 +1,4 @@
-
 { config, pkgs, ... }:
-
 {
   imports =
     [
@@ -34,7 +32,7 @@
     users.bl = {
       isNormalUser = true;
       extraGroups = [ "wheel" "bao" "docker" "audio" ]; # Enable ‘sudo’ for the user.
-      password = "a";
+      password = "b";
     };
     defaultUserShell = pkgs.elvish;
   };
@@ -48,7 +46,11 @@
     }
   ];
 
-  programs.sway.enable = true;
+  virtualisation.docker.enable = true;
+
+  services.xserver.enable = true;
+  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.desktopManager.plasma5.enable = true;
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     vim
@@ -58,12 +60,15 @@
     exa
     bat
     nodejs
-    carapace
+    #carapace
     alacritty
+    google-chrome
   ];
 
-  nix.settings.substituters = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
+  nix.settings.substituters = [ 
+    "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" 
+    "https://mirror.sjtu.edu.cn/nix-channels/store"
+  ];
 
-
-  # system.stateVersion = "unstable"; # Did you read the comment?
+  system.stateVersion = "unstable"; # Did you read the comment?
 }

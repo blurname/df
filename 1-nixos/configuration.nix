@@ -48,7 +48,7 @@
   ];
   fonts.fonts = with pkgs;[
     source-han-serif
-      inconsolata-nerdfont
+      #inconsolata-nerdfont
       lxgw-wenkai
   ];
 
@@ -56,7 +56,7 @@
     substituters = [
     "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
     "https://mirror.sjtu.edu.cn/nix-channels/store"
-    "https://hyprland.cachix.org"
+    #"https://hyprland.cachix.org"
     "https://cache.nixos.org"
     ];
     trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
