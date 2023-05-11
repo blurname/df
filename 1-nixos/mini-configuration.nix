@@ -52,6 +52,7 @@
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
   nixpkgs.config.allowUnfree = true;
+  services.v2raya.enable = true;
   environment.systemPackages = with pkgs; [
     vim
     neovim
