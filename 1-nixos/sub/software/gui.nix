@@ -14,7 +14,7 @@
       #libsForQt5.kdeconnect-kde
       firefox
       google-chrome
-      #obsidian
+      obsidian
       #libsForQt5.qt5ct
       #syncthing
       #fcitx5-gtk fcitx5-rime 

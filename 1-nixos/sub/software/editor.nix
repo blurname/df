@@ -9,9 +9,9 @@
     vim
     neovim
     #neovim-nightly
-    #vscode
+    vscode
     # lsp
-    #nil 
+    nil 
     # haskell-language-server 
     # lsp below has been controlled by coc-xxx
     # rust-analyzer sumneko-lua-language-server
