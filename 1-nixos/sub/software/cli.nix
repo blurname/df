@@ -8,21 +8,23 @@
     alacritty 
     #kitty
     bottom
-    htop
+    #htop
     carapace
     fd
     fzf
     zellij
-    curl
-    unzip
-    ripgrep
+    #curl
+    #unzip
+    #ripgrep
     wget
-    feh
-    neofetch
+    #feh
+    #neofetch
     lazygit
-    dutree
+    #dutree
 # file manager
-    lf llama #felix-fm chafa
-    asciiquarium
+    #lf# llama #felix-fm chafa
+    #asciiquarium
      ];
+
+     services.v2raya.enable = true;
 }

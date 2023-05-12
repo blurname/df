@@ -1,37 +1,37 @@
 { config,pkgs,...}:
 {
-  services.flatpak.enable = true;
+  #services.flatpak.enable = true;
   # https://github.com/NixOS/nixpkgs/issues/119433#issuecomment-986158837
   #fonts.fontDir.enable = true;
   #ln -s /run/current-system/sw/share/X11/fonts ~/.local/share/fonts
   #flatpak install flatseal
-  fonts.fontDir.enable = true;
-  services.gnome.gnome-keyring.enable = true;
+  #fonts.fontDir.enable = true;
+  #services.gnome.gnome-keyring.enable = true;
   environment.systemPackages = with pkgs; [
-      tdesktop
-      qbittorrent
-      vlc
-      libsForQt5.kdeconnect-kde
+      # tdesktop
+      #qbittorrent
+      #vlc
+      #libsForQt5.kdeconnect-kde
       firefox
       google-chrome
-      obsidian
-      libsForQt5.qt5ct
-      syncthing
-      fcitx5-gtk fcitx5-rime 
+      #obsidian
+      #libsForQt5.qt5ct
+      #syncthing
+      #fcitx5-gtk fcitx5-rime 
       #rime-data
-      libsForQt5.fcitx5-qt
-      pcmanfm
-      trayer nm-tray syncthingtray 
-      gns3-gui gns3-server
+      #libsForQt5.fcitx5-qt
+      #pcmanfm
+      #trayer nm-tray syncthingtray 
+      #gns3-gui gns3-server
       wl-clipboard cliphist
-      bemenu
-      bleachbit
-      android-file-transfer
+      #bemenu
+      #bleachbit
+      #android-file-transfer
       #microsoft-edge
-      sublime4
-      gtk4
-      grim slurp
-      obs-studio unrar
+      #sublime4
+      #gtk4
+      #grim slurp
+      #obs-studio unrar
   ];
 
   i18n.inputMethod = {

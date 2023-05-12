@@ -14,9 +14,10 @@
     #package = config.boot.kernelPackages.nvidiaPackages.stable;
   #};
     environment.systemPackages = with pkgs; [
-    dmenu
-    st
+ #   dmenu
+ #   st
     # eww-wayland
+    xclip
   ];
   services.xserver = {
     #videoDrivers = [ "nvidia" ];
@@ -24,26 +25,26 @@
     #windowManager.dwm.enable = true;
     #windowManager.leftwm.enable = true;
     #windowManager.icewm.enable = true;
-    displayManager.startx.enable = true;
-    #displayManager.sddm.enable = true;
-    #desktopManager.plasma5.enable = true;
+    #displayManager.startx.enable = true;
+    displayManager.sddm.enable = true;
+    desktopManager.plasma5.enable = true;
 #displayManager.gdm.enable = true;
 #desktopManager.gnome.enable = true;
   };
-  nixpkgs.overlays = [
-  (self: super: {
-    dwm = super.dwm.overrideAttrs (oldAttrs: rec {
-      
-       #src = builtins.fetchGit "https://github.com/LukeSmithxyz/dwm";
-      #patches = [
-        #./path/to/my-dwm-patch.patch
-        #];
-      configFile = super.writeText "config.h" (builtins.readFile /home/bl/df/1-nixos/sub/software/dwm/config.h);
-      #configFile = super.writeText "config.h" (builtins.readFile /home/bl/df/1-nixos/sub/software/dwm/config.h);
-      #postPatch = oldAttrs.postPatch or "" + "\necho 'Using own config file...'\n cp ${configFile} config.def.h";
-      });
-    })
-  ];
+ # nixpkgs.overlays = [
+ # (self: super: {
+ #   dwm = super.dwm.overrideAttrs (oldAttrs: rec {
+ #     
+ #      #src = builtins.fetchGit "https://github.com/LukeSmithxyz/dwm";
+ #     #patches = [
+ #       #./path/to/my-dwm-patch.patch
+ #       #];
+ #     configFile = super.writeText "config.h" (builtins.readFile /home/bl/df/1-nixos/sub/software/dwm/config.h);
+ #     #configFile = super.writeText "config.h" (builtins.readFile /home/bl/df/1-nixos/sub/software/dwm/config.h);
+ #     #postPatch = oldAttrs.postPatch or "" + "\necho 'Using own config file...'\n cp ${configFile} config.def.h";
+ #     });
+ #   })
+ # ];
   #specialisation = {
     #external-display.configuration = {
       #system.nixos.tags = ["external-display"];

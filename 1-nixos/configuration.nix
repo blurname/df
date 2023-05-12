@@ -47,9 +47,9 @@
   }
   ];
   fonts.fonts = with pkgs;[
-    source-han-serif
+    #source-han-serif
       #inconsolata-nerdfont
-      lxgw-wenkai
+    #  lxgw-wenkai
   ];
 
   nix.settings = {
