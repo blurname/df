@@ -1,6 +1,6 @@
 { config,pkgs,...}:
 {
-  #services.flatpak.enable = true;
+  services.flatpak.enable = true;
   # https://github.com/NixOS/nixpkgs/issues/119433#issuecomment-986158837
   #fonts.fontDir.enable = true;
   #ln -s /run/current-system/sw/share/X11/fonts ~/.local/share/fonts
