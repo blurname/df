@@ -8,4 +8,6 @@
     options hid_apple fnmode=2
     '';
   boot.kernelModules = [ "hid-apple"  ];
+  services.blueman.enable = true;
+  hardware.bluetooth.enable = true;
 }

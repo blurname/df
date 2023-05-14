@@ -8,14 +8,15 @@
   #fonts.fontDir.enable = true;
   #services.gnome.gnome-keyring.enable = true;
   environment.systemPackages = with pkgs; [
-      # tdesktop
-      #qbittorrent
-      #vlc
+      tdesktop
+      qbittorrent
+      vlc
       #libsForQt5.kdeconnect-kde
       firefox
       google-chrome
       obsidian
       #libsForQt5.qt5ct
+      bluez libsForQt5.bluez-qt libsForQt5.bluedevil # 蓝牙
       #syncthing
       #fcitx5-gtk fcitx5-rime 
       #rime-data
@@ -31,7 +32,7 @@
       #sublime4
       #gtk4
       #grim slurp
-      #obs-studio unrar
+      obs-studio unrar
   ];
 
   i18n.inputMethod = {
