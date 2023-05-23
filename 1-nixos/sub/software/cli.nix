@@ -6,6 +6,7 @@
     exa
     bat
     alacritty 
+    bash
     #kitty
     bottom
     #htop
@@ -15,14 +16,14 @@
     zellij
     #curl
     #unzip
-    #ripgrep
+    ripgrep
     wget
     #feh
     #neofetch
     lazygit
     #dutree
 # file manager
-    #lf# llama #felix-fm chafa
+    joshuto lf# llama #felix-fm chafa
     #asciiquarium
      ];
 

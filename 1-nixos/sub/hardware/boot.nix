@@ -10,4 +10,5 @@
   boot.kernelModules = [ "hid-apple"  ];
   services.blueman.enable = true;
   hardware.bluetooth.enable = true;
+  boot.supportedFilesystems = [ "ntfs" ];
 }
