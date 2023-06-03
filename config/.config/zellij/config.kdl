@@ -5,7 +5,7 @@ keybinds clear-defaults=true {
     tmux {
         bind "Enter" "Space" "Esc" { SwitchToMode "normal"; }
         // bind "s" { NewPane; SwitchToMode "normal"; }
-        bind "z" { ToggleFocusFullscreen; SwitchToMode "normal"; }
+        bind "f" { ToggleFocusFullscreen; }
         bind "t" { NewTab; SwitchToMode "normal"; }
         // bind "," { SwitchToMode "RenameTab"; TabNameInput 0; }
         bind "Left" { MoveFocus "Left"; SwitchToMode "normal"; }
