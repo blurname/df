@@ -249,8 +249,8 @@ fn mbR {|@targetRepo| bl gitReplacePackage $@targetRepo}
 fn mbD {|| bl detectCIStatus}
 fn mbDR {|@targetRepo| mbD; mbR $@targetRepo}
 fn mbBPDR {|@targetRepo| mbBP; mbD; mbR $@targetRepo}
-fn mbCommit {|| bl gitCommit}
-fn mbStartEnv {|| elvish /home/bl/prjs/blurkit/packages/cli/src/commands/0b-start-env.elv}
+fn mbCommit {|| bl gitCommit @mb2023}
+fn mbStartEnv {|| elvish /home/bl/prjs/script/mb-start.elv}
 fn dlog {|@name| node /home/bl/prjs/script/dlog.mjs $@name}
 
 # zellij
