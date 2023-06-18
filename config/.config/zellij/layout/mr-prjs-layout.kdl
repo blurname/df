@@ -1,27 +1,30 @@
 layout {
-        default_tab_template {
-        // the default zellij tab-bar and status bar plugins
-        children
-        pane size=1 borderless=true {
-            plugin location="zellij:tab-bar"
-        }
-        // pane size=2 borderless=true {
-        //     plugin location="zellij:status-bar"
-        // }
-    }
-    cwd "/home/bl"
+  default_tab_template {
+    // the default zellij tab-bar and status bar plugins
+    children
+      pane size=1 borderless=true {
+        plugin location="zellij:tab-bar"
+      }
+    // pane size=2 borderless=true {
+    //     plugin location="zellij:status-bar"
+    // }
+  }
+  cwd "/home/bl"
     tab cwd="df" name="df" split_direction="vertical" {
-        pane name="df-editor" command="nvim"{
-            args "README.md"
-        }
+      pane name="df-editor" command="nvim"{
+        args "README.md"
+      }
+      pane name="shell" size="30%"
     }
-    tab cwd="prjs/blurkit" name="blurkit" split_direction="vertical" {
-        pane name="blurkit-editor" command="nvim" {
-            args "package.json"
-        }
-        pane name="shell" size="30%"
+  tab cwd="prjs/blurkit" name="blurkit" split_direction="vertical" {
+    pane name="blurkit-editor" command="nvim" {
+      args "package.json"
     }
-    tab name="shell" split_direction="vertical" {
-        pane name="shell"
+    pane name="shell" size="30%"
+  }
+  tab cwd=".config/nvim" name="nvim" split_direction="vertical" {
+    pane name="nvim" command="nvim" {
+      args "init.vim"
     }
+  }
 }

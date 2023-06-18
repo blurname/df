@@ -50,6 +50,7 @@
     #source-han-serif
       #inconsolata-nerdfont
       lxgw-wenkai
+      iosevka
   ];
 
   nix.settings = {

@@ -25,6 +25,7 @@
 # file manager
     joshuto lf# llama #felix-fm chafa
     #asciiquarium
+    nerdfonts
      ];
 
      services.v2raya.enable = true;
