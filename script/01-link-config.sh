@@ -11,10 +11,10 @@ links=(
     "/home/bl/.config/elvish /home/bl/df/config/.config/elvish"
     "/home/bl/.config/zellij /home/bl/df/config/.config/zellij"
     "/home/bl/.config/bottom /home/bl/df/config/.config/bottom"
-    "/home/bl/.config/zellij /home/bl/df/config/.config/zellij"
     "/home/bl/.config/hypr /home/bl/df/config/.config/hypr"
     "/home/bl/.xinitrc /home/bl/df/config/.config/.xinitrc"
-    "/home/bl/carapace /home/bl/df/config/.config/carapace"
+    "/home/bl/.config/carapace /home/bl/df/config/.config/carapace"
+    "/home/bl/.config/starship.toml /home/bl/df/config/.config/starship.toml"
 )
 
 # 删除软链接或目标文件

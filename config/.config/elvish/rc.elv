@@ -264,6 +264,7 @@ fn zb {||
 
 fn tt {|| timedatectl}
 fn mf {|| bl metaScriptFzf}
+fn blg {|| bl generate}
 
 
 # power
