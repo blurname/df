@@ -8,6 +8,7 @@
     ./language.nix
     ./wayland.nix
     ./x11.nix
+    ./font.nix
   ];
   
   nixpkgs.config.allowUnfree = true;

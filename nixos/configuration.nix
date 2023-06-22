@@ -20,15 +20,6 @@
     keyMap = "us";
   };
 
-#home-manager.users.bl ={pkgs,...}:{
-#  home.pacages = with pkgs;[
-#    atool httpie
-#  ];
-#  programs.bash.enable = true;
-#programs.git.userName ="blurname";
-#programs.git.userEmail ="naughtybao@outlook.com";
-#};
-
   users = {
     users.bl = {
       isNormalUser = true;
@@ -45,12 +36,6 @@
       options = [ "SETENV" "NOPASSWD" ];
     }];
   }
-  ];
-  fonts.fonts = with pkgs;[
-    #source-han-serif
-      #inconsolata-nerdfont
-      lxgw-wenkai
-      iosevka
   ];
 
   nix.settings = {
