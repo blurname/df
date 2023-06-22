@@ -8,6 +8,7 @@
   environment.systemPackages = with pkgs; [
     vim
     neovim
+    emacs
     #neovim-nightly
     vscode
     # lsp

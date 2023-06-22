@@ -51,9 +51,9 @@ fn cdAndEdit {|filePath|
 
 # dotfile
 fn e {|@a| nvim $@a}
-fn nas {|| bash ~/df/1-nixos/apply-system.sh }
+fn nas {|| bash ~/df/nixos/apply-system.sh }
 fn nes {||
-  cdAndEdit ~/df/1-nixos/flake.nix
+  cdAndEdit ~/df/nixos/flake.nix
 }
 fn erc {||
   cdAndEdit ~/.config/elvish/rc.elv
