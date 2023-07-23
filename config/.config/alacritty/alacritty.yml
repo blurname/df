@@ -116,11 +116,12 @@ font:
     #family: firacode nerd font mono
     #family: notoserif nerd font
     #family: Inconsolata
-    family: LXGW WenKai Mono
-      #family: caskaydiacove nerd font mono
-      #family: FiraCode Nerd Font Mono
-     #family: Inconsolata
-    #family: iosevka
+    #family: LXGW WenKai Mono
+    #family: caskaydiacove nerd font mono
+    #family: FiraCode Nerd Font Mono
+    #family: Inconsolata
+    family: iosevka
+    #family: jetbrains Mono
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -374,7 +375,7 @@ font:
 # The value `0.0` is completely transparent and `1.0` is opaque.
 #background_opacity: 0.85
 window:
-  opacity: 1.0
+  opacity: 0.8
 
 #selection:
   # This string contains all characters that are used as separators for

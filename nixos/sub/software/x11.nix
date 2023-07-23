@@ -21,13 +21,13 @@
   ];
   services.xserver = {
     #videoDrivers = [ "nvidia" ];
-    enable = true;
+    #enable = true;
     #windowManager.dwm.enable = true;
     #windowManager.leftwm.enable = true;
     #windowManager.icewm.enable = true;
     #displayManager.startx.enable = true;
-    displayManager.sddm.enable = true;
-    desktopManager.plasma5.enable = true;
+    #displayManager.sddm.enable = true;
+    #desktopManager.plasma5.enable = true;
 #displayManager.gdm.enable = true;
 #desktopManager.gnome.enable = true;
   };

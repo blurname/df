@@ -5,6 +5,8 @@
       #inconsolata-nerdfont
       lxgw-wenkai
       iosevka
+      jetbrains-mono
+
   ];
   environment.systemPackages = with pkgs; [
     nerdfonts
