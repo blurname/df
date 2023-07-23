@@ -15,6 +15,7 @@ links=(
     "/home/bl/.xinitrc /home/bl/df/config/.config/.xinitrc"
     "/home/bl/.config/carapace /home/bl/df/config/.config/carapace"
     "/home/bl/.config/starship.toml /home/bl/df/config/.config/starship.toml"
+    "/home/bl/.config/lazygit /home/bl/df/config/.config/lazygit"
 )
 
 # 删除软链接或目标文件
