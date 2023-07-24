@@ -24,7 +24,6 @@
       #pcmanfm
       #trayer nm-tray syncthingtray 
       #gns3-gui gns3-server
-      wl-clipboard cliphist
       #bemenu
       #bleachbit
       #android-file-transfer
@@ -33,6 +32,7 @@
       #gtk4
       #grim slurp
       obs-studio unrar
+      keepassxc
   ];
 
   i18n.inputMethod = {
