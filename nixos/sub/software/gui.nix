@@ -21,7 +21,7 @@
       #fcitx5-gtk fcitx5-rime 
       #rime-data
       #libsForQt5.fcitx5-qt
-      #pcmanfm
+      pcmanfm
       #trayer nm-tray syncthingtray 
       #gns3-gui gns3-server
       #bemenu
