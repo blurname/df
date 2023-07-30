@@ -1,8 +1,9 @@
 lastupdatecheck: 0
 recentrepos:
     - /home/bl/df
-    - /home/bl/prjs/blocksuite
     - /home/bl/.config/nvim
+    - /home/bl/prjs/lexical
+    - /home/bl/prjs/blocksuite
     - /home/bl/prjs/blurkit
     - /home/bl/df/config/.config/nvim
     - /home/bl/prjs/thelostdays

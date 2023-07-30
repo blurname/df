@@ -108,7 +108,7 @@ fn gwip {|@m|
 
 fn gcm {|commitMessage|
   git add .
-  git commit -am $commitMessage
+  git commit --no-verify -am $commitMessage
 }
 fn gcamend {||
   git commit --amend

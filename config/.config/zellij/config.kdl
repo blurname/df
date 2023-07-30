@@ -16,7 +16,7 @@ keybinds clear-defaults=true {
         bind "l" { GoToNextTab; SwitchToMode "normal"; }
         bind "j" { FocusNextPane; SwitchToMode "normal"; }
         bind "k" { FocusPreviousPane; SwitchToMode "normal"; }
-        bind "w" { CloseFocus; SwitchToMode "normal"; }
+        bind "w" { CloseFocus; }
         bind "n" { NewPane; SwitchToMode "normal"; }
         bind "d" { Detach; }
         bind "1" { GoToTab 1; SwitchToMode "normal"; }
@@ -30,7 +30,7 @@ keybinds clear-defaults=true {
         bind "F11" { ToggleFocusFullscreen; SwitchToMode "normal"; }
         bind "F10" { TogglePaneFrames; }
         bind "i" { ToggleFloatingPanes; SwitchToMode "normal"; }
-        bind "s" { EditScrollback; }
+        bind "e" { EditScrollback; }
 
     }
 }

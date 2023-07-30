@@ -11,20 +11,15 @@ layout {
   }
   cwd "/home/bl"
     tab cwd="df" name="df" split_direction="vertical" {
-      pane name="df-editor" command="nvim"{
-        args "README.md"
-      }
+      pane name="df-editor"
       pane name="shell" size="30%"
     }
   tab cwd="prjs/blurkit" name="blurkit" split_direction="vertical" {
-    pane name="blurkit-editor" command="nvim" {
-      args "package.json"
-    }
+    pane name="blurkit-editor"
     pane name="shell" size="30%"
   }
   tab cwd=".config/nvim" name="nvim" split_direction="vertical" {
-    pane name="nvim" command="nvim" {
-      args "init.vim"
-    }
+    pane name="nvim"
+    pane name="shell" size="30%"
   }
 }
