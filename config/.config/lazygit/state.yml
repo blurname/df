@@ -1,14 +1,12 @@
 lastupdatecheck: 0
 recentrepos:
-    - /home/bl/df
-    - /home/bl/.config/nvim
-    - /home/bl/prjs/lexical
-    - /home/bl/prjs/blocksuite
-    - /home/bl/prjs/blurkit
-    - /home/bl/df/config/.config/nvim
-    - /home/bl/prjs/thelostdays
-    - /home/bl/prjs/plantuml-parser
-    - /home/bl/prjs/remesh
+- /home/bl/df
+- /home/bl/.config/nvim
+- /home/bl/prjs/lexical
+- /home/bl/prjs/blocksuite
+- /home/bl/prjs/blurkit
+- /home/bl/prjs/thelostdays
+- /home/bl/prjs/remesh
 startuppopupversion: 5
 customcommandshistory: []
 hidecommandlog: false
