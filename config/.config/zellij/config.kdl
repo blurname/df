@@ -12,26 +12,25 @@ keybinds clear-defaults=true {
         bind "Right" { MoveFocus "Right"; SwitchToMode "normal"; }
         bind "Down" { HalfPageScrollDown; }
         bind "Up" { HalfPageScrollUp; }
-        bind "h" { GoToPreviousTab; SwitchToMode "normal"; }
-        bind "l" { GoToNextTab; SwitchToMode "normal"; }
-        bind "j" { FocusNextPane; SwitchToMode "normal"; }
-        bind "k" { FocusPreviousPane; SwitchToMode "normal"; }
+        bind "h" { GoToPreviousTab;}
+        bind "l" { GoToNextTab; }
+        bind "j" { FocusNextPane; }
+        bind "k" { FocusPreviousPane;}
         bind "w" { CloseFocus; }
         bind "n" { NewPane; SwitchToMode "normal"; }
         bind "d" { Detach; }
-        bind "1" { GoToTab 1; SwitchToMode "normal"; }
-        bind "2" { GoToTab 2; SwitchToMode "normal"; }
-        bind "3" { GoToTab 3; SwitchToMode "normal"; }
-        bind "4" { GoToTab 4; SwitchToMode "normal"; }
-        bind "5" { GoToTab 5; SwitchToMode "normal"; }
-        bind "6" { GoToTab 6; SwitchToMode "normal"; }
-        bind "7" { GoToTab 7; SwitchToMode "normal"; }
-        bind "8" { GoToTab 8; SwitchToMode "normal"; }
+        bind "1" { GoToTab 1; }
+        bind "2" { GoToTab 2; }
+        bind "3" { GoToTab 3; }
+        bind "4" { GoToTab 4; }
+        bind "5" { GoToTab 5; }
+        bind "6" { GoToTab 6; }
+        bind "7" { GoToTab 7; }
+        bind "8" { GoToTab 8; }
         bind "F11" { ToggleFocusFullscreen; SwitchToMode "normal"; }
         bind "F10" { TogglePaneFrames; }
         bind "i" { ToggleFloatingPanes; SwitchToMode "normal"; }
         bind "e" { EditScrollback; }
-
     }
 }
 
