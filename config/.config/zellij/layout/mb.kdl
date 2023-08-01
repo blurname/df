@@ -1,0 +1,17 @@
+layout {
+  default_tab_template {
+    children
+      pane size=1 borderless=true {
+        plugin location="zellij:tab-bar"
+      }
+  }
+  cwd "/home/bl/git"
+    tab cwd="mb-proto" name="proto" split_direction="vertical" {
+      pane name="proto"
+      pane name="shell" size="30%"
+    }
+  tab cwd="imock" name="imock" split_direction="vertical" {
+    pane name="imock"
+    pane name="shell" size="30%"
+  }
+}
