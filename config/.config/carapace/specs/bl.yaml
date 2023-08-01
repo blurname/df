@@ -8,7 +8,7 @@ commands:
   - name: gitCommit
   - name: detectCIStatus
   - name: gitReplacePackage
-  - name: startZellij
   - name: generateShellCompletions
   - name: logRemoteJson
-  - name: forgetLog
+  - name: gitForgetLog
+  - name: metaScriptFzf
