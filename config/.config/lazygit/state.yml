@@ -1,10 +1,13 @@
 lastupdatecheck: 0
 recentrepos:
 - /home/bl/df
+- /home/bl/prjs/blurkit
+- /home/bl/git/mb-workspace
+- /home/bl/git/mb-proto
+- /home/bl/git/imock
 - /home/bl/.config/nvim
 - /home/bl/prjs/lexical
 - /home/bl/prjs/blocksuite
-- /home/bl/prjs/blurkit
 - /home/bl/prjs/thelostdays
 - /home/bl/prjs/remesh
 startuppopupversion: 5

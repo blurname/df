@@ -20,6 +20,7 @@ leftwm/themes/current
 !/zathura
 !/starship.toml
 !/carapace
+/carapace/schema.json
 !/sway
 !/waybar
 !/fcitx5
@@ -28,4 +29,5 @@ leftwm/themes/current
 !/zellij
 !/bottom
 !/hypr
-!/lazygit/config.yml
+!/lazygit
+/lazygit/state.yml
