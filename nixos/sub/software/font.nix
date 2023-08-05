@@ -1,6 +1,6 @@
 { config,pkgs,...}:
 {
-  fonts.fonts = with pkgs;[
+  fonts.packages = with pkgs;[
       source-han-serif
       #inconsolata-nerdfont
       lxgw-wenkai
