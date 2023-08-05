@@ -33,6 +33,7 @@
       #grim slurp
       obs-studio unrar
       keepassxc
+      vivaldi
   ];
 
   i18n.inputMethod = {
