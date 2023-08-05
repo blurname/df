@@ -27,7 +27,8 @@ leftwm/themes/current
 !/kitty
 !/elvish
 !/zellij
+zellij/layout/mb.kdl
 !/bottom
 !/hypr
 !/lazygit
-/lazygit/state.yml
+lazygit/state.yml
