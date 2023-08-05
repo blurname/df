@@ -20,7 +20,7 @@ leftwm/themes/current
 !/zathura
 !/starship.toml
 !/carapace
-/carapace/schema.json
+carapace/schema.json
 !/sway
 !/waybar
 !/fcitx5
