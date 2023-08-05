@@ -6,9 +6,10 @@
       lxgw-wenkai
       iosevka
       jetbrains-mono
+  (nerdfonts.override { fonts = [ "Iosevka" ]; })
 
   ];
-  environment.systemPackages = with pkgs; [
-    nerdfonts
-  ];
+  # environment.systemPackages = with pkgs; [
+  #   nerdfonts
+  # ];
 }
