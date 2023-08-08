@@ -63,18 +63,22 @@ fn envimrc {||
   cdAndEdit ~/.config/nvim/entry.vim
 }
 
+
+# edit meta file
 fn ep {||
-  try {
 # elvish has no builtin function to check if file exist
-    test -f package.json
-    nvim ./package.json
-  } catch {
-      try {
-        test -f Cargo.toml
-          nvim ./Cargo.toml
-      } catch {
-        echo 'no metaFile here'
-      }
+  if ?(test -f package.json) {
+   { nvim ./package.json} # must be lambda body, not expression
+  } elif ?(test -f Cargo.toml) {
+    { nvim ./Cargo.toml}
+  } elif ?(test -f init.vim) {
+    { nvim ./init.vim }
+  } elif ?(test -f flake.nix) {
+    { nvim ./flake.nix }
+  } elif ?(test -f README.md) {
+    { nvim ./README.md }
+  } else {
+    { echo 'no metaFile here' }
   }
 }
 

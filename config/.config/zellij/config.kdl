@@ -5,7 +5,7 @@ keybinds clear-defaults=true {
     tmux {
         bind "Enter" "Space" "Esc" { SwitchToMode "normal"; }
         // bind "s" { NewPane; SwitchToMode "normal"; }
-        bind "f" { ToggleFocusFullscreen; }
+        bind "f" { ToggleFocusFullscreen; SwitchToMode "normal";}
         bind "t" { NewTab; SwitchToMode "normal"; }
         // bind "," { SwitchToMode "RenameTab"; TabNameInput 0; }
         bind "Left" { MoveFocus "Left"; SwitchToMode "normal"; }
@@ -14,8 +14,8 @@ keybinds clear-defaults=true {
         bind "Up" { HalfPageScrollUp; }
         bind "h" { GoToPreviousTab;}
         bind "l" { GoToNextTab; }
-        bind "j" { FocusNextPane; }
-        bind "k" { FocusPreviousPane;}
+        bind "j" { FocusNextPane; SwitchToMode "normal"; }
+        bind "k" { FocusPreviousPane; SwitchToMode "normal"; }
         bind "w" { CloseFocus; }
         bind "n" { NewPane; SwitchToMode "normal"; }
         bind "d" { Detach; }
@@ -28,9 +28,9 @@ keybinds clear-defaults=true {
         bind "7" { GoToTab 7; }
         bind "8" { GoToTab 8; }
         bind "F11" { ToggleFocusFullscreen; SwitchToMode "normal"; }
-        bind "F10" { TogglePaneFrames; }
+        bind "F10" { TogglePaneFrames; SwitchToMode "normal"; }
         bind "i" { ToggleFloatingPanes; SwitchToMode "normal"; }
-        bind "e" { EditScrollback; }
+        bind "e" { EditScrollback; SwitchToMode "normal"; }
     }
 }
 
@@ -71,6 +71,7 @@ theme "nordfox"
 //
 default_layout "mr-prjs-layout"
 
+pane_frames true
 // Choose the mode that zellij uses when starting up.
 // Default: normal
 //
