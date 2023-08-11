@@ -16,7 +16,9 @@
     # haskell-language-server 
     # lsp below has been controlled by coc-xxx
     # rust-analyzer
-    sumneko-lua-language-server
+    # sumneko-lua-language-server
+    # vimPlugins.coc-sumneko-lua
+    lua-language-server
   ];
   #	 programs.neovim = {
 	#	 enable = true;
