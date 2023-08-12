@@ -12,3 +12,4 @@ commands:
   - name: logRemoteJson
   - name: gitForgetLog
   - name: metaScriptFzf
+  - name: gitViewDiff

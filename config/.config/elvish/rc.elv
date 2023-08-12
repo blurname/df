@@ -277,8 +277,8 @@ fn SDHN {|| shutdown -h 0}
 
 # bindings
 set edit:insert:binding[Alt-w] = $edit:insert:binding[Alt-f]
-set edit:insert:binding[Alt-h] = $edit:insert:binding[Home]
-set edit:insert:binding[Alt-l] = $edit:insert:binding[End]
+set edit:insert:binding[Ctrl-a] = $edit:insert:binding[Home]
+set edit:insert:binding[Ctrl-e] = $edit:insert:binding[End]
 
 eval (starship init elvish) 2> /dev/null
 eval (carapace _carapace|slurp)
