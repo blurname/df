@@ -30,7 +30,7 @@
       #microsoft-edge
       #sublime4
       #gtk4
-      #grim slurp
+      grim slurp
       obs-studio unrar
       keepassxc
       vivaldi

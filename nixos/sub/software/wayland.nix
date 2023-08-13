@@ -1,7 +1,8 @@
 { config,pkgs,...}:
 {
     environment.systemPackages = with pkgs; [
-    waybar
+    waybar-hyprland
+    xdg-desktop-portal-hyprland
     wofi
     swaylock
     hyprpaper swaybg

@@ -6,6 +6,7 @@
       lxgw-wenkai
       iosevka
       jetbrains-mono
+      fira-code
   (nerdfonts.override { fonts = [ "Iosevka" ]; })
 
   ];

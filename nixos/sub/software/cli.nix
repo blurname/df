@@ -26,6 +26,7 @@
     joshuto lf# llama #felix-fm chafa
     #asciiquarium
     nerdfonts
+    bsdgames
      ];
 
      services.v2raya.enable = true;
