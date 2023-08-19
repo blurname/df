@@ -5,9 +5,8 @@
     starship
     exa
     bat
-    alacritty 
+    alacritty  kitty
     bash
-    #kitty
     bottom
     #htop
     carapace
@@ -27,6 +26,8 @@
     #asciiquarium
     nerdfonts
     bsdgames
+    # configuration.nix
+    nur.repos.xyenon.yazi
      ];
 
      services.v2raya.enable = true;
