@@ -18,7 +18,7 @@ keybinds clear-defaults=true {
         bind "k" { FocusPreviousPane; SwitchToMode "normal"; }
         bind "w" { CloseFocus; }
         bind "n" { NewPane "right"; SwitchToMode "normal"; }
-        bind "q" { Quit; }
+        bind "Q" { Quit; }
         bind "d" { Detach; }
         bind "1" { GoToTab 1; }
         bind "2" { GoToTab 2; }
