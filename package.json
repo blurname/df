@@ -5,7 +5,7 @@
   "description": "meta file for configuration",
   "author": "naughtybao@outlook.com",
   "scripts": {
-    "flake-sync":"cd nixos && nix flake update && git commit -am 'BUMP: lock' && cd ../",
+    "flake-bump":"nix flake update && git commit -am 'BUMP: lock'",
     "update-home-config":"bash script/01-link-config.sh"
   }
 }
