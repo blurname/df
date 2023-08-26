@@ -4,8 +4,9 @@
   "version": "0.0.0",
   "description": "meta file for configuration",
   "author": "naughtybao@outlook.com",
+  "type": "module",
   "scripts": {
-    "flake-bump":"nix flake update && git commit -am 'BUMP: lock'",
+    "flake-bump":"nix flake update && node ./script/flake-lock-bump.mjs",
     "update-home-config":"bash script/01-link-config.sh"
   }
 }
