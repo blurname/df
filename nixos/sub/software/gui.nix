@@ -34,6 +34,7 @@
       obs-studio unrar
       keepassxc
       vivaldi
+      flameshot
   ];
 
   i18n.inputMethod = {
