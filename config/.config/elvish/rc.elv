@@ -275,6 +275,11 @@ fn blg {|| bl generate}
 # shutodwn now
 fn SDHN {|| shutdown -h 0}
 
+fn prjs {|| 
+  cd ~/prjs
+  e:exa -la
+}
+
 # bindings
 set edit:insert:binding[Alt-w] = $edit:insert:binding[Alt-f]
 set edit:insert:binding[Ctrl-a] = $edit:insert:binding[Home]
