@@ -27,7 +27,7 @@
     nerdfonts
     bsdgames
     # configuration.nix
-    nur.repos.xyenon.yazi
+    yazi
      ];
 
      services.v2raya.enable = true;
