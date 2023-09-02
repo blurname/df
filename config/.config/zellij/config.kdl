@@ -32,6 +32,13 @@ keybinds clear-defaults=true {
         bind "F10" { TogglePaneFrames; SwitchToMode "normal"; }
         bind "i" { ToggleFloatingPanes; SwitchToMode "normal"; }
         bind "e" { EditScrollback; SwitchToMode "normal"; }
+        bind "p" {
+          LaunchOrFocusPlugin "zellij:session-manager" {
+            floating true
+              move_to_focused_tab true
+          };
+          SwitchToMode "Normal"
+        }
     }
 }
 
