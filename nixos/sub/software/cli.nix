@@ -18,16 +18,15 @@
     ripgrep
     wget
     #feh
-    #neofetch
+    neofetch
     lazygit
     #dutree
 # file manager
-    joshuto lf# llama #felix-fm chafa
+    yazi # joshuto lf llama #felix-fm chafa
     #asciiquarium
     nerdfonts
     bsdgames
-    # configuration.nix
-    yazi
+    
      ];
 
      services.v2raya.enable = true;

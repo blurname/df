@@ -35,6 +35,7 @@
       keepassxc
       vivaldi
       flameshot
+      mpv
   ];
 
   i18n.inputMethod = {
