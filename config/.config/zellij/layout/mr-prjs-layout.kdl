@@ -11,24 +11,24 @@ layout {
   }
   cwd "/home/bl"
     tab cwd="df" name="df" split_direction="vertical" {
-      floating_panes {
-        pane cwd="/home/bl/df" {
-          //    width "80%"
-          //   height "80%"
-        }       
-      }
+      // floating_panes {
+      //   pane cwd="/home/bl/df" {
+      //     //    width "80%"
+      //     //   height "80%"
+      //   }       
+      // }
       pane name="df-editor"
     }
   tab cwd="prjs/blurkit" name="blurkit" split_direction="vertical" {
-    floating_panes {
-      pane cwd="/home/bl/prjs/blurkit"
-    }
+    // floating_panes {
+    //   pane cwd="/home/bl/prjs/blurkit"
+    // }
     pane name="blurkit-editor"
   }
   tab cwd=".config/nvim" name="nvim" split_direction="vertical" {
-    floating_panes {
-      pane cwd="/home/bl/.config/nvim"
-    }
+    // floating_panes {
+    //   pane cwd="/home/bl/.config/nvim"
+    // }
     pane name="nvim"
   }
 }
