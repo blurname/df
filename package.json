@@ -7,6 +7,7 @@
   "type": "module",
   "scripts": {
     "flake-bump":"nix flake update && node ./script/flake-lock-bump.mjs",
+    "flake-gc":"sudo nix store gc --debug",
     "update-home-config":"bash script/01-link-config.sh"
   }
 }
