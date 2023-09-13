@@ -17,6 +17,7 @@
       obsidian
       #libsForQt5.qt5ct
       bluez libsForQt5.bluez-qt libsForQt5.bluedevil # 蓝牙
+      libsForQt5.dolphin libsForQt5.kdegraphics-thumbnailers libsForQt5.ark
       #syncthing
       #fcitx5-gtk fcitx5-rime 
       #rime-data

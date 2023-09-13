@@ -26,6 +26,7 @@
     #asciiquarium
     nerdfonts
     bsdgames
+    zip unzip
     
      ];
 
