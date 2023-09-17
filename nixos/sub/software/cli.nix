@@ -3,7 +3,7 @@
   environment.systemPackages = with pkgs; [
     git
     starship
-    exa
+    eza
     bat
     alacritty  kitty
     bash
