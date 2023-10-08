@@ -32,3 +32,4 @@ zellij/layout/mb.kdl
 !/hypr
 !/lazygit
 lazygit/state.yml
+!/nix
