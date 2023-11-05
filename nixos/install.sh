@@ -1,34 +1,44 @@
-#!/bin/bash
+# 检查 nvme0n1 设备是否存在
+if [[ -b /dev/nvme0n1 ]]; then
+  device="/dev/nvme0n1"
+  partition_prefix="p"
+else
+  device="/dev/sda"
+  partition_prefix=""
+fi
 
-parted /dev/nvme0n1 -- mklabel gpt
+# 创建 GPT 标签的主分区
+parted "$device" -- mklabel gpt
 
-# Create a primary partition starting at 512MiB and ending at the end of the device
-parted /dev/nvme0n1 -- mkpart primary 512MiB 100%
+# 在设备末尾创建主分区，起始位置为 512MiB
+parted "$device" -- mkpart primary 512MiB 100%
 
-# Create an ESP partition starting at 1MiB and ending at 512MiB
-parted /dev/nvme0n1 -- mkpart ESP fat32 1MiB 512MiB
+# 在 1MiB 和 512MiB 之间创建 ESP 分区
+parted "$device" -- mkpart ESP fat32 1MiB 512MiB
 
-# Set the second partition as the EFI System Partition
-parted /dev/nvme0n1 -- set 2 esp on
+# 将第二个分区设为 EFI 系统分区
+parted "$device" -- set 2 esp on
 
-# Create an Ext4 file system with the label "nixos" on the first partition
-mkfs.ext4 -L nixos /dev/nvme0n1p1
+# 在第一个分区上创建带有 "nixos" 标签的 Ext4 文件系统
+mkfs.ext4 -L nixos "${device}${partition_prefix}1"
 
-# Create a FAT32 file system with the label "boot" on the second partition
-mkfs.fat -F 32 -n boot /dev/nvme0n1p2
+# 在第二个分区上创建带有 "boot" 标签的 FAT32 文件系统
+mkfs.fat -F 32 -n boot "${device}${partition_prefix}2"
 
-# Mount the partition with the "nixos" label to /mnt
+# 将带有 "nixos" 标签的分区挂载到 /mnt
 mount /dev/disk/by-label/nixos /mnt
 
-# Create the /mnt/boot directory
+# 创建 /mnt/boot 目录
 mkdir -p /mnt/boot
 
-# Mount the partition with the "boot" label to /mnt/boot
+# 将带有 "boot" 标签的分区挂载到 /mnt/boot
 mount /dev/disk/by-label/boot /mnt/boot
 
-# Generate a NixOS configuration file for the system mounted at /mnt
+# 为挂载在 /mnt 的系统生成 NixOS 配置文件
 nixos-generate-config --root /mnt
 
+# 将 mini-configuration.nix 文件移动到 /mnt/etc/nixos/configuration.nix
 mv -f ./mini-configuration.nix /mnt/etc/nixos/configuration.nix
 
+# 安装 NixOS，设置 substituters 选项为 "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
 nixos-install --option substituters "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
