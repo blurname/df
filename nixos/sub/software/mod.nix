@@ -6,9 +6,9 @@
     ./editor.nix
     ./gui.nix
     ./language.nix
-    ./wayland.nix
-    ./x11.nix
-    ./font.nix
+    #./wayland.nix
+    #./x11.nix
+    #./font.nix
   ];
   
   nixpkgs.config.allowUnfree = true;

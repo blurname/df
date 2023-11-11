@@ -15,6 +15,13 @@
       enable = true;
     };
   };
+  
+  networking.interfaces.eth1 = {
+  ipv4.addresses = [{
+    address = "10.42.1.2";
+    prefixLength = 16;
+  }];
+};
   time.timeZone = "Asia/Shanghai";
 
   services = {
@@ -48,9 +55,6 @@
 
   virtualisation.docker.enable = true;
 
-  services.xserver.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     vim
@@ -61,11 +65,11 @@
     bat
     nodejs
     alacritty
+    carapace
   ];
 
   nix.settings.substituters = [ 
     "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" 
-    "https://mirror.sjtu.edu.cn/nix-channels/store"
   ];
 
   system.stateVersion = "unstable"; # Did you read the comment?

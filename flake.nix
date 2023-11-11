@@ -4,9 +4,7 @@
     experimental-features = [ "nix-command" "flakes" ];
     substituters = [
       # replace official cache with a mirror located in China
-      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
       "https://mirrors.bfsu.edu.cn/nix-channels/store"
-      "https://cache.nixos.org/"
     ];
 
     # nix community's cache server
@@ -49,14 +47,6 @@
         specialArgs = inputs;
         modules=[
           ./nixos/configuration.nix
-            #hyprland.nixosModules.default
-            #nur.nixosModules.nur
-            #({ config, ... }: {
-            ## 使用 NUR 提供的包，这里以 hyfetch 为例
-            #environment.systemPackages = [ 
-              #config.nur.repos.xddxdd.qqmusic
-            #];
-          #})
         ];
       };
     };

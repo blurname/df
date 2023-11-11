@@ -41,4 +41,4 @@ nixos-generate-config --root /mnt
 mv -f ./mini-config.nix /mnt/etc/nixos/configuration.nix
 
 # 安装 NixOS，设置 substituters 选项为 "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
-nixos-install --option substituters "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+nixos-install --option substituters "https://mirrors.bfsu.edu.cn/nix-channels/store"
