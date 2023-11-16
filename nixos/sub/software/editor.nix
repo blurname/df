@@ -8,17 +8,17 @@
   environment.systemPackages = with pkgs; [
     vim
     neovim
-    emacs
+    #emacs
     #neovim-nightly
-    vscode
+    #vscode
     # lsp
-    nil 
+    # nil 
     # haskell-language-server 
     # lsp below has been controlled by coc-xxx
     # rust-analyzer
     # sumneko-lua-language-server
     # vimPlugins.coc-sumneko-lua
-    lua-language-server
+    # lua-language-server
   ];
   #	 programs.neovim = {
 	#	 enable = true;

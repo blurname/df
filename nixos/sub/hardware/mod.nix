@@ -1,7 +1,7 @@
 {config,pkgs,...}:
 {
  imports = [
-  ./audio.nix
+  # ./audio.nix
   ./network.nix
   ./boot.nix
  ];

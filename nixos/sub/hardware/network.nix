@@ -1,18 +1,12 @@
 {pkgs,...}:{
   networking = {
     hostName = "nyx";
-#    interfaces={
-#    enp0s3.ip4=[{
-#      address = "192.168.1.2";
-#      prefixLength = 28;
-#    }];
-#    };
-  interfaces.eth1 = {
-  ipv4.addresses = [{
-    address = "10.42.1.2";
-    prefixLength = 16;
-  }];
-};
+    interfaces.eth1 = {
+    ipv4.addresses = [{
+      address = "10.42.1.2";
+      prefixLength = 16;
+    }];
+  };
     networkmanager = {
       enable = true;
     };
@@ -21,15 +15,12 @@
     };
   };
 
-  #services = {
-    #openssh = {
-      #enable = true;
-      #passwordAuthentication = true;
-    #};
-  #};
-# networking.useDHCP = true;
-#networking.interfaces.enp0s3.useDHCP = true;
-  #environment.systemPackages = with pkgs; [
-    #nm-tray
-  #];
+  services = {
+    openssh = {
+      enable = true;
+      settings = {
+        PasswordAuthentication = false;
+      };
+    };
+  };
 }

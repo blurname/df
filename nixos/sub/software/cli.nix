@@ -5,7 +5,7 @@
     starship
     eza
     bat
-    alacritty  kitty
+    # alacritty  kitty
     bash
     bottom
     #htop
@@ -25,10 +25,10 @@
     yazi ueberzugpp # joshuto lf llama #felix-fm chafa 
     #asciiquarium
     nerdfonts
-    bsdgames
+    # bsdgames
     zip unzip
     
      ];
 
-     services.v2raya.enable = true;
+     #services.v2raya.enable = true;
 }

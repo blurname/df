@@ -1,18 +1,18 @@
 {pkgs,...}:
 {
   
-  sound.enable = true;
+  #sound.enable = true;
   #hardware.pulseaudio.enable = true;
   # pipewire cause firefox crashed
 
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
+  #hardware.pulseaudio.enable = false;
+  #security.rtkit.enable = true;
+  #services.pipewire = {
+  #  enable = true;
+  #  alsa.enable = true;
+  #  alsa.support32Bit = true;
+  #  pulse.enable = true;
+  #};
 
   nixpkgs.config.pulseaudio = true;
     environment.systemPackages = with pkgs; [
@@ -23,9 +23,9 @@
     #brightnessctl
     
     
-    pamix
-    ncpamixer
-    pavucontrol
-    pasystray
+    #pamix
+    #ncpamixer
+    #pavucontrol
+    #pasystray
   ];
 }

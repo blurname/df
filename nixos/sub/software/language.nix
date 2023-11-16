@@ -1,11 +1,11 @@
 { config,pkgs,...}:
 {
   environment.systemPackages = with pkgs; [
-      rustup
+      #rustup
       python3Full
       gcc gnumake
-      #go
-      nodejs #yarn nodePackages.pnpm
+      go
+      nodejs yarn #nodePackages.pnpm
       #nixpkgs-fmt
   ];
 #   programs.npm = {

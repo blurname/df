@@ -4,7 +4,7 @@
     ./cli.nix
     ./docker.nix
     ./editor.nix
-    ./gui.nix
+    #./gui.nix
     ./language.nix
     #./wayland.nix
     #./x11.nix
