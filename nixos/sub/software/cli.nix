@@ -31,4 +31,8 @@
      ];
 
      #services.v2raya.enable = true;
+    services.xserver = {
+      enable = true;
+    };
+
 }
