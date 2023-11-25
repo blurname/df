@@ -24,7 +24,7 @@
 # file manager
     yazi ueberzugpp # joshuto lf llama #felix-fm chafa 
     #asciiquarium
-    nerdfonts
+    # nerdfonts
     # bsdgames
     zip unzip
     
