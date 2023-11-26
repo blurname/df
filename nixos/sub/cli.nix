@@ -8,7 +8,7 @@
     # alacritty  kitty
     bash
     bottom
-    #htop
+    htop
     carapace
     fd
     fzf

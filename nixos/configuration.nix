@@ -5,8 +5,7 @@
   imports =
     [
     /etc/nixos/hardware-configuration.nix
-      ./sub/software/mod.nix
-      ./sub/hardware/mod.nix
+      ./sub/mod.nix
 #<home-manager/nixos>
     ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
