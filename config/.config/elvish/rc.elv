@@ -242,7 +242,7 @@ fn draa {|path| deno run --allow-all $path}
 # self ts script
 # now chagned to npm package, but command blow is still for testing
 fn tbl {|@options| 
-  tsx ~/prjs/blurkit/packages/cli/src/main.ts $@options
+  tsx ~/prjs/blurkit/pkg/cli/src/main.ts $@options
 }
 
 # mb
