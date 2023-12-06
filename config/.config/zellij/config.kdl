@@ -12,8 +12,8 @@ keybinds clear-defaults=true {
         bind "Right" { MoveFocus "Right"; SwitchToMode "normal"; }
         bind "Down" { HalfPageScrollDown; }
         bind "Up" { HalfPageScrollUp; }
-        bind "h" { GoToPreviousTab; SwitchToMode "normal";}
-        bind "l" { GoToNextTab; SwitchToMode "normal"; }
+        bind "h" { GoToPreviousTab;}
+        bind "l" { GoToNextTab;}
         bind "j" { FocusNextPane; SwitchToMode "normal"; }
         bind "k" { FocusPreviousPane; SwitchToMode "normal"; }
         bind "w" { CloseFocus; }
