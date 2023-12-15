@@ -191,7 +191,7 @@ fn gcpc {|| git cherry-pick --continue}
 fn GDA {|| git restore .}
 
 # glab
-fn GPR {|target| glab mr new -b $target -f -y}
+fn GPR {|target| glab mr new -b $target -f -y --remove-source-branch}
 fn GPRD {|target desc| glab mr new -b $target -d $desc -y}
 
 # docker
