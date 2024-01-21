@@ -27,6 +27,7 @@
     # nerdfonts
     # bsdgames
     zip unzip
+    tmux
     
      ];
 

@@ -31,4 +31,5 @@ zellij/layout/mb.kdl
 !/bottom
 !/hypr
 !/lazygit
+!/.tmux.conf
 lazygit/state.yml
