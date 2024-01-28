@@ -1,6 +1,0 @@
-# arch-install
-
-## Usage
-
-```bash
-```
