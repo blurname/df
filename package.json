@@ -10,6 +10,7 @@
     "flake-version-bump":"nix flake update && node ./script/flake-lock-bump.mjs",
     "flake-gc":"sudo nix store gc --debug && sudo nix-collect-garbage -d ",
     "sync-home-config":"bash script/01-link-config.sh",
-    "install-blurname-cli": "sudo npm i -g @blurname/cli"
+    "install-blurname-cli": "sudo npm i -g @blurname/cli",
+    "vscode-ssh":"systemctl --user start vscode-remote-workaround"
   }
 }

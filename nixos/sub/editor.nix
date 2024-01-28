@@ -22,7 +22,7 @@
     # lua-language-server
   ];
    # thanks to this video https://www.youtube.com/watch?v=CbDVUjbqIhc
-   # need run systemctl --user start vscode-remote-workaround
+   # need run 
    systemd.user = {
     paths.vscode-remote-workaround = {
       wantedBy = ["default.target"];

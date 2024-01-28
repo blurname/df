@@ -149,7 +149,7 @@ layout_dir "/home/bl/df/config/.config/zellij/layout"
 plugins {
     tab-bar { path "tab-bar"; }
     status-bar { path "status-bar"; }
-    strider { path "strider"; }
+    // strider { path "strider"; }
     compact-bar { path "compact-bar"; }
 }
 themes {
