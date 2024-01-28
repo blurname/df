@@ -259,7 +259,7 @@ fn dlog {|@name| node /home/bl/prjs/script/dlog.mjs $@name}
 
 # zellij
 fn zb {|| 
-  # e:bash /home/bl/df/config/.config/tmux/layout/zb.sh
+  # e:bash /home/bl/df/config/tmux/layout/zb.sh
   try {
     e:zellij a b
   } catch {

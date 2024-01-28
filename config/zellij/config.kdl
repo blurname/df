@@ -140,7 +140,7 @@ pane_frames true
 
 // The folder in which Zellij will look for layouts
 //
-layout_dir "/home/bl/df/config/.config/zellij/layout"
+layout_dir "/home/bl/df/config/zellij/layout"
 
 // The folder in which Zellij will look for themes
 //
