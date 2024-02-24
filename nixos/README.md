@@ -2,20 +2,15 @@
 
 ## setup
 
-1. install
+ 1. install
 
- ```bash
- git clone <https://github.com/blurname/df.git>
-  nix-shell -p nodejs
-  sudo node install.mjs part
-  sudo node install.mjs df
- ```
+```bash
+ nix-shell -p git && git clone <https://github.com/blurname/df.git> && sudo bash df/nixos/install-prepare.sh
+```
 
  2. reboot
  3. user
 
 ```bash
- git clone <https://github.com/blurname/df.git> # get config
- bash .df/script/01-link-config # link .config
- nas # apply nixos config
- ```
+ cd df && npm run sync-home-config
+```
