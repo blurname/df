@@ -22,7 +22,9 @@
     lazygit
     #dutree
 # file manager
-    yazi ueberzugpp # joshuto lf llama #felix-fm chafa 
+    # yazi 
+    ueberzugpp
+    # joshuto lf llama #felix-fm chafa 
     #asciiquarium
     # nerdfonts
     # bsdgames
