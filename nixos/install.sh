@@ -38,7 +38,7 @@ mount /dev/disk/by-label/boot /mnt/boot
 nixos-generate-config --root /mnt
 
 # 将 mini-config.nix 文件移动到 /mnt/etc/nixos/configuration.nix
-mv -f ./mini-config.nix /mnt/etc/nixos/configuration.nix
+# mv -f ./mini-config.nix /mnt/etc/nixos/configuration.nix
 
 # 安装 NixOS，设置 substituters 选项为 "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
-nixos-install --option substituters "https://mirrors.bfsu.edu.cn/nix-channels/store"
+nixos-install --flake '/home/nixos/bl/nixos#nyx' --option substituters "https://mirrors.bfsu.edu.cn/nix-channels/store"
