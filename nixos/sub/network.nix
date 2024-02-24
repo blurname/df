@@ -3,7 +3,7 @@
     hostName = "nyx";
     interfaces.eth1 = {
     ipv4.addresses = [{
-      address = "10.42.1.2";
+      address = "10.42.1.3";
       prefixLength = 24;
     }];
   };

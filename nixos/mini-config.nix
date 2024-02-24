@@ -18,8 +18,8 @@
   
   networking.interfaces.eth1 = {
   ipv4.addresses = [{
-    address = "10.42.1.2";
-    prefixLength = 16;
+    address = "10.42.1.3";
+    prefixLength = 24;
   }];
 };
   time.timeZone = "Asia/Shanghai";
