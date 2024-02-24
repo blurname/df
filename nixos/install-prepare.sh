@@ -36,3 +36,4 @@ mount /dev/disk/by-label/boot /mnt/boot
 
 # 为挂载在 /mnt 的系统生成 NixOS 配置文件
 nixos-generate-config --root /mnt
+mv /mnt/etc/nixos/hardware-configuration.nix /etc/nixos
