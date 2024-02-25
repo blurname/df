@@ -34,6 +34,7 @@
         ln -sf ${pkgs.nodejs_18}/bin/node $i/node
       done
     '';
+    units.vscode-remote-workaround.enable = true;
   };
   #	 programs.neovim = {
 	#	 enable = true;
