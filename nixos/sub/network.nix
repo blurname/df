@@ -23,4 +23,7 @@
       };
     };
   };
+  users.users.bl.openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG2gwRBW5CAqQkLiRempjEr+WtO+KlTRvehEk8rNRfDB Nyx_vm"
+  ];
 }
