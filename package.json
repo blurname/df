@@ -6,12 +6,13 @@
   "author": "naughtybao@outlook.com",
   "type": "module",
   "scripts": {
-    "flake-install": "bash ./script/0-nixos-install.sh",
-    "flake-apply-config": "bash ./nixos/apply-system.sh",
     "flake-version-bump": "nix flake update && node ./script/flake-lock-bump.mjs",
+    "flake-apply-config": "bash ./nixos/apply-system.sh",
     "flake-gc": "sudo nix store gc --debug && sudo nix-collect-garbage -d ",
     "sync-home-config": "bash script/01-link-config.sh",
     "install-blurname-cli": "sudo npm i -g @blurname/cli",
-    "vscode-ssh": "systemctl --user start vscode-remote-workaround"
+    "vscode-ssh": "systemctl --user start vscode-remote-workaround",
+    "only-backup":"",
+    "flake-install": "bash ./script/0-nixos-install.sh"
   }
 }
