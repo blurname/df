@@ -26,7 +26,7 @@
     #asciiquarium
     # nerdfonts
     # bsdgames
-    zip unzip
+    p7zip zip unzip
     #tmux
     
      ];
