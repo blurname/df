@@ -242,7 +242,7 @@ fn draa {|path| deno run --allow-all $path}
 # self ts script
 # now chagned to npm package, but command blow is still for testing
 fn tbl {|@options| 
-  tsx ~/prjs/blurkit/pkg/cli/src/main.ts $@options
+  tsx ~/prj/blurkit/pkg/cli/src/main.ts $@options
 }
 
 # mb
@@ -254,8 +254,8 @@ fn mbD {|| bl detectCIStatus}
 fn mbDR {|@targetRepo| mbD; mbR $@targetRepo}
 fn mbBPDR {|@targetRepo| mbBP; mbD; mbR $@targetRepo}
 fn mbCommit {|| bl gitCommit @mb2023}
-fn mbStartEnv {|| elvish /home/bl/prjs/script/mb-start.elv}
-fn dlog {|@name| node /home/bl/prjs/script/dlog.mjs $@name}
+fn mbStartEnv {|| elvish /home/bl/prj/script/mb-start.elv}
+fn dlog {|@name| node /home/bl/prj/script/dlog.mjs $@name}
 
 # zellij
 fn zb {|| 
@@ -276,8 +276,8 @@ fn blg {|| bl generate}
 # shutodwn now
 fn SDHN {|| shutdown -h 0}
 
-fn prjs {|| 
-  cd ~/prjs
+fn prj {|| 
+  cd ~/prj
   e:exa -la
 }
 
