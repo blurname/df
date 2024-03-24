@@ -9,10 +9,10 @@ layout {
     //     plugin location="zellij:status-bar"
     // }
   }
-  cwd "/home/bl"
+  cwd "~"
     tab cwd="df" name="df" split_direction="vertical" {
       // floating_panes {
-      //   pane cwd="/home/bl/df" {
+      //   pane cwd="~/df" {
       //     //    width "80%"
       //     //   height "80%"
       //   }       
@@ -21,13 +21,13 @@ layout {
     }
   tab cwd="prjs/blurkit" name="blurkit" split_direction="vertical" {
     // floating_panes {
-    //   pane cwd="/home/bl/prjs/blurkit"
+    //   pane cwd="~/prjs/blurkit"
     // }
     pane name="blurkit-editor"
   }
   tab cwd=".config/nvim" name="nvim" split_direction="vertical" {
     // floating_panes {
-    //   pane cwd="/home/bl/.config/nvim"
+    //   pane cwd="~/.config/nvim"
     // }
     pane name="nvim"
   }

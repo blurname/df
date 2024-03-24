@@ -2,21 +2,21 @@
 
 # 定义链接列表
 links=(
-    "/home/bl/.config/alacritty /home/bl/df/config/alacritty"
-    "/home/bl/.config/.Xmodmap /home/bl/df/config/.Xmodmap"
-    "/home/bl/.config/.pam_environment /home/bl/df/config/.pam_environment"
-    "/home/bl/.config/waybar /home/bl/df/config/waybar"
-    "/home/bl/.config/fcitx5 /home/bl/df/config/fcitx5"
-    "/home/bl/.config/kitty /home/bl/df/config/kitty"
-    "/home/bl/.config/elvish /home/bl/df/config/elvish"
-    "/home/bl/.config/zellij /home/bl/df/config/zellij"
-    "/home/bl/.config/bottom /home/bl/df/config/bottom"
-    "/home/bl/.config/hypr /home/bl/df/config/hypr"
-    "/home/bl/.xinitrc /home/bl/df/config/.xinitrc"
-    "/home/bl/.config/carapace /home/bl/df/config/carapace"
-    "/home/bl/.config/starship.toml /home/bl/df/config/starship.toml"
-    "/home/bl/.config/lazygit /home/bl/df/config/lazygit"
-    "/home/bl/.tmux.conf /home/bl/df/config/tmux/.tmux.conf"
+    "$HOME/.config/alacritty $HOME/df/config/alacritty"
+    "$HOME/.config/.Xmodmap $HOME/df/config/.Xmodmap"
+    "$HOME/.config/.pam_environment $HOME/df/config/.pam_environment"
+    "$HOME/.config/waybar $HOME/df/config/waybar"
+    "$HOME/.config/fcitx5 $HOME/df/config/fcitx5"
+    "$HOME/.config/kitty $HOME/df/config/kitty"
+    "$HOME/.config/elvish $HOME/df/config/elvish"
+    "$HOME/.config/zellij $HOME/df/config/zellij"
+    "$HOME/.config/bottom $HOME/df/config/bottom"
+    "$HOME/.config/hypr $HOME/df/config/hypr"
+    "$HOME/.xinitrc $HOME/df/config/.xinitrc"
+    "$HOME/.config/carapace $HOME/df/config/carapace"
+    "$HOME/.config/starship.toml $HOME/df/config/starship.toml"
+    "$HOME/.config/lazygit $HOME/df/config/lazygit"
+    "$HOME/.tmux.conf $HOME/df/config/tmux/.tmux.conf"
 )
 
 # 删除软链接或目标文件

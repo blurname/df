@@ -1,7 +1,7 @@
 #!/bin/bash
 # npm config set registry=https://registry.npmmirror.com
-mkdir -p /home/bl/.npm-global
-sudo npm set prefix /home/bl/.npm-global
+mkdir -p ~/.npm-global
+sudo npm set prefix ~/.npm-global
 
 #mkdir ~/DIY_NPM/
 #( cd ~/DIY_NPM/

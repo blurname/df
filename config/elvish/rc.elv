@@ -55,6 +55,9 @@ fn nas {|| bash ~/df/nixos/apply-system.sh }
 fn nes {||
   cdAndEdit ~/df/nixos/flake.nix
 }
+fn r { ||
+  exec
+}
 fn erc {||
   cdAndEdit ~/.config/elvish/rc.elv
 }
@@ -254,8 +257,8 @@ fn mbD {|| bl detectCIStatus}
 fn mbDR {|@targetRepo| mbD; mbR $@targetRepo}
 fn mbBPDR {|@targetRepo| mbBP; mbD; mbR $@targetRepo}
 fn mbCommit {|| bl gitCommit @mb2023}
-fn mbStartEnv {|| elvish /home/bl/prj/script/mb-start.elv}
-fn dlog {|@name| node /home/bl/prj/script/dlog.mjs $@name}
+fn mbStartEnv {|| elvish ~/prj/script/mb-start.elv}
+fn dlog {|@name| node ~/prj/script/dlog.mjs $@name}
 
 # zellij
 fn zb {|| 
