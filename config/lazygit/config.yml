@@ -232,3 +232,26 @@ keybinding:
     init: 'i'
     update: 'u'
     bulkMenu: 'b'
+customCommands: #https://github.com/jesseduffield/lazygit/blob/master/docs/Custom_Command_Keybindings.md
+  - key: 'p'
+    context: 'localBranches'
+    command: 'git pull --rebase'
+  - key: '<c-p>'
+    context: 'localBranches'
+    prompts:
+      - type: 'menu'
+        title: 'custom'
+        key: 'BranchType'
+        options:
+          - name: 'grhr'
+            description: 'git reset hard to origin'
+            value: 'yes'
+    command: "git reset --hard origin/$(git branch --show-current)"
+    loadingText: 'Creating branch'
+  - key: 'c'
+    command: 'git checkout {{.Form.Branch}} && git reset --hard origin/$(git branch --show-current)'
+    context: 'localBranches'
+    prompts:
+      - type: 'input'
+        title: 'git reset to remote branch'
+        key: 'Branch'
