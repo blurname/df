@@ -234,7 +234,7 @@ keybinding:
     bulkMenu: 'b'
 customCommands: #https://github.com/jesseduffield/lazygit/blob/master/docs/Custom_Command_Keybindings.md
   - key: 'p'
-    context: 'localBranches'
+    context: 'global'
     command: 'git pull --rebase'
   - key: '<c-r>'
     context: 'localBranches'
@@ -244,7 +244,7 @@ customCommands: #https://github.com/jesseduffield/lazygit/blob/master/docs/Custo
         key: 'BranchType'
         options:
           - name: 'grhr'
-            description: 'git reset hard to origin'
+            description: 'git reset --hard origin/$(git branch --show-current)'
             value: 'yes'
     command: "git reset --hard origin/$(git branch --show-current)"
     loadingText: 'Creating branch'
@@ -255,3 +255,10 @@ customCommands: #https://github.com/jesseduffield/lazygit/blob/master/docs/Custo
       - type: 'input'
         title: 'git reset to remote branch'
         key: 'Branch'
+  - key: '<c-s>'
+    command: 'git add . && git commit -am "WIP: {{.Form.message}}"'
+    context: 'global'
+    prompts:
+      - type: 'input'
+        title: 'WIP: ${message}'
+        key: 'message'
