@@ -78,6 +78,7 @@ theme "nordfox"
 // Default: "default"
 //
 default_layout "mr-prjs-layout"
+session_serialization false
 
 pane_frames true
 // Choose the mode that zellij uses when starting up.
