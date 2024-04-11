@@ -17,6 +17,7 @@ links=(
     "$HOME/.config/starship.toml $HOME/df/config/starship.toml"
     "$HOME/.config/lazygit $HOME/df/config/lazygit"
     "$HOME/.tmux.conf $HOME/df/config/tmux/.tmux.conf"
+    "$HOME/.config/fish $HOME/df/config/fish"
 )
 
 # 删除软链接或目标文件
