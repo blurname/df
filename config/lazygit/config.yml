@@ -236,7 +236,7 @@ customCommands: #https://github.com/jesseduffield/lazygit/blob/master/docs/Custo
   - key: 'p'
     context: 'localBranches'
     command: 'git pull --rebase'
-  - key: '<c-p>'
+  - key: '<c-r>'
     context: 'localBranches'
     prompts:
       - type: 'menu'
