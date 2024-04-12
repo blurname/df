@@ -248,7 +248,7 @@ customCommands: #https://github.com/jesseduffield/lazygit/blob/master/docs/Custo
             value: 'yes'
     command: "git reset --hard origin/$(git branch --show-current)"
     loadingText: 'Creating branch'
-  - key: 'c'
+  - key: '<c-t>'
     command: 'git checkout {{.Form.Branch}} && git reset --hard origin/$(git branch --show-current)'
     context: 'localBranches'
     prompts:
