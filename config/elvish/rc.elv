@@ -20,6 +20,7 @@ set E:EDITOR = "nvim"
 set E:BEMENU_BACKEND = "wayland"
 set E:MANPAGER = 'nvim +Man!'
 set E:MANWIDTH = 999
+set E:DISPLAY = "localhost:10.0"
 #set E:HTTP_PROXY = "http://127.0.0.1:7890"
 #set E:HTTPS_PROXY = "https://127.0.0.1:7890"
 set E:_JAVA_AWT_WM_NONREPARENTING = 1
