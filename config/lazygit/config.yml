@@ -236,18 +236,22 @@ customCommands: #https://github.com/jesseduffield/lazygit/blob/master/docs/Custo
   - key: 'p'
     context: 'global'
     command: 'git pull --rebase'
-  - key: '<c-r>'
-    context: 'localBranches'
+  - key: '<c-l>' #this command not be override in gloabl context, need to remap it agian in commits
+    context: 'global'
     prompts:
       - type: 'menu'
-        title: 'custom'
-        key: 'BranchType'
+        title: 'custom command'
+        key: 'value'
+        showOutput: true
         options:
           - name: 'grhr'
             description: 'git reset --hard origin/$(git branch --show-current)'
-            value: 'yes'
-    command: "git reset --hard origin/$(git branch --show-current)"
-    loadingText: 'Creating branch'
+            value: 'git reset --hard origin/$(git branch --show-current)'
+          - name: 'mbbp'
+            description: 'version-bump && tag-push'
+            value: 'npm run version-bump && npm run tag-push'
+    command: "{{.Form.value}}"
+    loadingText: 'runnning'
   - key: '<c-t>'
     command: 'git checkout {{.Form.Branch}} && git reset --hard origin/$(git branch --show-current)'
     context: 'localBranches'
