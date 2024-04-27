@@ -19,7 +19,7 @@ layout {
       // }
       pane name="df-editor"
     }
-  tab cwd="prjs/blurkit" name="blurkit" split_direction="vertical" {
+  tab cwd="prj/blurkit" name="blurkit" split_direction="vertical" {
     // floating_panes {
     //   pane cwd="~/prjs/blurkit"
     // }
