@@ -1,7 +1,7 @@
 { config,pkgs,...}:
 {
   environment.systemPackages = with pkgs; [
-      #rustup
+      rustup
       python3Full
       gcc gnumake
       #go
