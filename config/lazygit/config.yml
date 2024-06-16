@@ -164,6 +164,7 @@ keybinding:
         toggleWhitespaceInDiffView: '<c-w>'
         increaseContextInDiffView: '}'
         decreaseContextInDiffView: '{'
+        toggleRangeSelect: '<c-r>'
     status:
         checkForUpdate: 'u'
         recentRepos: '<enter>'
