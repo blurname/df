@@ -5,7 +5,7 @@
       python3Full
       gcc gnumake
       #go
-      nodejs_21 #yarn #nodePackages.pnpm
+      nodejs_22 #yarn #nodePackages.pnpm
       #nixpkgs-fmt
   ];
 #   programs.npm = {
