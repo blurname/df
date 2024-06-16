@@ -17,7 +17,7 @@
   };
   inputs={
 
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
 
     #home-manager = {
       #url="github:nix-community/home-manager";
