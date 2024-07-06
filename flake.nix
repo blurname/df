@@ -20,6 +20,7 @@
   inputs={
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixos-wsl-vscode.url = "github:Atry/nixos-wsl-vscode";
 
     #home-manager = {
       #url="github:nix-community/home-manager";
@@ -42,12 +43,13 @@
     # 强制 NUR 和该 flake 使用相同版本的 nixpkgs
     #nur.inputs.nixpkgs.follows = "nixpkgs";
   };
-  outputs = inputs@{self,nixpkgs,...}:{
+  outputs = inputs@{self,nixpkgs,nixos-wsl-vscode,...}:{
     nixosConfigurations={
       nyx = nixpkgs.lib.nixosSystem{
         system ="x86_64-linux";
         specialArgs = inputs;
         modules=[
+          nixos-wsl-vscode.nixosModules.vscodeServerWsl
           ./nixos/configuration.nix
         ];
       };
