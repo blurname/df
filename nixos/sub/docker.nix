@@ -2,7 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     virt-manager
-    docker-compose_1
+    docker-compose
   ];
 
   virtualisation.libvirtd.enable = true;
