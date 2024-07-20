@@ -18,6 +18,7 @@ links=(
     "$HOME/.config/lazygit $HOME/df/config/lazygit"
     "$HOME/.tmux.conf $HOME/df/config/tmux/.tmux.conf"
     "$HOME/.config/fish $HOME/df/config/fish"
+    "$HOME/.bashrc $HOME/df/config/.bashrc"
 )
 
 # 删除软链接或目标文件

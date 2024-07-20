@@ -1,6 +1,7 @@
 { config,pkgs,...}:
 {
   environment.systemPackages = with pkgs; [
+    elvish
     git
     starship
     eza
