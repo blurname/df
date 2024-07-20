@@ -19,6 +19,7 @@ links=(
     "$HOME/.tmux.conf $HOME/df/config/tmux/.tmux.conf"
     "$HOME/.config/fish $HOME/df/config/fish"
     "$HOME/.bashrc $HOME/df/config/.bashrc"
+    "$HOME/.bash_profile $HOME/df/config/.bash_profile"
 )
 
 # 删除软链接或目标文件

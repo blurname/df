@@ -58,8 +58,8 @@ alias grep='grep --color=auto'
 PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}"
 
 # Set prompt
-PS1="${Yellow}\u@\h${NC}: ${Blue}\w${NC} \\$ "
-setterm -blength 0
+# PS1="${Yellow}\u@\h${NC}: ${Blue}\w${NC} \\$ "
+# setterm -blength 0
 export RUSTUP_DIST_SERVER="https://rsproxy.cn"
 export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
 export DISPLAY=localhost:10.0 # 1.install VcXsrv, set number: 10, disable control access; 2. open vscode; 3. ssh -CY bl@10.42.1.2

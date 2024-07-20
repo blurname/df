@@ -7,6 +7,7 @@
     ./language.nix
     ./boot.nix
     ./network.nix
+    ./optional/x11.nix
   ];
   
   nixpkgs.config.allowUnfree = true;

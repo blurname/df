@@ -19,9 +19,12 @@
     # eww-wayland
     # xclip
   ];
+  
+    # programs.ssh.forwardX11 = true;
   services.xserver = {
     #videoDrivers = [ "nvidia" ];
     enable = true;
+
     #windowManager.dwm.enable = true;
     #windowManager.leftwm.enable = true;
     #windowManager.icewm.enable = true;
