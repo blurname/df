@@ -19,11 +19,11 @@ layout {
       // }
       pane name="df-editor"
     }
-  tab cwd="prj/blurkit" name="blurkit" split_direction="vertical" {
+  tab cwd="prj/luv-sic" name="luv-sic" split_direction="vertical" {
     // floating_panes {
     //   pane cwd="~/prjs/blurkit"
     // }
-    pane name="blurkit-editor"
+    pane name="luv-sic"
   }
   tab cwd=".config/nvim" name="nvim" split_direction="vertical" {
     // floating_panes {
