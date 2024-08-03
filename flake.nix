@@ -20,6 +20,7 @@
   inputs={
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-wsl-vscode.url = "github:Atry/nixos-wsl-vscode";
 
     #home-manager = {
@@ -43,11 +44,24 @@
     # 强制 NUR 和该 flake 使用相同版本的 nixpkgs
     #nur.inputs.nixpkgs.follows = "nixpkgs";
   };
-  outputs = inputs@{self,nixpkgs,nixos-wsl-vscode,...}:{
+  outputs = inputs@{self,nixpkgs,nixpkgs-unstable,nixos-wsl-vscode,...}:
+
+        let system ="x86_64-linux";
+  in {
     nixosConfigurations={
       nyx = nixpkgs.lib.nixosSystem{
-        system ="x86_64-linux";
-        specialArgs = inputs;
+        specialArgs = {
+          pkgs = import nixpkgs {
+            # 这里递归引用了外部的 system 属性
+            inherit system;
+            config.allowUnfree = true;
+          };
+
+          pkgs-unstable = import nixpkgs-unstable {
+            inherit system;
+            config.allowUnfree = true;
+          };
+          };
         modules=[
           nixos-wsl-vscode.nixosModules.vscodeServerWsl
           ./nixos/configuration.nix
