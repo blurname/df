@@ -21,7 +21,7 @@
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixos-wsl-vscode.url = "github:Atry/nixos-wsl-vscode";
+    # nixos-wsl-vscode.url = "github:Atry/nixos-wsl-vscode";
 
     #home-manager = {
       #url="github:nix-community/home-manager";
@@ -44,7 +44,7 @@
     # 强制 NUR 和该 flake 使用相同版本的 nixpkgs
     #nur.inputs.nixpkgs.follows = "nixpkgs";
   };
-  outputs = inputs@{self,nixpkgs,nixpkgs-unstable,nixos-wsl-vscode,...}:
+  outputs = inputs@{self,nixpkgs,nixpkgs-unstable,...}:
 
         let system ="x86_64-linux";
   in {
@@ -63,7 +63,7 @@
           };
           };
         modules=[
-          nixos-wsl-vscode.nixosModules.vscodeServerWsl
+          # nixos-wsl-vscode.nixosModules.vscodeServerWsl
           ./nixos/configuration.nix
         ];
       };
