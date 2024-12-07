@@ -28,6 +28,7 @@ keybinds clear-defaults=true {
         bind "6" { GoToTab 6; }
         bind "7" { GoToTab 7; }
         bind "8" { GoToTab 8; }
+        bind "`" { ToggleTab; SwitchToMode "normal";}
         bind "F11" { ToggleFocusFullscreen; SwitchToMode "normal"; }
         bind "F10" { TogglePaneFrames; SwitchToMode "normal"; }
         bind "i" { ToggleFloatingPanes; SwitchToMode "normal"; }
