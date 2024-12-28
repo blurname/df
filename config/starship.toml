@@ -14,3 +14,6 @@ format = "($style) "
 format = "[$symbol$branch(:$remote_branch)]($style) "
 #symbol = "🌱 "
 truncation_symbol = ""
+[directory]
+truncation_length = 8
+truncation_symbol = '~/'
