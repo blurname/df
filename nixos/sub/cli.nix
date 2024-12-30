@@ -12,7 +12,8 @@
     htop
     carapace
     fd
-    #fzf
+    fzf
+    glab
     zellij
     curl
     #unzip
