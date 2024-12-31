@@ -14,7 +14,10 @@
     fd
     fzf
     glab
-    zellij
+
+    zellij 
+    tmux
+
     curl
     #unzip
     ripgrep
