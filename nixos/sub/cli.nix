@@ -1,4 +1,4 @@
-{ config,pkgs,...}:
+{ config,pkgs,pkgs-2405,...}:
 {
   environment.systemPackages = with pkgs; [
     elvish
@@ -15,7 +15,7 @@
     fzf
     glab
 
-    zellij 
+    # zellij 
     tmux
 
     curl
@@ -34,7 +34,9 @@
     p7zip zip unzip
     #tmux
     
-     ];
+     ] ++ [
+    pkgs-2405.zellij
+  ];
   programs.nix-ld = {
     enable = true;
     package = pkgs.nix-ld-rs; # only for NixOS 24.05
