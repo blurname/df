@@ -294,7 +294,7 @@ eval (starship init elvish) 2> /dev/null
 eval (carapace _carapace|slurp)
 
 fn f {|| fzf }
-set E:FZF_DEFAULT_COMMAND = "fd --hidden --follow --type f --type l"
+set E:FZF_DEFAULT_COMMAND = "fd --hidden --follow --type f --type l --exclude .git"
 set E:FZF_DEFAULT_OPTS = "
   --reverse
   --height 85%
@@ -308,6 +308,6 @@ set E:FZF_DEFAULT_OPTS = "
   --color=fg+:#BFC0C3,bg+:#2e3440,hl+:#a3be8b
   --color=info:#eacb8a,prompt:#81a1c1,pointer:#b48dac
   --color=marker:#a3be8b,spinner:#b48dac,header:#a3be8b
-  --bind 'ctrl-d:half-page-down,ctrl-u:half-page-up,alt-d:preview-half-page-down'
+  --bind 'ctrl-d:half-page-down,ctrl-u:half-page-up,alt-d:preview-half-page-down,tab:down,btab:up'
 "
 
