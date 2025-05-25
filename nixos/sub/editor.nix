@@ -33,7 +33,7 @@
     services.vscode-remote-workaround.script = ''
       for i in ~/.vscode-server/bin/*; do
         echo "Fixing vscode-server in $i..."
-        ln -sf ${pkgs.nodejs_18}/bin/node $i/node
+        ln -sf ${pkgs.nodejs_22}/bin/node $i/node
       done
     '';
     # units.vscode-remote-workaround.enable = true;

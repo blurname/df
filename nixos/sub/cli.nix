@@ -1,4 +1,4 @@
-{ config,pkgs,pkgs-2405,...}:
+{ config,pkgs,pkgs-2405,pkgs-2411,...}:
 {
   environment.systemPackages = with pkgs; [
     elvish
@@ -15,7 +15,7 @@
     fzf
     glab
 
-    # zellij 
+    zellij 
     tmux
 
     curl
@@ -35,7 +35,9 @@
     #tmux
     
      ] ++ [
-    pkgs-2405.zellij
+    # old-version
+    # pkgs-2411.lazygit
+    # pkgs-2405.zellij
   ];
   programs.nix-ld = {
     enable = true;

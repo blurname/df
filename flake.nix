@@ -19,15 +19,10 @@
   };
   inputs={
 
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-2405.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs-2411.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    # nixos-wsl-vscode.url = "github:Atry/nixos-wsl-vscode";
-
-    #home-manager = {
-      #url="github:nix-community/home-manager";
-      #inputs.nixpkgs.follows = "nixpkgs";
-    #};
 
     #neovim-nightly ={
       #url ="github:nix-community/neovim-nightly-overlay";
@@ -45,7 +40,7 @@
     # 强制 NUR 和该 flake 使用相同版本的 nixpkgs
     #nur.inputs.nixpkgs.follows = "nixpkgs";
   };
-  outputs = inputs@{self,nixpkgs,nixpkgs-unstable,nixpkgs-2405,...}:
+  outputs = inputs@{self,nixpkgs,nixpkgs-unstable,nixpkgs-2405,nixpkgs-2411,...}:
 
         let system ="x86_64-linux";
   in {
@@ -59,6 +54,10 @@
           };
 
           pkgs-unstable = import nixpkgs-unstable {
+            inherit system;
+            config.allowUnfree = true;
+          };
+          pkgs-2411 = import nixpkgs-2411 {
             inherit system;
             config.allowUnfree = true;
           };
