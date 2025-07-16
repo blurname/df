@@ -65,3 +65,6 @@ export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
 export DISPLAY=localhost:10.0 # 1.install VcXsrv, set number: 10, disable control access; 2. open vscode; 3. ssh -CY bl@10.42.1.2
 export EDITOR="nvim" # 1.install VcXsrv, set number: 10, disable control access; 2. open vscode; 3. ssh -CY bl@10.42.1.2
 
+
+# moonbit
+export PATH="$HOME/.moon/bin:$PATH"

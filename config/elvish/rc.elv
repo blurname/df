@@ -6,6 +6,7 @@ set paths = [
       ~/.cargo/bin
       ~/.local/bin
       ~/.deno/bin
+      ~/.moon/bin
       /bin
       /usr/bin
       $@paths
