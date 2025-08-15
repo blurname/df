@@ -1,0 +1,184 @@
+keybinds clear-defaults=true {
+    normal {
+        bind "Alt `" { SwitchToMode "tmux"; }
+    }
+    tmux {
+        bind "Enter" "Space" "Esc" { SwitchToMode "normal"; }
+        // bind "s" { NewPane; SwitchToMode "normal"; }
+        bind "f" { ToggleFocusFullscreen; SwitchToMode "normal";}
+        bind "t" { NewTab; SwitchToMode "normal"; }
+        // bind "," { SwitchToMode "RenameTab"; TabNameInput 0; }
+        bind "Left" { MoveFocus "Left"; SwitchToMode "normal"; }
+        bind "Right" { MoveFocus "Right"; SwitchToMode "normal"; }
+        bind "Down" { HalfPageScrollDown; }
+        bind "Up" { HalfPageScrollUp; }
+        bind "h" { GoToPreviousTab;}
+        bind "l" { GoToNextTab;}
+        bind "j" { FocusNextPane; SwitchToMode "normal"; }
+        bind "k" { FocusPreviousPane; SwitchToMode "normal"; }
+        bind "w" { CloseFocus; }
+        bind "n" { NewPane "right"; SwitchToMode "normal"; }
+        bind "Q" { Quit; }
+        bind "d" { Detach; }
+        bind "1" { GoToTab 1; }
+        bind "2" { GoToTab 2; }
+        bind "3" { GoToTab 3; }
+        bind "4" { GoToTab 4; }
+        bind "5" { GoToTab 5; }
+        bind "6" { GoToTab 6; }
+        bind "7" { GoToTab 7; }
+        bind "8" { GoToTab 8; }
+        bind "`" { ToggleTab; SwitchToMode "normal";}
+        bind "F11" { ToggleFocusFullscreen; SwitchToMode "normal"; }
+        bind "F10" { TogglePaneFrames; SwitchToMode "normal"; }
+        bind "i" { ToggleFloatingPanes; SwitchToMode "normal"; }
+        bind "e" { EditScrollback; SwitchToMode "normal"; }
+        bind "p" {
+          LaunchOrFocusPlugin "zellij:session-manager" {
+            floating true
+              move_to_focused_tab true
+          };
+          SwitchToMode "Normal"
+        }
+    }
+}
+
+// Choose what to do when zellij receives SIGTERM, SIGINT, SIGQUIT or SIGHUP
+// eg. when terminal window with an active zellij session is closed
+// Options:
+//   - detach (Default)
+//   - quit
+//
+// on_force_close "quit"
+
+// Send a request for a simplified ui (without arrow fonts) to plugins
+// Options:
+//   - true
+//   - false (Default)
+//
+simplified_ui true
+
+// Choose the path to the default shell that zellij will use for opening new panes
+// Default: $SHELL
+//
+default_shell "elvish"
+
+// Toggle between having pane frames around the panes
+// Options:
+//   - true (default)
+//   - false
+//
+// pane_frames true
+
+// Choose the theme that is specified in the themes section.
+// Default: default
+//
+theme "nordfox" 
+
+// The name of the default layout to load on startup
+// Default: "default"
+//
+// default_layout "mr-prjs-layout"
+session_serialization false
+
+pane_frames true
+// Choose the mode that zellij uses when starting up.
+// Default: normal
+//
+// default_mode "locked"
+
+// Toggle enabling the mouse mode.
+// On certain configurations, or terminals this could
+// potentially interfere with copying text.
+// Options:
+//   - true (default)
+//   - false
+//
+// mouse_mode false
+
+// Configure the scroll back buffer size
+// This is the number of lines zellij stores for each pane in the scroll back
+// buffer. Excess number of lines are discarded in a FIFO fashion.
+// Valid values: positive integers
+// Default value: 10000
+//
+// scroll_buffer_size 10000
+
+// Provide a command to execute when copying text. The text will be piped to
+// the stdin of the program to perform the copy. This can be used with
+// terminal emulators which do not support the OSC 52 ANSI control sequence
+// that will be used by default if this option is not set.
+// Examples:
+//
+// copy_command "xclip -selection clipboard" // x11
+// copy_command "wl-copy"                    // wayland
+// copy_command "pbcopy"                     // osx
+
+// Choose the destination for copied text
+// Allows using the primary selection buffer (on x11/wayland) instead of the system clipboard.
+// Does not apply when using copy_command.
+// Options:
+//   - system (default)
+//   - primary
+//
+// copy_clipboard "primary"
+
+// Enable or disable automatic copy (and clear) of selection when releasing mouse
+// Default: true
+//
+// copy_on_select false
+
+// Path to the default editor to use to edit pane scrollbuffer
+// Default: $EDITOR or $VISUAL
+//
+// scrollback_editor "/usr/bin/vim"
+
+// When attaching to an existing session with other users,
+// should the session be mirrored (true)
+// or should each user have their own cursor (false)
+// Default: false
+//
+// mirror_session true
+
+// The folder in which Zellij will look for layouts
+//
+layout_dir "/home/bl/df/config/zellij/layout"
+
+// The folder in which Zellij will look for themes
+//
+// theme_dir "/path/to/my/theme_dir"
+
+plugins {
+    tab-bar { path "tab-bar"; }
+    status-bar { path "status-bar"; }
+    // strider { path "strider"; }
+    compact-bar { path "compact-bar"; }
+}
+themes {
+    nord {
+        fg 216 222 233
+        bg 46 52 64
+        black 59 66 82
+        red 191 97 106
+        green 163 190 140
+        yellow 235 203 139
+        blue 129 161 193
+        magenta 180 142 173
+        cyan 136 192 208
+        white 229 233 240
+        orange 208 135 112
+    }
+    nordfox {
+      bg "#2e3440"
+      fg "#cdcecf"
+      red "#bf616a"
+      green "#a3be8c"
+      blue "#81a1c1"
+      yellow "#ebcb8b"
+      magenta "#b48ead"
+      orange "#c9826b"
+      cyan "#88c0d0"
+      black "#3b4252"
+      white "#e5e9f0"
+    }
+}
