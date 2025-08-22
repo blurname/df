@@ -9,6 +9,7 @@ set paths = [
       ~/.moon/bin
       /bin
       /usr/bin
+      /opt/homebrew/bin
       $@paths
     ]
 
@@ -28,7 +29,7 @@ set E:_JAVA_AWT_WM_NONREPARENTING = 1
 set E:XCURSOR_SIZE = 24
 set E:WLR_NO_HARDWARE_CURSORS = 1
 
-fn l {|| e:exa -la}
+fn l {|| e:eza -la}
 fn c {|| clear }
 fn s {|| e:neofetch}
 fn lg {|| lazygit}

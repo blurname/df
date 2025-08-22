@@ -41,5 +41,5 @@ for link_pair in "${links[@]}"; do
     
     # 创建新的软链接
     echo "Creating new symbolic link: $link_name -> $target_path"
-    ln -sfT "$target_path" "$link_name"
+    ln -sf "$target_path" "$link_name"
 done
