@@ -225,11 +225,13 @@ default_shell "elvish"
 // Default: "default"
 // 
 // default_layout "compact"
+
  
 // The folder in which Zellij will look for layouts
 // (Requires restart)
 // 
-layout_dir "/home/bl/df/config/zellij/layout"
+layout_dir "$HOME/df/config/zellij/layout"
+// default_layout "mr-prjs-layout"
  
 // The folder in which Zellij will look for themes
 // (Requires restart)
