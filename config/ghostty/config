@@ -1,0 +1,6 @@
+macos-option-as-alt = left
+# theme = zenwritten_light
+theme = GitHub-Light-Default
+
+keybind = alt+left=unbind
+keybind = alt+right=unbind

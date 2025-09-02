@@ -251,6 +251,10 @@ fn tbl {|@options|
   tsx ~/prj/luv-sic/pkg/cli/src/main.ts $@options
 }
 
+fn nn {|@options| 
+  npm run  $@options
+}
+
 # mb
 fn mbNI {|| npm install }
 fn Nis {|| npm i; npm run start}

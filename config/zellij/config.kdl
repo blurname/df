@@ -44,6 +44,8 @@ keybinds clear-defaults=true {
         bind "w" { CloseFocus; }
         bind "esc" { SwitchToMode "normal"; }
         bind "enter" { SwitchToMode "normal"; }
+        bind "=" { Resize "Increase"; }
+        bind "-" { Resize "Decrease"; }
     }
 }
 themes {
@@ -205,7 +207,7 @@ simplified_ui true
 // Choose the theme that is specified in the themes section.
 // Default: default
 // 
-theme "nordfox"
+theme "catppuccin-latte"
  
 // Choose the base input mode of zellij.
 // Default: normal

@@ -34,4 +34,5 @@ zellij/layout/mb.kdl
 # !/.tmux.conf
 !/tmux
 !/fish
+!/ghostty
 lazygit/state.yml
