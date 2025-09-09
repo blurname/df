@@ -1,6 +1,9 @@
 macos-option-as-alt = left
 # theme = zenwritten_light
-theme = GitHub-Light-Default
+# theme = GitHub-Light-Default
 
 keybind = alt+left=unbind
 keybind = alt+right=unbind
+font-family = "Maple Mono NL NF CN"
+
+keybind = super+r=reload_config

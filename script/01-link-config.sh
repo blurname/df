@@ -16,6 +16,7 @@ links=(
     "$HOME/.config/carapace $HOME/df/config/carapace"
     "$HOME/.config/starship.toml $HOME/df/config/starship.toml"
     "$HOME/.config/lazygit $HOME/df/config/lazygit"
+    "$HOME/.config/ghostty/config $HOME/df/config/ghostty/config"
     "$HOME/.tmux.conf $HOME/df/config/tmux/.tmux.conf"
     "$HOME/.config/fish $HOME/df/config/fish"
     "$HOME/.bashrc $HOME/df/config/.bashrc"
