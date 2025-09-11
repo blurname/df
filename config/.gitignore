@@ -35,4 +35,5 @@ zellij/layout/mb.kdl
 !/tmux
 !/fish
 !/ghostty
+!/btop
 lazygit/state.yml

@@ -11,6 +11,7 @@ links=(
     "$HOME/.config/elvish $HOME/df/config/elvish"
     "$HOME/.config/zellij $HOME/df/config/zellij"
     "$HOME/.config/bottom $HOME/df/config/bottom"
+    "$HOME/.config/btop $HOME/df/config/btop"
     "$HOME/.config/hypr $HOME/df/config/hypr"
     "$HOME/.xinitrc $HOME/df/config/.xinitrc"
     "$HOME/.config/carapace $HOME/df/config/carapace"
