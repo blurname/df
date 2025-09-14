@@ -69,3 +69,4 @@ export EDITOR="nvim" # 1.install VcXsrv, set number: 10, disable control access;
 # moonbit
 export PATH="$HOME/.moon/bin:$PATH"
 . "$HOME/.cargo/env"
+. "$HOME/.elan/bin"

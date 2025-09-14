@@ -7,6 +7,7 @@ set paths = [
       ~/.local/bin
       ~/.deno/bin
       ~/.moon/bin
+      ~/.elan/bin
       /bin
       /usr/bin
       /opt/homebrew/bin
