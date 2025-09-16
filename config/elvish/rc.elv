@@ -252,6 +252,11 @@ fn tbl {|@options|
   tsx ~/prj/luv-sic/pkg/cli/src/main.ts $@options
 }
 
+# test moonbit main bundle
+fn tm {|@options| 
+  ~/prj/luv-moon/target/native/release/build/main/main.exe $@options
+}
+
 fn nn {|@options| 
   npm run  $@options
 }

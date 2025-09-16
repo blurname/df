@@ -7,3 +7,4 @@ keybind = alt+right=unbind
 font-family = "Maple Mono NL NF CN"
 
 keybind = super+r=reload_config
+# background-opacity = 0.9

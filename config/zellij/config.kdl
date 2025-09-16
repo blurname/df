@@ -7,10 +7,11 @@ keybinds clear-defaults=true {
         bind "Alt `" { SwitchToMode "tmux"; }
     }
     tmux {
-        bind "left" { MoveFocus "left"; SwitchToMode "normal"; }
+        // bind "left" { MoveFocus "left"; SwitchToMode "normal"; }
+        bind "left" { MoveTab "left"; }
         bind "down" { HalfPageScrollDown; }
         bind "up" { HalfPageScrollUp; }
-        bind "right" { MoveFocus "right"; SwitchToMode "normal"; }
+        bind "right" { MoveTab "right"; }
         bind "F10" { TogglePaneFrames; SwitchToMode "normal"; }
         bind "F11" { ToggleFocusFullscreen; SwitchToMode "normal"; }
         bind "space" { SwitchToMode "normal"; }
