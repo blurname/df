@@ -32,7 +32,7 @@ set E:WLR_NO_HARDWARE_CURSORS = 1
 
 fn l {|| e:eza -la}
 fn c {|| clear }
-fn s {|| e:neofetch}
+fn s {|| e:fastfetch}
 fn lg {|| lazygit}
 
 fn bd {|| bat ~/.config/elvish/rc.elv}
