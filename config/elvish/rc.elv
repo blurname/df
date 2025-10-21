@@ -34,6 +34,7 @@ fn l {|| e:eza -la}
 fn c {|| clear }
 fn s {|| e:fastfetch}
 fn lg {|| lazygit}
+fn lk {|| lazydocker}
 
 fn bd {|| bat ~/.config/elvish/rc.elv}
 
