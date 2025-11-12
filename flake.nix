@@ -5,9 +5,8 @@
     substituters = [
       # replace official cache with a mirror located in China
       "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
-      "https://mirrors.bfsu.edu.cn/nix-channels/store"
-      "https://cache.nixos.org/"
     ];
+    trusted-substituters = ["https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"];
 
     # nix community's cache server
     #extra-substituters = [
