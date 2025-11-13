@@ -8,6 +8,7 @@
     ./boot.nix
     ./network.nix
     ./optional/x11.nix
+    ./optional/wayland.nix
   ];
   
   nixpkgs.config.allowUnfree = true;

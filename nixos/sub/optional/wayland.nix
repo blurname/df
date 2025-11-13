@@ -9,6 +9,7 @@
     mako libsForQt5.polkit-kde-agent mate.mate-polkit polkit_gnome
 
     wl-clipboard cliphist
+    firefox
     # eww-wayland
   ];
   
