@@ -9,7 +9,7 @@
     ./network.nix
     ./optional/minigui.nix
     # ./optional/x11.nix
-    # ./optional/wayland.nix
+    ./optional/wayland.nix
   ];
   
   nixpkgs.config.allowUnfree = true;
