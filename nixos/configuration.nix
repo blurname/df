@@ -31,7 +31,7 @@
       extraGroups = [ "wheel" "bao" "docker" "audio" ]; # Enable ‘sudo’ for the user.
         password = "b"; # change user password: passwd bl
     };
-    defaultUserShell = pkgs.bash;
+    defaultUserShell = pkgs.elvish;
   };
   security.sudo.extraRules = [
   {

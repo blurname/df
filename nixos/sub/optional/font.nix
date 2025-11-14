@@ -1,12 +1,12 @@
 { config,pkgs,...}:
 {
   fonts.packages = with pkgs;[
-      source-han-serif
+      # source-han-serif
       #inconsolata-nerdfont
-      lxgw-wenkai
+      # lxgw-wenkai
       iosevka
-      jetbrains-mono
-      fira-code
+      # jetbrains-mono
+      # fira-code
   (nerdfonts.override { fonts = [ "Iosevka" ]; })
 
   ];

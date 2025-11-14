@@ -7,6 +7,7 @@
     ./language.nix
     ./boot.nix
     ./network.nix
+    ./optional/minigui.nix
     # ./optional/x11.nix
     # ./optional/wayland.nix
   ];

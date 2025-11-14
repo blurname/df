@@ -1,9 +1,9 @@
 { config,pkgs,...}:
 {
   environment.systemPackages = with pkgs; [
-      rustup
-      python3Full
-      gcc gnumake
+      # rustup
+      # python3Full
+      # gcc gnumake
       #go
       nodejs_22 #yarn #nodePackages.pnpm
       #nixpkgs-fmt

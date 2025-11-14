@@ -1,7 +1,7 @@
 { config,pkgs,pkgs-2405,pkgs-2411,...}:
 {
   environment.systemPackages = with pkgs; [
-    elvish
+    # elvish
     git
     starship
     eza
@@ -16,7 +16,7 @@
     glab
 
     zellij 
-    tmux
+    # tmux
 
     curl
     #unzip
@@ -39,14 +39,10 @@
     # pkgs-2411.lazygit
     # pkgs-2405.zellij
   ];
-  programs.nix-ld = {
-    enable = true;
-    package = pkgs.nix-ld-rs; # only for NixOS 24.05
-  };
+  # programs.nix-ld = {
+  #   enable = true;
+  #   package = pkgs.nix-ld-rs; # only for NixOS 24.05
+  # };
 
-     #services.v2raya.enable = true;
-    services.xserver = {
-      enable = true;
-    };
-
+  #services.v2raya.enable = true;
 }
