@@ -6,7 +6,8 @@
     starship
     eza
     bat
-    # alacritty  kitty
+    # ghostty
+    alacritty
     bash
     bottom
     htop
