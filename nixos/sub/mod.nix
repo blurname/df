@@ -7,13 +7,11 @@
     ./language.nix
     ./boot.nix
     ./network.nix
+    ./optional/minigui.nix
     # ./optional/x11.nix
-    # ./optional/wayland.nix
+    ./optional/wayland.nix
+    ./optional/font.nix
   ];
   
   nixpkgs.config.allowUnfree = true;
-  services.xserver.enable = true; # optional
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.wayland.enable = true;
-  services.desktopManager.plasma6.enable = true;
 }
