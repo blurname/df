@@ -41,10 +41,10 @@
     # pkgs-2411.lazygit
     # pkgs-2405.zellij
   ];
-  # programs.nix-ld = {
-  #   enable = true;
-  #   package = pkgs.nix-ld-rs; # only for NixOS 24.05
-  # };
+  programs.nix-ld = {
+    enable = true;
+    # package = pkgs.nix-ld-rs; # only for NixOS 24.05
+  };
 
   #services.v2raya.enable = true;
 }
