@@ -10,7 +10,8 @@
     alacritty
     ghostty
     bash
-    bottom
+    # bottom
+    btop
     htop
     carapace
     fd
