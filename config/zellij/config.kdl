@@ -5,7 +5,7 @@
 keybinds clear-defaults=true {
     normal {
         bind "Alt `" { SwitchToMode "tmux"; }
-        bind "Alt e" { EditScrollback; }
+        // bind "Alt e" { EditScrollback; }
     }
     tmux {
         // bind "left" { MoveFocus "left"; SwitchToMode "normal"; }

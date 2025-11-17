@@ -12,7 +12,7 @@
     bash
     # bottom
     btop
-    htop
+    # htop
     carapace
     fd
     fzf
