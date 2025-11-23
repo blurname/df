@@ -16,6 +16,7 @@
   # programs.sway.enable = true;
   programs.xwayland.enable = true;
   programs.hyprland.enable = true; 
+  programs.niri.enable = true; 
   #security.polkit.enable = true;
 
   security.pam.services.swaylock = {}; # https://github.com/NixOS/nixpkgs/issues/158025#issuecomment-1344766809 

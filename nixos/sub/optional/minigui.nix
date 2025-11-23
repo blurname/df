@@ -14,6 +14,11 @@
       libsForQt5.dolphin libsForQt5.kdegraphics-thumbnailers libsForQt5.ark
       unrar
       flameshot
+      hyprcursor
+      nwg-look
+      rose-pine-hyprcursor
+      fuzzel
+      xwayland-satellite
   ];
 
   i18n.inputMethod = {
