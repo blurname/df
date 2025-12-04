@@ -13,7 +13,7 @@
     # openvscode-server
     #emacs
     #neovim-nightly
-    #vscode
+    pkgs.vscode
     # lsp
     # nil 
     # haskell-language-server 
