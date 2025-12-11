@@ -47,5 +47,5 @@
     # package = pkgs.nix-ld-rs; # only for NixOS 24.05
   };
 
-  #services.v2raya.enable = true;
+  services.v2raya.enable = true;
 }
