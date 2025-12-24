@@ -51,9 +51,9 @@ gui:
   skipRewordInEditorWarning: false # for skipping the confirmation before launching the reword editor
   border: 'single' # one of 'single' | 'double' | 'rounded' | 'hidden'
 git:
-  paging:
-    colorArg: always
-    useConfig: false
+  pagers:
+    - colorArg: always
+      useConfig: false
   commit:
     signOff: false
   merging:
@@ -79,11 +79,12 @@ git:
   autoRefresh: true
   fetchAll: true # Pass --all flag when running git fetch. Set to false to fetch only origin (or the current branch's upstream remote if there is one)
   branchLogCmd: 'git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium {{branchName}} --'
-  allBranchesLogCmd: 'git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=medium'
   overrideGpg: false # prevents lazygit from spawning a separate process when using GPG
   disableForcePushing: false
   parseEmoji: false
   diffContextSize: 3 # how many lines of context are shown around a change in diffs
+  allBranchesLogCmds:
+    - git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=medium
 os:
   editPreset: 'nvim' # see 'Configuring File Editing' section
   edit: ''
@@ -181,7 +182,7 @@ keybinding:
     viewResetOptions: 'D'
     fetch: 'f'
     toggleTreeView: '`'
-    openMergeTool: 'M'
+    openMergeOptions: 'M'
     openStatusFilter: '<c-b>'
   branches:
     createPullRequest: 'o'
@@ -243,7 +244,6 @@ customCommands: #https://github.com/jesseduffield/lazygit/blob/master/docs/Custo
       - type: 'menu'
         title: 'custom command'
         key: 'value'
-        showOutput: true
         options:
           - name: 'grhr'
             description: 'git reset --hard origin/$(git branch --show-current)'
@@ -251,6 +251,7 @@ customCommands: #https://github.com/jesseduffield/lazygit/blob/master/docs/Custo
           - name: 'mbbp'
             description: 'version-bump && tag-push'
             value: 'npm run version-bump && npm run tag-push'
+        output: popup
     command: "{{.Form.value}}"
     loadingText: 'runnning'
   - key: '<c-t>'
@@ -274,4 +275,4 @@ customCommands: #https://github.com/jesseduffield/lazygit/blob/master/docs/Custo
         initialValue: ""
     command: git commit -m "{{index .PromptResponses 0}}" --no-verify
     context: "global"
-    subprocess: true
+    output: terminal
