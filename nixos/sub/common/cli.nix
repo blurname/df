@@ -1,19 +1,22 @@
 { config,pkgs,pkgs-2405,pkgs-2411,...}:
 {
   environment.systemPackages = with pkgs; [
-    elvish
+    # elvish
     git
     starship
     eza
     bat
-    # alacritty  kitty
+    # ghostty
+    # alacritty
+    ghostty
     bash
     bottom
-    htop
+    btop
+    # htop
     carapace
     fd
     fzf
-    glab
+    #glab
 
     zellij 
     tmux
@@ -41,12 +44,9 @@
   ];
   programs.nix-ld = {
     enable = true;
-    package = pkgs.nix-ld-rs; # only for NixOS 24.05
+    # package = pkgs.nix-ld-rs; # only for NixOS 24.05
   };
 
-     #services.v2raya.enable = true;
-    services.xserver = {
-      enable = true;
-    };
-
+  services.v2raya.enable = true;
 }
+

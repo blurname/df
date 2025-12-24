@@ -10,4 +10,5 @@ font-family = "Iosevka Fixed"
 #  download first font `Iosevka Fixed` Super TTC: 
 
 keybind = super+r=reload_config
+cursor-style-blink = false
 # background-opacity = 0.9

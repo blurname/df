@@ -24,6 +24,7 @@ carapace/schema.json
 !/sway
 !/waybar
 !/fcitx5
+fcitx5/config/cached_layouts
 !/kitty
 !/elvish
 !/zellij
@@ -36,4 +37,5 @@ zellij/layout/mb.kdl
 !/fish
 !/ghostty
 !/btop
+!/niri
 lazygit/state.yml

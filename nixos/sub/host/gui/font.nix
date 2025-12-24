@@ -3,14 +3,15 @@
   fonts.packages = with pkgs;[
       source-han-serif
       #inconsolata-nerdfont
-      lxgw-wenkai
+      # lxgw-wenkai
       iosevka
-      jetbrains-mono
-      fira-code
-  (nerdfonts.override { fonts = [ "Iosevka" ]; })
+      # jetbrains-mono
+      # fira-code
+  # (nerdfonts.override { fonts = [ "Iosevka" ]; })
 
   ];
   # environment.systemPackages = with pkgs; [
   #   nerdfonts
   # ];
 }
+

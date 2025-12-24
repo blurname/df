@@ -12,3 +12,4 @@
   #hardware.bluetooth.enable = true;
   #boot.supportedFilesystems = [ "ntfs" ];
 }
+

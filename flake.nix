@@ -41,33 +41,41 @@
   };
   outputs = inputs@{self,nixpkgs,nixpkgs-unstable,nixpkgs-2405,nixpkgs-2411,...}:
 
-        let system ="x86_64-linux";
-  in {
-    nixosConfigurations={
-      nyx = nixpkgs.lib.nixosSystem{
-        specialArgs = {
-          pkgs = import nixpkgs {
-            # 这里递归引用了外部的 system 属性
-            inherit system;
-            config.allowUnfree = true;
+        let 
+          system = "x86_64-linux";
+          # 共用的 specialArgs
+          commonSpecialArgs = {
+            pkgs = import nixpkgs {
+              inherit system;
+              config.allowUnfree = true;
+            };
+            pkgs-unstable = import nixpkgs-unstable {
+              inherit system;
+              config.allowUnfree = true;
+            };
+            pkgs-2411 = import nixpkgs-2411 {
+              inherit system;
+              config.allowUnfree = true;
+            };
+            pkgs-2405 = import nixpkgs-2405 {
+              inherit system;
+              config.allowUnfree = true;
+            };
           };
-
-          pkgs-unstable = import nixpkgs-unstable {
-            inherit system;
-            config.allowUnfree = true;
-          };
-          pkgs-2411 = import nixpkgs-2411 {
-            inherit system;
-            config.allowUnfree = true;
-          };
-          pkgs-2405 = import nixpkgs-2405 {
-            inherit system;
-            config.allowUnfree = true;
-          };
-          };
-        modules=[
-          # nixos-wsl-vscode.nixosModules.vscodeServerWsl
-          ./nixos/configuration.nix
+        in {
+    nixosConfigurations = {
+      # 实体机配置 - 包含 GUI 软件
+      nyx = nixpkgs.lib.nixosSystem {
+        specialArgs = commonSpecialArgs;
+        modules = [
+          ./nixos/configuration-host.nix
+        ];
+      };
+      # 虚拟机配置 - 无 GUI 软件
+      nyx-vm = nixpkgs.lib.nixosSystem {
+        specialArgs = commonSpecialArgs;
+        modules = [
+          ./nixos/configuration-vm.nix
         ];
       };
     };
