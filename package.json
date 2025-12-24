@@ -6,7 +6,7 @@
   "author": "naughtybao@outlook.com",
   "type": "module",
   "scripts": {
-    "flake-version-bump": "nix flake update && npm run flake-apply-host && node ./script/flake-lock-bump.mjs",
+    "flake-version-bump": "nix flake update && node ./script/flake-lock-bump.mjs",
     "flake-apply-vm": "bash ./nixos/apply-system.sh vm",
     "flake-apply-host": "bash ./nixos/apply-system.sh host",
     "flake-gc": "sudo nix store gc --debug && sudo nix-collect-garbage -d ",
