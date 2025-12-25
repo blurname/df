@@ -7,6 +7,7 @@
       #go
       nodejs_22 #yarn #nodePackages.pnpm
       bun
+      zig
       #nixpkgs-fmt
   ];
 #   programs.npm = {
