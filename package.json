@@ -9,6 +9,7 @@
     "flake-version-bump": "nix flake update && node ./script/flake-lock-bump.mjs",
     "flake-apply-vm": "bash ./nixos/apply-system.sh vm",
     "flake-apply-host": "bash ./nixos/apply-system.sh host",
+    "flake-apply-darwin": "bash ./nixos/apply-system.sh darwin",
     "flake-gc": "sudo nix store gc --debug && sudo nix-collect-garbage -d ",
     "link-home-config": "bun run script/01-link-config.ts",
     "install-blurname-cli": "sudo npm i -g @blurname/cli",

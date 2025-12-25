@@ -23,6 +23,10 @@
     nixpkgs-2411.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    # nix-darwin for macOS
+    darwin.url = "github:LnL7/nix-darwin";
+    darwin.inputs.nixpkgs.follows = "nixpkgs";
+
     #neovim-nightly ={
       #url ="github:nix-community/neovim-nightly-overlay";
       #inputs.nixpkgs.follows = "nixpkgs";
@@ -39,26 +43,48 @@
     # 强制 NUR 和该 flake 使用相同版本的 nixpkgs
     #nur.inputs.nixpkgs.follows = "nixpkgs";
   };
-  outputs = inputs@{self,nixpkgs,nixpkgs-unstable,nixpkgs-2405,nixpkgs-2411,...}:
+  outputs = inputs@{self,nixpkgs,nixpkgs-unstable,nixpkgs-2405,nixpkgs-2411,darwin,...}:
 
         let 
-          system = "x86_64-linux";
-          # 共用的 specialArgs
-          commonSpecialArgs = {
+          linuxSystem = "x86_64-linux";
+          darwinSystem = "aarch64-darwin";  # Apple Silicon，如果是 Intel Mac 改为 x86_64-darwin
+          
+          # Linux 共用的 specialArgs
+          linuxSpecialArgs = {
             pkgs = import nixpkgs {
-              inherit system;
+              system = linuxSystem;
               config.allowUnfree = true;
             };
             pkgs-unstable = import nixpkgs-unstable {
-              inherit system;
+              system = linuxSystem;
               config.allowUnfree = true;
             };
             pkgs-2411 = import nixpkgs-2411 {
-              inherit system;
+              system = linuxSystem;
               config.allowUnfree = true;
             };
             pkgs-2405 = import nixpkgs-2405 {
-              inherit system;
+              system = linuxSystem;
+              config.allowUnfree = true;
+            };
+          };
+
+          # Darwin 共用的 specialArgs
+          darwinSpecialArgs = {
+            pkgs = import nixpkgs {
+              system = darwinSystem;
+              config.allowUnfree = true;
+            };
+            pkgs-unstable = import nixpkgs-unstable {
+              system = darwinSystem;
+              config.allowUnfree = true;
+            };
+            pkgs-2411 = import nixpkgs-2411 {
+              system = darwinSystem;
+              config.allowUnfree = true;
+            };
+            pkgs-2405 = import nixpkgs-2405 {
+              system = darwinSystem;
               config.allowUnfree = true;
             };
           };
@@ -66,16 +92,27 @@
     nixosConfigurations = {
       # 实体机配置 - 包含 GUI 软件
       nyx = nixpkgs.lib.nixosSystem {
-        specialArgs = commonSpecialArgs;
+        specialArgs = linuxSpecialArgs;
         modules = [
           ./nixos/configuration-host.nix
         ];
       };
       # 虚拟机配置 - 无 GUI 软件
       nyx-vm = nixpkgs.lib.nixosSystem {
-        specialArgs = commonSpecialArgs;
+        specialArgs = linuxSpecialArgs;
         modules = [
           ./nixos/configuration-vm.nix
+        ];
+      };
+    };
+
+    # Darwin 配置 - macOS
+    darwinConfigurations = {
+      nyx-darwin = darwin.lib.darwinSystem {
+        system = darwinSystem;
+        specialArgs = darwinSpecialArgs;
+        modules = [
+          ./nixos/configuration-darwin.nix
         ];
       };
     };
