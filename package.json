@@ -15,6 +15,7 @@
     "install-blurname-cli": "sudo npm i -g @blurname/cli",
     "vscode-ssh": "systemctl --user start vscode-remote-workaround",
     "only-backup":"",
-    "_flake-install": "bash ./script/0-nixos-install.sh"
+    "_flake-install": "bash ./script/0-nixos-install.sh",
+    "_darwin-init": "bash ./nixos/install-darwin.sh"
   }
 }
