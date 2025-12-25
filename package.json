@@ -10,7 +10,7 @@
     "flake-apply-vm": "bash ./nixos/apply-system.sh vm",
     "flake-apply-host": "bash ./nixos/apply-system.sh host",
     "flake-gc": "sudo nix store gc --debug && sudo nix-collect-garbage -d ",
-    "link-home-config": "bash script/01-link-config.sh",
+    "link-home-config": "bun run script/01-link-config.ts",
     "install-blurname-cli": "sudo npm i -g @blurname/cli",
     "vscode-ssh": "systemctl --user start vscode-remote-workaround",
     "only-backup":"",
