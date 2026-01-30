@@ -113,9 +113,9 @@ fn gitconfiginit {||
   git config credential.helper store
 }
 
-fn gwip {|@m| 
+fn gwip {||
   git add .
-  git commit -am "WIP: "$@m -n
+  git commit -am "WIP"
 } 
 
 fn gcm {|commitMessage|
@@ -250,7 +250,7 @@ fn draa {|path| deno run --allow-all $path}
 # self ts script
 # now chagned to npm package, but command blow is still for testing
 fn tbl {|@options| 
-  tsx ~/prj/luv-sic/pkg/cli/src/main.ts $@options
+  bun ~/prj/luv-sic/pkg/cli/src/main.ts $@options
 }
 
 # test moonbit main bundle
