@@ -115,7 +115,7 @@ fn gitconfiginit {||
 
 fn gwip {||
   git add .
-  git commit -am "WIP"
+  git commit --no-verify -am "WIP"
 } 
 
 fn gcm {|commitMessage|
