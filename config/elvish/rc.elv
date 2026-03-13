@@ -272,6 +272,7 @@ fn mbDR {|@targetRepo| mbD; mbR $@targetRepo}
 fn mbBPDR {|@targetRepo| mbBP; mbD; mbR $@targetRepo}
 fn mbCommit {|| bl gitCommit @mb2023}
 fn mbStartEnv {|| elvish ~/prj/script/mb-start.elv}
+fn tl {|| bun ~/prj/laoda/index.ts}
 fn dlog {|@name| node ~/prj/script/dlog.mjs $@name}
 
 # zellij
