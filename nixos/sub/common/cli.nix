@@ -26,6 +26,8 @@
     p7zip
     zip
     unzip
+    google-chrome
+    firefox
   ] ++ [
     # old-version
     # pkgs-2411.lazygit

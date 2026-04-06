@@ -7,9 +7,7 @@
     # VM 专用模块
     ./network.nix
     ./vscode-remote.nix  # VSCode Remote SSH workaround
+    ./xrdp.nix           # 远程桌面 (openbox)
   ];
-  
-  # 虚拟机不需要图形界面
-  services.xserver.enable = false;
 }
 
