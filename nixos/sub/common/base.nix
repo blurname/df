@@ -15,7 +15,7 @@
   users = {
     users.bl = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "bao" "docker" "audio" ];
+      extraGroups = [ "wheel" "bao" "docker" "audio" "input" ];
       password = "b"; # change user password: passwd bl
     };
     defaultUserShell = pkgs.elvish;
@@ -34,6 +34,10 @@
   nix.settings = {
     substituters = [
       "https://mirrors.bfsu.edu.cn/nix-channels/store"
+      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+      "https://mirror.sjtu.edu.cn/nix-channels/store"
+      "https://mirrors.ustc.edu.cn/nix-channels/store"
+      "https://cache.nixos.org"
     ];
   };
 

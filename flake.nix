@@ -27,6 +27,10 @@
     darwin.url = "github:LnL7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
+    # NixOS on WSL2
+    nixos-wsl.url = "github:nix-community/NixOS-WSL";
+    nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
+
     #neovim-nightly ={
       #url ="github:nix-community/neovim-nightly-overlay";
       #inputs.nixpkgs.follows = "nixpkgs";
@@ -43,7 +47,7 @@
     # 强制 NUR 和该 flake 使用相同版本的 nixpkgs
     #nur.inputs.nixpkgs.follows = "nixpkgs";
   };
-  outputs = inputs@{self,nixpkgs,nixpkgs-unstable,nixpkgs-2405,nixpkgs-2411,darwin,...}:
+  outputs = inputs@{self,nixpkgs,nixpkgs-unstable,nixpkgs-2405,nixpkgs-2411,darwin,nixos-wsl,...}:
 
         let 
           linuxSystem = "x86_64-linux";
@@ -102,6 +106,14 @@
         specialArgs = linuxSpecialArgs;
         modules = [
           ./nixos/configuration-vm.nix
+        ];
+      };
+      # WSL2 配置
+      nyx-wsl = nixpkgs.lib.nixosSystem {
+        specialArgs = linuxSpecialArgs;
+        modules = [
+          nixos-wsl.nixosModules.wsl
+          ./nixos/configuration-wsl.nix
         ];
       };
     };
