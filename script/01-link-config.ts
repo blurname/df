@@ -37,6 +37,8 @@ const links: LinkDef[] = [
   [".config/fish", "fish"],
   [".bashrc", ".bashrc"],
   [".bash_profile", ".bash_profile"],
+  [".claude/settings.json", "claude/settings.json"],
+  [".claude/commands", "claude/commands"],
 ];
 
 // 特殊路径链接（使用绝对路径）
