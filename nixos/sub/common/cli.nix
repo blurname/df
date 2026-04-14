@@ -22,12 +22,14 @@
     wget
     neofetch
     lazygit
+    gh
 
     p7zip
     zip
     unzip
     google-chrome
     firefox
+    ffmpeg
   ] ++ [
     # old-version
     # pkgs-2411.lazygit
