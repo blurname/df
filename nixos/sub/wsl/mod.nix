@@ -16,5 +16,12 @@
   wsl = {
     enable = true;
     defaultUser = "bl";
+    wrapBinSh = true;
+    extraBin = [
+      {
+        name = "bash";
+        src = config.wsl.binShExe;
+      }
+    ];
   };
 }
