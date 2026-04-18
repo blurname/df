@@ -1,0 +1,31 @@
+[user]
+	name = blurname
+	email = naughtybao@outlook.com
+
+[core]
+	editor = nvim
+
+[init]
+	defaultBranch = main
+
+[pull]
+	rebase = true
+
+[rebase]
+	autoStash = true
+
+[merge]
+	conflictStyle = zdiff3
+
+[credential]
+	helper = store
+
+[alias]
+	co = checkout
+	br = branch
+	st = status
+	ci = commit
+	lg = log --oneline --graph --decorate --all
+	last = log -1 HEAD --stat
+	unstage = reset HEAD --
+	amend = commit --amend --no-edit

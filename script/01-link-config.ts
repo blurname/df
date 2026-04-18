@@ -39,6 +39,7 @@ const links: LinkDef[] = [
   [".bash_profile", ".bash_profile"],
   [".claude/settings.json", "claude/settings.json"],
   [".claude/commands", "claude/commands"],
+  [".gitconfig", "git/config"],
 ];
 
 // 特殊路径链接（使用绝对路径）

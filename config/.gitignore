@@ -39,4 +39,5 @@ zellij/layout/mb.kdl
 !/btop
 !/niri
 !/claude
+!/git
 lazygit/state.yml
