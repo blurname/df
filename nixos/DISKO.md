@@ -28,18 +28,21 @@ nixos-install --flake .#nyx-vm --impure
 
 **对现有运行系统影响**：零。disko.nix 没人 import，flake.lock 多一条记录仅此而已。
 
-### 阶段 2：新机器用 runtime disko（按需触发）
+### 阶段 2：新机器用 runtime disko（按需触发，yymm 版本化）
 
-某台新机器或重装时，把 disko 升级为运行时模块，`fileSystems` 由 disko 生成，hw-config 用 `--no-filesystems` 只留硬件部分。
+新机器通过**带 yymm 后缀的 flake target** 装机（如 `nyx-vm-2604` = 2026 年 4 月引入的装机样式），旧机器保持 `nyx-vm` / `nyx` 不变。runtime disko 产生 `fileSystems`，hw-config 用 `--no-filesystems` 只留硬件部分。
 
-**触发条件**：重装 / 新开一台 VM。
+**触发条件**：重装 / 新开一台机器时选带后缀的 target。
 
-**那台机器的变更**：
-- `sub/vm/mod.nix` 或 `sub/host/mod.nix` 加 `imports = [ inputs.disko.nixosModules.disko ../../disko.nix ]`
-- 装机脚本改 `nixos-generate-config --no-filesystems --root /mnt`
-- 该机器的 `local.nix` 必须正确设置 `disko.devices.disk.main.device`
+**装机命令**：
+```bash
+sudo bash install.sh vm-2604      # 或 host-2604
+```
 
-**收益**：分区布局作为 flake 一部分，真正的单源事实。
+**新后缀的引入规则**：改了磁盘布局 / impermanence / 其它跟 install 有关的根本性变更时，新开一个 `-<yymm>` target（避免旧机器的 rebuild 被影响）。老 target 保留直到对应机器淘汰。
+
+**每台 runtime-disko 机器的要求**：
+- `local.nix` 必须正确设置 `disko.devices.disk.main.device`（install.sh 会自动写入）
 
 **代价**：该机器 `nixos-rebuild switch` 如果 disko.nix 写错，下次重启可能 boot 不起（靠 NixOS generation 回滚救）。
 

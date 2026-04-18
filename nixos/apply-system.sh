@@ -8,43 +8,30 @@
 
 CONFIG_TYPE="$1"
 FLAKE_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+MIRROR="https://mirrors.bfsu.edu.cn/nix-channels/store"
 
 case "$CONFIG_TYPE" in
-  vm)
-    echo "正在应用虚拟机配置 (nyx-vm)..."
-    sudo nixos-rebuild switch \
-      --flake "${FLAKE_DIR}#nyx-vm" \
-      --impure \
-      --option substituters "https://mirrors.bfsu.edu.cn/nix-channels/store"
-    ;;
-  host)
-    echo "正在应用实体机配置 (nyx)..."
-    sudo nixos-rebuild switch \
-      --flake "${FLAKE_DIR}#nyx" \
-      --impure \
-      --option substituters "https://mirrors.bfsu.edu.cn/nix-channels/store"
-    ;;
-  wsl)
-    echo "正在应用 WSL2 配置 (nyx-wsl)..."
-    sudo nixos-rebuild switch \
-      --flake "${FLAKE_DIR}#nyx-wsl" \
-      --impure \
-      --option substituters "https://mirrors.bfsu.edu.cn/nix-channels/store"
-    ;;
-  darwin)
-    echo "正在应用 Darwin 配置 (nyx-darwin)..."
-    # 首次安装使用: nix run nix-darwin -- switch --flake .#nyx-darwin
-    darwin-rebuild switch \
-      --flake "${FLAKE_DIR}#nyx-darwin" \
-      --option substituters "https://mirrors.bfsu.edu.cn/nix-channels/store"
-    ;;
+  vm)         FLAKE_TARGET="nyx-vm" ;;
+  host)       FLAKE_TARGET="nyx" ;;
+  vm-2604)    FLAKE_TARGET="nyx-vm-2604" ;;
+  host-2604)  FLAKE_TARGET="nyx-host-2604" ;;
+  wsl)        FLAKE_TARGET="nyx-wsl" ;;
+  darwin)     FLAKE_TARGET="nyx-darwin" ;;
   *)
-    echo "错误: 必须指定配置类型"
-    echo "用法: $0 <vm|host|darwin|wsl>"
-    echo "  vm     - 虚拟机配置（无 GUI）"
-    echo "  host   - 实体机配置（有 GUI）"
-    echo "  wsl    - WSL2 配置"
-    echo "  darwin - macOS 配置"
+    echo "用法: $0 <vm|host|vm-2604|host-2604|wsl|darwin>"
     exit 1
     ;;
 esac
+
+echo "正在应用 $FLAKE_TARGET ..."
+if [ "$CONFIG_TYPE" = "darwin" ]; then
+  # 首次安装使用: nix run nix-darwin -- switch --flake .#nyx-darwin
+  darwin-rebuild switch \
+    --flake "${FLAKE_DIR}#$FLAKE_TARGET" \
+    --option substituters "$MIRROR"
+else
+  sudo nixos-rebuild switch \
+    --flake "${FLAKE_DIR}#$FLAKE_TARGET" \
+    --impure \
+    --option substituters "$MIRROR"
+fi

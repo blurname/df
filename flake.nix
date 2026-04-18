@@ -51,7 +51,7 @@
     # 强制 NUR 和该 flake 使用相同版本的 nixpkgs
     #nur.inputs.nixpkgs.follows = "nixpkgs";
   };
-  outputs = inputs@{self,nixpkgs,nixpkgs-unstable,nixpkgs-2405,nixpkgs-2411,darwin,nixos-wsl,...}:
+  outputs = inputs@{self,nixpkgs,nixpkgs-unstable,nixpkgs-2405,nixpkgs-2411,darwin,nixos-wsl,disko,...}:
 
         let 
           linuxSystem = "x86_64-linux";
@@ -105,11 +105,29 @@
           ./nixos/configuration-host.nix
         ];
       };
+      # 实体机配置 (2604) - 运行时 disko，用于新装机
+      nyx-host-2604 = nixpkgs.lib.nixosSystem {
+        specialArgs = linuxSpecialArgs;
+        modules = [
+          ./nixos/configuration-host.nix
+          disko.nixosModules.disko
+          ./nixos/disko.nix
+        ];
+      };
       # 虚拟机配置 - 无 GUI 软件
       nyx-vm = nixpkgs.lib.nixosSystem {
         specialArgs = linuxSpecialArgs;
         modules = [
           ./nixos/configuration-vm.nix
+        ];
+      };
+      # 虚拟机配置 (2604) - 运行时 disko，用于新装机
+      nyx-vm-2604 = nixpkgs.lib.nixosSystem {
+        specialArgs = linuxSpecialArgs;
+        modules = [
+          ./nixos/configuration-vm.nix
+          disko.nixosModules.disko
+          ./nixos/disko.nix
         ];
       };
       # WSL2 配置
