@@ -40,6 +40,7 @@ const links: LinkDef[] = [
   [".claude/settings.json", "claude/settings.json"],
   [".claude/commands", "claude/commands"],
   [".gitconfig", "git/config"],
+  [".config/i3", "i3"],
 ];
 
 // 特殊路径链接（使用绝对路径）
