@@ -50,6 +50,24 @@ sudo bash install.sh vm-2604      # 或 host-2604
 
 老机器自然淘汰/重装时带走 hw-config 路径。不刻意迁移已运行的机器 —— 代价大（partlabel/UUID 不匹配）、收益小（系统已在跑）。
 
+## 服务器轨：`nyx-server-2604`（btrfs 快照回滚 impermanence）
+
+独立于 vm/host 演进，面向长期运行、强调声明式纪律的场景。关键结构：
+
+- 磁盘：btrfs + @root / @home / @nix / @log / **@persist** 子卷
+- `@blank` —— `install.sh` 在 @root 被写入前拍的只读快照
+- initrd 里 `systemd.services.rollback`：每次启动删 @root → 从 @blank 重建
+- `/persist` 下保存必要状态（hw-config、machine-id、ssh host key、NM 连接、docker state、journal 日志、nixos UID 映射、systemd state）
+- `/home/bl` 独立 subvol，**不走 impermanence**，天然跨重启保留
+- `/var/log` 走 impermanence persist（重启后能查历史）
+
+安装：
+```bash
+sudo bash nixos/install.sh server-2604
+```
+
+每次重启根目录清零，只有声明过的路径会留下。新加的 daemon/工具若产生状态，需要自己把路径补进 `nixos/sub/server/impermanence.nix` 的 `directories` 或 `files`。
+
 ## 已知风险与选择原因
 
 | 问题 | 反映为什么选渐进 |

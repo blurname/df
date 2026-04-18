@@ -35,6 +35,9 @@
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
 
+    # impermanence: 服务器配置的持久化清单 + bind-mount 框架
+    impermanence.url = "github:nix-community/impermanence";
+
     #neovim-nightly ={
       #url ="github:nix-community/neovim-nightly-overlay";
       #inputs.nixpkgs.follows = "nixpkgs";
@@ -51,7 +54,7 @@
     # 强制 NUR 和该 flake 使用相同版本的 nixpkgs
     #nur.inputs.nixpkgs.follows = "nixpkgs";
   };
-  outputs = inputs@{self,nixpkgs,nixpkgs-unstable,nixpkgs-2405,nixpkgs-2411,darwin,nixos-wsl,disko,...}:
+  outputs = inputs@{self,nixpkgs,nixpkgs-unstable,nixpkgs-2405,nixpkgs-2411,darwin,nixos-wsl,disko,impermanence,...}:
 
         let 
           linuxSystem = "x86_64-linux";
@@ -128,6 +131,15 @@
           ./nixos/configuration-vm.nix
           disko.nixosModules.disko
           ./nixos/disko.nix
+        ];
+      };
+      # 服务器配置 (2604) - 运行时 disko + btrfs 快照回滚 impermanence
+      nyx-server-2604 = nixpkgs.lib.nixosSystem {
+        specialArgs = linuxSpecialArgs;
+        modules = [
+          ./nixos/configuration-server.nix
+          disko.nixosModules.disko
+          impermanence.nixosModules.impermanence
         ];
       };
       # WSL2 配置

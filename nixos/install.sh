@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # NixOS 一键安装脚本（从官方 live ISO 运行）
-# 用法: sudo bash install.sh <vm-2604|host-2604>
+# 用法: sudo bash install.sh <vm-2604|host-2604|server-2604>
 # 新装机一律走运行时 disko 路径（yymm target，详见 DISKO.md）。
 # 旧的 nyx-vm / nyx target 只供现有机器 apply-system.sh 继续 rebuild。
 set -euo pipefail
@@ -9,11 +9,13 @@ TARGET="${1:-}"
 USER_NAME="bl"
 REPO_URL="https://github.com/blurname/df.git"
 MIRROR="https://mirrors.bfsu.edu.cn/nix-channels/store"
+IMPERMANENCE=no
 
 case "$TARGET" in
-  vm-2604)     FLAKE_TARGET="nyx-vm-2604" ;;
-  host-2604)   FLAKE_TARGET="nyx-host-2604" ;;
-  *) echo "用法: sudo bash $0 <vm-2604|host-2604>"; exit 1 ;;
+  vm-2604)       FLAKE_TARGET="nyx-vm-2604" ;;
+  host-2604)     FLAKE_TARGET="nyx-host-2604" ;;
+  server-2604)   FLAKE_TARGET="nyx-server-2604"; IMPERMANENCE=yes ;;
+  *) echo "用法: sudo bash $0 <vm-2604|host-2604|server-2604>"; exit 1 ;;
 esac
 
 [[ $EUID -eq 0 ]] || { echo "必须以 root 运行"; exit 1; }
@@ -41,13 +43,27 @@ rm -rf "$REPO"
 git clone "$REPO_URL" "$REPO"
 
 echo "==> disko 分区 + 格式化 + 挂载"
+if [[ "$IMPERMANENCE" = yes ]]; then
+  DISKO_FILE="$REPO/nixos/sub/server/disko.nix"
+else
+  DISKO_FILE="$REPO/nixos/disko.nix"
+fi
 nix --extra-experimental-features "nix-command flakes" \
   run github:nix-community/disko -- \
   --mode destroy,format,mount \
-  "$REPO/nixos/disko.nix" \
+  "$DISKO_FILE" \
   --argstr device "$DEV"
 
-# 把实际 device 传给 NixOS 模块（disko.nix 默认 /dev/sda）
+# impermanence 需要 @blank 只读快照作为回滚目标，必须在 @root 被写入前拍
+if [[ "$IMPERMANENCE" = yes ]]; then
+  echo "==> 创建 @blank 只读快照"
+  mkdir -p /btrfs_tmp
+  mount -t btrfs -o subvol=/ /dev/disk/by-label/nixos /btrfs_tmp
+  btrfs subvolume snapshot -r /btrfs_tmp/@root /btrfs_tmp/@blank
+  umount /btrfs_tmp
+fi
+
+# 把实际 device 传给 NixOS 模块（disko 默认 /dev/sda）
 if [[ "$DEV" != "/dev/sda" ]]; then
   cat > "$REPO/nixos/local.nix" <<EOF
 { lib, ... }: {
@@ -59,6 +75,12 @@ fi
 echo "==> 生成 hardware-configuration.nix"
 nixos-generate-config --no-filesystems --root /mnt
 cp /mnt/etc/nixos/hardware-configuration.nix /etc/nixos/
+
+# impermanence: 把 hw-config 和 machine-id 预塞进 /persist，否则首次重启回滚后找不到
+if [[ "$IMPERMANENCE" = yes ]]; then
+  mkdir -p /mnt/persist/etc/nixos /mnt/persist/etc/ssh
+  cp /mnt/etc/nixos/hardware-configuration.nix /mnt/persist/etc/nixos/
+fi
 
 mkdir -p "/mnt/home/$USER_NAME"
 mv "$REPO" "/mnt/home/$USER_NAME/df"
