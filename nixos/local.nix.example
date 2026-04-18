@@ -1,0 +1,12 @@
+# 每台 VM 的本地覆盖配置（拷贝为 local.nix 后生效；已被 .gitignore）
+# 用途：多台 VM 同时运行时避免 IP / 主机名冲突
+{ lib, ... }:
+{
+  networking = {
+    hostName = "nyx-vm-b";
+    interfaces.eth1.ipv4.addresses = [{
+      address = "10.42.1.4";
+      prefixLength = 24;
+    }];
+  };
+}

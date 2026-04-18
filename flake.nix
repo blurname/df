@@ -31,6 +31,10 @@
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
 
+    # 磁盘布局声明式（当前仅 install.sh 通过 CLI 使用；详见 nixos/DISKO.md）
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
+
     #neovim-nightly ={
       #url ="github:nix-community/neovim-nightly-overlay";
       #inputs.nixpkgs.follows = "nixpkgs";

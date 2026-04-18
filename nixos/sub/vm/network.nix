@@ -1,9 +1,9 @@
 # 虚拟机专用网络配置
-{pkgs,...}:{
+{pkgs, lib, ...}:{
   networking = {
-    # VM 静态 IP 配置
+    # VM 静态 IP 配置（可被 nixos/local.nix 覆盖）
     interfaces.eth1 = {
-      ipv4.addresses = [{
+      ipv4.addresses = lib.mkDefault [{
         address = "10.42.1.3";
         prefixLength = 24;
       }];
