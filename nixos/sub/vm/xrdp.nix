@@ -10,6 +10,7 @@
 
   services.xserver.enable = true;
   services.xserver.windowManager.i3.enable = true;
+  services.xserver.displayManager.startx.enable = true;   # 允许 TTY 里 xinit/startx
   services.displayManager.autoLogin = {
     enable = true;
     user = "bl";
