@@ -3,11 +3,10 @@
 ## 装机（从官方 NixOS live ISO）
 
 ```bash
-nix-shell -p git curl --run \
-  "curl -fsSL https://raw.githubusercontent.com/blurname/df/master/nixos/install.sh -o /tmp/install.sh && sudo bash /tmp/install.sh vm"
+curl -fsSL https://raw.githubusercontent.com/blurname/df/master/nixos/install.sh -o /tmp/install.sh && sudo bash /tmp/install.sh vm-2604
 ```
 
-参数：`vm`（Hyper-V / UTM / QEMU）或 `host`（物理机）。
+参数：`vm-2604`（Hyper-V / UTM / QEMU）或 `host-2604`（物理机）。yymm 后缀随装机样式演进，详见 `DISKO.md`。
 
 装完 reboot → 登录 `bl`（密码 `b`）→ `cd ~/df && npm run sync-home-config`
 

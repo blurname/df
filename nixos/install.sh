@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # NixOS 一键安装脚本（从官方 live ISO 运行）
-# 用法: sudo bash install.sh <vm|host|vm-2604|host-2604>
-#   vm/host         —— 传统 hw-config 路径（现有 VM 延续使用）
-#   vm-2604/host-2604 —— 运行时 disko（新装机，详见 DISKO.md）
+# 用法: sudo bash install.sh <vm-2604|host-2604>
+# 新装机一律走运行时 disko 路径（yymm target，详见 DISKO.md）。
+# 旧的 nyx-vm / nyx target 只供现有机器 apply-system.sh 继续 rebuild。
 set -euo pipefail
 
 TARGET="${1:-}"
@@ -10,13 +10,10 @@ USER_NAME="bl"
 REPO_URL="https://github.com/blurname/df.git"
 MIRROR="https://mirrors.bfsu.edu.cn/nix-channels/store"
 
-# target 决定 flake 目标 + 是否走运行时 disko（-yymm 后缀 = runtime disko，详见 DISKO.md）
 case "$TARGET" in
-  host)        FLAKE_TARGET="nyx";          HWGEN_ARGS="" ;;
-  vm)          FLAKE_TARGET="nyx-vm";       HWGEN_ARGS="" ;;
-  host-2604)   FLAKE_TARGET="nyx-host-2604"; HWGEN_ARGS="--no-filesystems" ;;
-  vm-2604)     FLAKE_TARGET="nyx-vm-2604";   HWGEN_ARGS="--no-filesystems" ;;
-  *) echo "用法: sudo bash $0 <vm|host|vm-2604|host-2604>"; exit 1 ;;
+  vm-2604)     FLAKE_TARGET="nyx-vm-2604" ;;
+  host-2604)   FLAKE_TARGET="nyx-host-2604" ;;
+  *) echo "用法: sudo bash $0 <vm-2604|host-2604>"; exit 1 ;;
 esac
 
 [[ $EUID -eq 0 ]] || { echo "必须以 root 运行"; exit 1; }
@@ -50,8 +47,8 @@ nix --extra-experimental-features "nix-command flakes" \
   "$REPO/nixos/disko.nix" \
   --argstr device "$DEV"
 
-# runtime-disko target 需要 local.nix 把 device 传给 NixOS 模块
-if [[ -n "$HWGEN_ARGS" && "$DEV" != "/dev/sda" ]]; then
+# 把实际 device 传给 NixOS 模块（disko.nix 默认 /dev/sda）
+if [[ "$DEV" != "/dev/sda" ]]; then
   cat > "$REPO/nixos/local.nix" <<EOF
 { lib, ... }: {
   disko.devices.disk.main.device = "$DEV";
@@ -60,7 +57,7 @@ EOF
 fi
 
 echo "==> 生成 hardware-configuration.nix"
-nixos-generate-config $HWGEN_ARGS --root /mnt
+nixos-generate-config --no-filesystems --root /mnt
 cp /mnt/etc/nixos/hardware-configuration.nix /etc/nixos/
 
 mkdir -p "/mnt/home/$USER_NAME"
