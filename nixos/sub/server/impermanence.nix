@@ -46,6 +46,7 @@
   environment.persistence."/persist" = {
     hideMounts = true;
     directories = [
+      "/root"
       "/var/log"
       "/var/lib/nixos"
       "/var/lib/systemd"

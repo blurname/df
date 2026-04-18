@@ -76,10 +76,15 @@ echo "==> 生成 hardware-configuration.nix"
 nixos-generate-config --no-filesystems --root /mnt
 cp /mnt/etc/nixos/hardware-configuration.nix /etc/nixos/
 
-# impermanence: 把 hw-config 和 machine-id 预塞进 /persist，否则首次重启回滚后找不到
+# impermanence: 预填 /persist（hw-config + machine-id + ssh host keys），
+# 否则首次重启回滚后 sshd 会重新生成 key，指纹变化；machine-id 变化也会让日志分段
 if [[ "$IMPERMANENCE" = yes ]]; then
+  echo "==> 预填 /persist"
   mkdir -p /mnt/persist/etc/nixos /mnt/persist/etc/ssh
   cp /mnt/etc/nixos/hardware-configuration.nix /mnt/persist/etc/nixos/
+  systemd-id128 new > /mnt/persist/etc/machine-id
+  ssh-keygen -t ed25519 -f /mnt/persist/etc/ssh/ssh_host_ed25519_key -N "" -q
+  ssh-keygen -t rsa -b 3072 -f /mnt/persist/etc/ssh/ssh_host_rsa_key -N "" -q
 fi
 
 mkdir -p "/mnt/home/$USER_NAME"
