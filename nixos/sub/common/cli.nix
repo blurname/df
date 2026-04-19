@@ -30,6 +30,7 @@
     google-chrome
     firefox
     ffmpeg
+    bubblewrap
   ] ++ [
     # old-version
     # pkgs-2411.lazygit
