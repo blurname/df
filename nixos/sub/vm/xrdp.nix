@@ -27,7 +27,16 @@
   environment.systemPackages = [
     pkgs.google-chrome
     pkgs.xorg.xinit
-    pkgs.rofi   # i3 launcher（比默认 dmenu 顺手）
+    pkgs.xterm   # xinit 救命终端
+    pkgs.rofi    # i3 launcher（比默认 dmenu 顺手）
     pkgs.alacritty
   ];
+
+  fonts = {
+    enableDefaultPackages = true;
+    packages = with pkgs; [
+      iosevka-bin
+      nerd-fonts.iosevka
+    ];
+  };
 }
