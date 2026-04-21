@@ -6,6 +6,7 @@
       gcc gnumake
       #go
       nodejs_22 #yarn #nodePackages.pnpm
+      pnpm
       bun
       zig
       #nixpkgs-fmt
