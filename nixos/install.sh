@@ -8,7 +8,8 @@ set -euo pipefail
 TARGET="${1:-}"
 USER_NAME="bl"
 REPO_URL="https://github.com/blurname/df.git"
-MIRROR="https://mirrors.bfsu.edu.cn/nix-channels/store"
+# bfsu 主要覆盖 x86_64；aarch64 很多包没镜像，落回 cache.nixos.org 避免本地编译
+MIRROR="https://mirrors.bfsu.edu.cn/nix-channels/store https://cache.nixos.org"
 IMPERMANENCE=no
 
 case "$TARGET" in
