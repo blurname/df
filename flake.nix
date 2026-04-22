@@ -134,8 +134,9 @@
         ];
       };
       # 虚拟机最小配置 (2604) - 用于测试装机流程（最小体积）
+      # 不传 linuxSpecialArgs（pre-imported x86_64 pkgs），让 hw-config 里的
+      # nixpkgs.hostPlatform 决定架构，这样 aarch64 / x86_64 通用
       nyx-vm-min-2604 = nixpkgs.lib.nixosSystem {
-        specialArgs = linuxSpecialArgs;
         modules = [
           ./nixos/configuration-vm-min.nix
           disko.nixosModules.disko
