@@ -1,0 +1,38 @@
+minimumLimaVersion: 2.0.0
+images:
+# Try to use release-yyyyMMdd image if available. Note that release-yyyyMMdd will be removed after several months.
+
+- location: "https://cloud.debian.org/images/cloud/trixie/20260327-2429/debian-13-genericcloud-amd64-20260327-2429.qcow2"
+  arch: "x86_64"
+  digest: "sha512:09559ec27d263997827dd8cddf76e97ea8e0f1803380aa501ea7eaa4b4968cd76ffef4ec7eb07ef1a9ccbeb0925a5020492ea9ed53eb167d62f3a2285039912c"
+- location: "https://cloud.debian.org/images/cloud/trixie/20260327-2429/debian-13-genericcloud-arm64-20260327-2429.qcow2"
+  arch: "aarch64"
+  digest: "sha512:cb25e88240d8760c860f780c42257472f7c63c1ab54368c4eaa4ddb44e1e6224df8e719ee7ab0fb0d52d5de505f98034dd44ee73a9d9dcf66a2035215f1e8512"
+# Fallback to the latest release image.
+# Hint: run `limactl prune` to invalidate the cache
+
+- location: https://cloud.debian.org/images/cloud/trixie/daily/latest/debian-13-genericcloud-amd64-daily.qcow2
+  arch: x86_64
+
+- location: https://cloud.debian.org/images/cloud/trixie/daily/latest/debian-13-genericcloud-arm64-daily.qcow2
+  arch: aarch64
+
+- location: https://cloud.debian.org/images/cloud/trixie/daily/latest/debian-13-genericcloud-ppc64el-daily.qcow2
+  arch: ppc64le
+
+vmType: "vz"
+mountType: "virtiofs"
+mountTypesUnsupported: [9p]
+mounts:
+- location: "~"
+- location: "~/git"
+  writable: true
+
+# # /tmp/lima is no longer mounted by default since Lima v2.0.
+# - location: "{{.GlobalTempDir}}/lima"
+#  mountPoint: /tmp/lima
+#  writable: true
+
+cpus: 4
+memory: 8GiB
+disk: 30GiB
