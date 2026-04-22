@@ -14,12 +14,13 @@ case "$CONFIG_TYPE" in
   vm)            FLAKE_TARGET="nyx-vm" ;;
   host)          FLAKE_TARGET="nyx" ;;
   vm-2604)       FLAKE_TARGET="nyx-vm-2604" ;;
+  vm-min-2604)   FLAKE_TARGET="nyx-vm-min-2604" ;;
   host-2604)     FLAKE_TARGET="nyx-host-2604" ;;
   server-2604)   FLAKE_TARGET="nyx-server-2604" ;;
   wsl)           FLAKE_TARGET="nyx-wsl" ;;
   darwin)        FLAKE_TARGET="nyx-darwin" ;;
   *)
-    echo "用法: $0 <vm|host|vm-2604|host-2604|server-2604|wsl|darwin>"
+    echo "用法: $0 <vm|host|vm-2604|vm-min-2604|host-2604|server-2604|wsl|darwin>"
     exit 1
     ;;
 esac

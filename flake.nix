@@ -133,6 +133,15 @@
           ./nixos/disko.nix
         ];
       };
+      # 虚拟机最小配置 (2604) - 用于测试装机流程（最小体积）
+      nyx-vm-min-2604 = nixpkgs.lib.nixosSystem {
+        specialArgs = linuxSpecialArgs;
+        modules = [
+          ./nixos/configuration-vm-min.nix
+          disko.nixosModules.disko
+          ./nixos/disko.nix
+        ];
+      };
       # 服务器配置 (2604) - 运行时 disko + btrfs 快照回滚 impermanence
       nyx-server-2604 = nixpkgs.lib.nixosSystem {
         specialArgs = linuxSpecialArgs;

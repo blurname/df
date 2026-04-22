@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # NixOS 一键安装脚本（从官方 live ISO 运行）
-# 用法: sudo bash install.sh <vm-2604|host-2604|server-2604>
+# 用法: sudo bash install.sh <vm-2604|vm-min-2604|host-2604|server-2604>
 # 新装机一律走运行时 disko 路径（yymm target，详见 DISKO.md）。
 # 旧的 nyx-vm / nyx target 只供现有机器 apply-system.sh 继续 rebuild。
 set -euo pipefail
@@ -13,9 +13,10 @@ IMPERMANENCE=no
 
 case "$TARGET" in
   vm-2604)       FLAKE_TARGET="nyx-vm-2604" ;;
+  vm-min-2604)   FLAKE_TARGET="nyx-vm-min-2604" ;;
   host-2604)     FLAKE_TARGET="nyx-host-2604" ;;
   server-2604)   FLAKE_TARGET="nyx-server-2604"; IMPERMANENCE=yes ;;
-  *) echo "用法: sudo bash $0 <vm-2604|host-2604|server-2604>"; exit 1 ;;
+  *) echo "用法: sudo bash $0 <vm-2604|vm-min-2604|host-2604|server-2604>"; exit 1 ;;
 esac
 
 [[ $EUID -eq 0 ]] || { echo "必须以 root 运行"; exit 1; }
