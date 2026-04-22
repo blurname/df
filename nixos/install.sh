@@ -94,14 +94,18 @@ mv "$REPO" "/mnt/home/$USER_NAME/df"
 
 # 低内存 VM（<=8GB）在 aarch64 上装机时，nix-util 等包需要本地编译 C++，
 # 容易被 OOM killer 干掉。在 /mnt 上临时加 swap 撑过 build，装完清理。
-# btrfs 的 swap 文件必须先 chattr +C（关 CoW）再写内容
-echo "==> 添加临时 swap (4G)"
+# btrfs 的 swap 文件必须先 chattr +C（关 CoW 和压缩）再写内容
+echo "==> 添加临时 swap (8G)"
 touch /mnt/swapfile
 chattr +C /mnt/swapfile 2>/dev/null || true
-dd if=/dev/zero of=/mnt/swapfile bs=1M count=4096 status=progress
+dd if=/dev/zero of=/mnt/swapfile bs=1M count=8192 status=progress
 chmod 600 /mnt/swapfile
 mkswap -q /mnt/swapfile
 swapon /mnt/swapfile
+# 校验 swap 真的上了（btrfs 配置冲突会让 swapon 静默失败）
+if ! grep -q /mnt/swapfile /proc/swaps; then
+  echo "ERROR: swapon /mnt/swapfile 失败，装机大概率会 OOM"; exit 1
+fi
 free -h
 
 cleanup_swap() {
@@ -110,11 +114,15 @@ cleanup_swap() {
 }
 trap cleanup_swap EXIT
 
-echo "==> nixos-install"
+# --cores 1 --max-jobs 1 把 nix build 的并行度压到单线程，
+# 峰值内存降 3-4 倍，慢但不 OOM。低内存 VM 装机的保险策略。
+echo "==> nixos-install (single-threaded build)"
 nixos-install \
   --flake "/mnt/home/$USER_NAME/df#$FLAKE_TARGET" \
   --impure \
   --option substituters "$MIRROR" \
+  --option cores 1 \
+  --option max-jobs 1 \
   --no-root-password
 
 cleanup_swap
