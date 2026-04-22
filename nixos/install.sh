@@ -92,12 +92,33 @@ fi
 mkdir -p "/mnt/home/$USER_NAME"
 mv "$REPO" "/mnt/home/$USER_NAME/df"
 
+# 低内存 VM（<=8GB）在 aarch64 上装机时，nix-util 等包需要本地编译 C++，
+# 容易被 OOM killer 干掉。在 /mnt 上临时加 swap 撑过 build，装完清理。
+# btrfs 的 swap 文件必须先 chattr +C（关 CoW）再写内容
+echo "==> 添加临时 swap (4G)"
+touch /mnt/swapfile
+chattr +C /mnt/swapfile 2>/dev/null || true
+dd if=/dev/zero of=/mnt/swapfile bs=1M count=4096 status=progress
+chmod 600 /mnt/swapfile
+mkswap -q /mnt/swapfile
+swapon /mnt/swapfile
+free -h
+
+cleanup_swap() {
+  swapoff /mnt/swapfile 2>/dev/null || true
+  rm -f /mnt/swapfile
+}
+trap cleanup_swap EXIT
+
 echo "==> nixos-install"
 nixos-install \
   --flake "/mnt/home/$USER_NAME/df#$FLAKE_TARGET" \
   --impure \
   --option substituters "$MIRROR" \
   --no-root-password
+
+cleanup_swap
+trap - EXIT
 
 nixos-enter --root /mnt -c "chown -R $USER_NAME:users /home/$USER_NAME/df"
 
