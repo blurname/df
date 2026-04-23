@@ -1,53 +1,53 @@
 # debian
 
-Mac 上用 Lima 跑 Debian 13 开发 VM 的一键配置。
+One-liner setup for a Debian 13 development VM on Mac via Lima.
 
-## 一行安装（复制到 Mac terminal 粘贴执行）
+## One-liner install (paste in Mac terminal)
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/blurname/df/master/debian/install.sh | bash
 ```
 
-做了四件事：装 Lima → 下 VM 配置 → 起 Debian 13 VM → 进 VM 跑 setup 装工具链。macOS 13+ / Apple Silicon 或 Intel 都行，耗时约 10-15 分钟（主要是 Debian cloud image 下载 + apt 装包）。
+This does four things: install Lima → fetch VM config → start Debian 13 VM → run setup.sh inside the VM to install the toolchain. Works on macOS 13+ (Apple Silicon or Intel), takes ~10-15 min (mostly Debian cloud image download + apt installs).
 
-想换 VM 名字（或起第二个 VM 测试）：
+To use a different VM name (or spin up a second test VM):
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/blurname/df/master/debian/install.sh | bash -s -- mydev
 ```
 
-注意 `-s --` 把后面的参数传给脚本，不是 bash 自己。
+Note: `-s --` passes the arg to the script, not to bash itself.
 
-装完后以后开机：
+Later, to enter the VM:
 
 ```bash
 limactl shell deb13
 ```
 
-## 装了什么
+## What gets installed
 
-- **apt**: git / neovim / tmux / fzf / ripgrep / fd / bat / jq / htop / btop / fastfetch / build-essential / python3 等 27 个包
-- **外部二进制**: Node 22.19.0、pnpm、claude code、lazygit
-- **Lima 配置**: Apple Virtualization + virtiofs + `~/git` 可写
+- **apt**: git, neovim, tmux, fzf, ripgrep, fd, bat, jq, htop, btop, fastfetch, build-essential, python3, ... — 27 packages total
+- **binaries**: Node 22.19.0, pnpm, claude code, lazygit
+- **Lima config**: Apple Virtualization + virtiofs + writable `~/git`
 
-脚本幂等，可重复运行。
+Scripts are idempotent — safe to re-run.
 
-## 自定义
+## Customization
 
-- **改 cpu / mem**：编辑 `debian/lima/deb13.yaml` 里的 `cpus` / `memory`，`limactl stop/start`
-- **加可写目录**：在 `mounts:` 下追加 `- location: "~/foo"` + `writable: true`
-- **改 Node 版本**：改 `setup.sh` 顶部 `NODE_VERSION` 再重跑
+- **Change CPU / memory**: edit `cpus` / `memory` in `debian/lima/deb13.yaml`, then `limactl stop/start`
+- **Add writable mount**: append `- location: "~/foo"` with `writable: true` under `mounts:`
+- **Change Node version**: edit `NODE_VERSION` at the top of `setup.sh` and re-run
 
-## 端口转发
+## Port forwarding
 
-VM 里 `bun dev` / `pnpm dev` 监听的端口自动 forward 到 Mac localhost，浏览器直接 `http://localhost:<port>`。
+Any TCP port bound inside the VM (e.g. by `pnpm dev`, `bun dev`) is auto-forwarded to Mac `localhost`. Just open `http://localhost:<port>` in the Mac browser.
 
-## docker（按需手动）
+## Docker (manual, on demand)
 
-脚本没自动装 docker（Debian 13 arm64 下官方脚本会拉 `docker-model-plugin` 等不稳定的新插件）。需要时：
+The script does not install Docker automatically — the official script pulls `docker-model-plugin` and other new plugins whose Debian 13 arm64 packaging can be flaky. Install manually when needed:
 
 ```bash
 curl -fsSL https://get.docker.com | sudo sh
 sudo usermod -aG docker $USER
-# 退出重进 shell
+# log out and back in
 ```
