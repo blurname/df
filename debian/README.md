@@ -42,6 +42,22 @@ Scripts are idempotent — safe to re-run.
 
 Any TCP port bound inside the VM (e.g. by `pnpm dev`, `bun dev`) is auto-forwarded to Mac `localhost`. Just open `http://localhost:<port>` in the Mac browser.
 
+## Bare-metal install (physical machine or fresh VM)
+
+For installing Debian 13 directly onto hardware (not via Lima), use `install-host.sh`. Boot any Linux live ISO (Debian / Ubuntu live works best), then:
+
+```bash
+sudo bash install-host.sh <vm-2604|host-2604>
+```
+
+Targets:
+- `vm-2604` — VM install (no firmware blobs)
+- `host-2604` — physical host (pulls `firmware-linux` for WiFi/BT)
+
+What it does: partitions the disk (GPT + ESP + btrfs with `@root`/`@home` subvolumes), debootstraps Debian 13 from Tsinghua, chroots to install kernel + GRUB-EFI + NetworkManager + sshd + user `bl`, and seeds `/home/bl/df`. After reboot, run `bash debian/setup.sh` for the dev toolchain.
+
+Mirrors the architecture of `nixos/install.sh`. Disk is wiped; you'll be prompted to type `YES` before anything destructive happens.
+
 ## Docker (manual, on demand)
 
 The script does not install Docker automatically — the official script pulls `docker-model-plugin` and other new plugins whose Debian 13 arm64 packaging can be flaky. Install manually when needed:
