@@ -309,6 +309,24 @@ eval (carapace _carapace|slurp)
 
 fn f {|| fzf }
 set E:FZF_DEFAULT_COMMAND = "fd --hidden --follow --type f --type l --exclude .git"
+# dark (nord)
+# set E:FZF_DEFAULT_OPTS = "
+#   --reverse
+#   --height 85%
+#   --multi
+#   --scrollbar '█'
+#   --history /tmp/fzfhistory
+#   --prompt 'FZF> '
+#   --tabstop=2
+#   --highlight-line
+#   --color=fg:#BFC0C3,bg:#2e3440,hl:#81a1c1
+#   --color=fg+:#BFC0C3,bg+:#2e3440,hl+:#a3be8b
+#   --color=info:#eacb8a,prompt:#81a1c1,pointer:#b48dac
+#   --color=marker:#a3be8b,spinner:#b48dac,header:#a3be8b
+#   --bind 'ctrl-d:half-page-down,ctrl-u:half-page-up,alt-d:preview-half-page-down,tab:down,btab:up'
+# "
+
+# light (alabaster)
 set E:FZF_DEFAULT_OPTS = "
   --reverse
   --height 85%
@@ -318,10 +336,11 @@ set E:FZF_DEFAULT_OPTS = "
   --prompt 'FZF> '
   --tabstop=2
   --highlight-line
-  --color=fg:#BFC0C3,bg:#2e3440,hl:#81a1c1
-  --color=fg+:#BFC0C3,bg+:#2e3440,hl+:#a3be8b
-  --color=info:#eacb8a,prompt:#81a1c1,pointer:#b48dac
-  --color=marker:#a3be8b,spinner:#b48dac,header:#a3be8b
+  --color=fg:#000000,bg:#f7f7f7,hl:#7a3e9d
+  --color=fg+:#000000,bg+:#e4e4e4,hl+:#7a3e9d
+  --color=info:#bc5215,prompt:#2c5aa0,pointer:#7a3e9d
+  --color=marker:#448c27,spinner:#2c5aa0,header:#448c27
+  --color=border:#cccccc,gutter:#f7f7f7
   --bind 'ctrl-d:half-page-down,ctrl-u:half-page-up,alt-d:preview-half-page-down,tab:down,btab:up'
 "
 
