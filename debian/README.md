@@ -29,7 +29,7 @@ limactl shell deb13
 `setup.sh` has two profiles:
 
 - **CLI (default)** — `bash debian/setup.sh`
-  - apt: git, neovim, tmux, fzf, ripgrep, fd, bat, eza, jq, htop, btop, fastfetch, build-essential, python3, ffmpeg, bubblewrap, …
+  - apt: git, neovim, elvish, tmux, fzf, ripgrep, fd, bat, eza, jq, htop, btop, fastfetch, build-essential, python3, ffmpeg, bubblewrap, …
   - binaries: Node 22.19.0, pnpm, Claude Code, lazygit, gh, starship, zellij, bun, zig
 - **GUI** — `bash debian/setup.sh --gui` (CLI + the below)
   - apt: mpv, firefox-esr, flameshot, fcitx5 + chinese-addons, fonts-noto-cjk, unrar, virt-manager

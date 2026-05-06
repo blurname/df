@@ -38,6 +38,7 @@ CLI_PACKAGES=(
   ca-certificates curl wget gnupg lsb-release
   git
   build-essential pkg-config
+  elvish
   tmux fzf
   ripgrep fd-find bat eza
   jq
