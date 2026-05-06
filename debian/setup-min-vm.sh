@@ -90,6 +90,12 @@ else
   log "node $NODE_VERSION already installed"
 fi
 
+# Put /opt/node/bin on PATH so `npm i -g <pkg>` binaries are reachable
+# without needing a per-package symlink into /usr/local/bin.
+if [[ ! -f /etc/profile.d/node.sh ]]; then
+  echo 'export PATH=/opt/node/bin:$PATH' | sudo tee /etc/profile.d/node.sh >/dev/null
+fi
+
 # pnpm (standalone installer, does not need npm)
 if ! command -v pnpm >/dev/null; then
   log "Installing pnpm"
