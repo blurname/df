@@ -13,7 +13,7 @@
 #   4. chroots to install: kernel, GRUB-EFI, NetworkManager, sshd,
 #      locale, timezone, user bl, Tsinghua apt sources
 #   5. Clones this df repo to /home/bl/df so you can run
-#      `bash debian/setup.sh` after first boot to install the toolchain.
+#      `bash debian/setup.sh --gui` after first boot to install the toolchain.
 
 set -euo pipefail
 
@@ -217,6 +217,6 @@ Install complete.
 1. Remove the install media
 2. reboot
 3. Log in as $USER_NAME / $USER_PASS
-4. cd ~/df && bash debian/setup.sh     # dev toolchain
+4. cd ~/df && bash debian/setup.sh --gui   # CLI + desktop toolchain
 ========================================
 EOF
