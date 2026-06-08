@@ -29,3 +29,8 @@
 	last = log -1 HEAD --stat
 	unstage = reset HEAD --
 	amend = commit --amend --no-edit
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f

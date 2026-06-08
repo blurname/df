@@ -8,9 +8,9 @@ set paths = [
       ~/.deno/bin
       ~/.moon/bin
       ~/.elan/bin
+      /opt/homebrew/bin
       /bin
       /usr/bin
-      /opt/homebrew/bin
       $@paths
     ]
 
