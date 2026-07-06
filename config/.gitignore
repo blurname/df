@@ -40,5 +40,7 @@ zellij/layout/mb.kdl
 !/niri
 !/claude
 !/git
+!/herdr
+/herdr/plugins/
 !/i3
 lazygit/state.yml

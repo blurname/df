@@ -1,0 +1,65 @@
+# herdr config — migrated from zellij habits (~/.config/zellij/config.kdl)
+
+[theme]
+# 终端是浅色背景，默认的 catppuccin（深色系）在白底上对比度不够
+name = "catppuccin-latte"
+# 跟随系统明暗自动切换
+auto_switch = true
+light_name = "catppuccin-latte"
+dark_name = "catppuccin"
+
+[terminal]
+default_shell = "/opt/homebrew/bin/elvish"
+new_cwd = "follow"  # 新 pane/tab/workspace 继承来源 pane 的 cwd（zellij 同款行为）
+
+[keys]
+# zellij: "Alt `" 进入 tmux mode -> herdr prefix
+# 如果你的终端吃掉了 alt+backtick，改回 "ctrl+b" 或试 "f12"
+prefix = "alt+backtick"
+
+# zellij tmux-mode 习惯映射
+detach = "prefix+d"              # zellij: d
+new_tab = "prefix+t"             # zellij: t (NewTab)
+previous_tab = "prefix+h"        # zellij: h (GoToPreviousTab)
+next_tab = "prefix+l"            # zellij: l (GoToNextTab)
+switch_tab = "prefix+1..9"       # zellij: 1-8 (GoToTab)
+close_pane = "prefix+w"          # zellij: w (CloseFocus)
+split_vertical = "prefix+n"      # zellij: n (NewPane right)
+zoom = "prefix+f"                # zellij: f (ToggleFocusFullscreen)
+edit_scrollback = "prefix+e"     # zellij: e (EditScrollback)
+workspace_picker = ["prefix+p", "prefix+space"] # 进入 Herdr 持久 Navigate 模式；Esc/prefix 退出
+last_pane = "prefix+backtick"    # zellij: ` (ToggleTab 的近似)
+cycle_pane_next = "prefix+j"     # zellij: j (FocusNextPane)
+cycle_pane_previous = "prefix+k" # zellij: k (FocusPreviousPane)
+
+# agent 列表上移/下移
+
+next_agent= "prefix+comma"
+previous_agent= "prefix+period"
+
+# h/j/k/l 被上面占用，方向聚焦改用方向键
+focus_pane_left = "prefix+left"
+focus_pane_down = "prefix+down"
+focus_pane_up = "prefix+up"
+focus_pane_right = "prefix+right"
+
+# Navigate 模式内的本地键，不需要再按 prefix；用于连续浏览 pane。
+navigate_pane_left = "h"
+navigate_pane_down = "j"
+navigate_pane_up = "k"
+navigate_pane_right = "l"
+navigate_workspace_up = "up"
+navigate_workspace_down = "down"
+
+[[keys.command]]
+key = "prefix+g"
+type = "plugin_action"
+command = "blurname.git-tab-name.refresh"
+description = "refresh tab name from git branch"
+
+[ui]
+agent_panel_sort = "priority"
+
+[experimental]
+# macOS: prefix mode 自动切 ASCII 输入源目前对微信输入法恢复不稳定，先关闭。
+switch_ascii_input_source_in_prefix = false
