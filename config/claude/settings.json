@@ -14,7 +14,7 @@
       "Bash(git push --force *)"
     ]
   },
-  "model": "opus[1m]",
-  "skipWorkflowUsageWarning": true,
-  "effortLevel": "xhigh"
+  "model": "claude-fable-5[1m]",
+  "effortLevel": "xhigh",
+  "skipWorkflowUsageWarning": true
 }
