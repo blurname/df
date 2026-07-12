@@ -19,6 +19,7 @@ leftwm/themes/current
 !/pic
 !/zathura
 !/starship.toml
+!/starship-zsh.toml
 !/carapace
 carapace/schema.json
 !/sway

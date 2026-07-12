@@ -1,0 +1,34 @@
+# zsh-only starship config. ~/.zshrc points STARSHIP_CONFIG here, so this prompt
+# is visibly distinct from the elvish one (which still reads starship.toml).
+# Difference: a magenta "zsh" badge up front — same accent as the adx picker.
+#
+# NOTE: this is a copy of starship.toml + the [shell] badge; keep them in sync
+# by hand if you change the base layout (starship has no include mechanism).
+format = """
+$shell\
+$username$hostname\
+$directory\
+$git_branch\
+$all"""
+
+[shell]
+disabled = false
+zsh_indicator = " zsh "
+format = "[$indicator]($style) "
+style = "bold fg:bright-white bg:purple"
+
+[username]
+style_root = "bold red"
+style_user = "bold blue"
+format = "[$user]($style)"
+[hostname]
+style = "green"
+format = "($style) "
+[git_branch]
+format = "[$symbol$branch(:$remote_branch)]($style) "
+#symbol = "🌱 "
+truncation_symbol = ""
+[directory]
+truncation_length = 100
+truncate_to_repo = false
+truncation_symbol = '~/'
