@@ -1,3 +1,4 @@
+onboarding = false
 # herdr config — migrated from zellij habits (~/.config/zellij/config.kdl)
 
 [theme]
@@ -9,7 +10,7 @@ light_name = "catppuccin-latte"
 dark_name = "catppuccin"
 
 [terminal]
-default_shell = "/opt/homebrew/bin/elvish"
+# default_shell = "/bin/elvish"
 new_cwd = "follow"  # 新 pane/tab/workspace 继承来源 pane 的 cwd（zellij 同款行为）
 
 [keys]
@@ -65,4 +66,4 @@ enabled = false
 
 [experimental]
 # macOS: prefix mode 自动切 ASCII 输入源目前对微信输入法恢复不稳定，先关闭。
-switch_ascii_input_source_in_prefix = false
+switch_ascii_input_source_in_prefix = true
