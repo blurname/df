@@ -78,7 +78,7 @@ f() { fzf }
 unalias -a
 alias ls='ls --color=auto'  # keep colored ls (the /etc alias we just removed)
 
-l()  { exa -la "$@" }       # rc.elv used eza; exa is what's installed here
+l()  { eza -la "$@" }       # rc.elv used eza; exa is what's installed here
 c()  { clear }
 s()  { fastfetch }
 lg() { lazygit }
@@ -238,6 +238,8 @@ blg() { bl generate }
 SDHN() { shutdown -h 0 }
 
 prj() { cd ~/prj && exa -la }
+# fork a project dir (paths resolved from cwd): prjfork source target  → ./source copied to ./target-3
+prjfork() { bun ~/df/script/prjfork.ts "$@" }
 
 # ---- adx (location + history; must be last so its bindings win) ----------
 eval "$(adx init zsh)"
