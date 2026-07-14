@@ -12,13 +12,15 @@
     keyMap = "us";
   };
 
+  programs.zsh.enable = true; # required with defaultUserShell = zsh: puts zsh in /etc/shells and sets up nix PATHs for login shells
+
   users = {
     users.bl = {
       isNormalUser = true;
       extraGroups = [ "wheel" "bao" "docker" "audio" "input" ];
       password = "b"; # change user password: passwd bl
     };
-    defaultUserShell = pkgs.elvish;
+    defaultUserShell = pkgs.zsh;
   };
 
   security.sudo.extraRules = [
