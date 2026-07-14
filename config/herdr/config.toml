@@ -60,6 +60,9 @@ description = "refresh tab name from git branch"
 [ui]
 agent_panel_sort = "priority"
 
+[ui.sound]
+enabled = false
+
 [experimental]
 # macOS: prefix mode 自动切 ASCII 输入源目前对微信输入法恢复不稳定，先关闭。
 switch_ascii_input_source_in_prefix = false
