@@ -36,6 +36,7 @@ const links: LinkDef[] = [
   [".tmux.conf", "tmux/.tmux.conf"],
   [".config/fish", "fish"],
   [".bashrc", ".bashrc"],
+  [".zshrc", ".zshrc"],
   [".bash_profile", ".bash_profile"],
   [".claude/settings.json", "claude/settings.json"],
   [".claude/commands", "claude/commands"],

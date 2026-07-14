@@ -11,6 +11,7 @@ leftwm/themes/current
 !/alacritty
 !/pam_environment
 !/.bashrc
+!/.zshrc
 !/picom.conf
 !/config
 !/.xinitrc
