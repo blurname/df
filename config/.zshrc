@@ -72,6 +72,12 @@ export FZF_DEFAULT_OPTS="
 f() { fzf }
 
 # ---- shortcuts -----------------------------------------------------------
+# NixOS programs.zsh pre-defines aliases (l, ll, ls) in /etc/zshrc; zsh expands
+# aliases even in function DEFINITIONS, so `l() {...}` would parse as
+# `ls -alh() {...}` and explode. Drop foreign aliases before defining ours.
+unalias -a
+alias ls='ls --color=auto'  # keep colored ls (the /etc alias we just removed)
+
 l()  { exa -la "$@" }       # rc.elv used eza; exa is what's installed here
 c()  { clear }
 s()  { fastfetch }
