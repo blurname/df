@@ -19,13 +19,15 @@ new_cwd = "follow"  # 新 pane/tab/workspace 继承来源 pane 的 cwd（zellij 
 prefix = "alt+backtick"
 
 # zellij tmux-mode 习惯映射
-detach = "prefix+d"              # zellij: d
+detach = "prefix+shift+d"
 new_tab = "prefix+t"             # zellij: t (NewTab)
 previous_tab = "prefix+h"        # zellij: h (GoToPreviousTab)
 next_tab = "prefix+l"            # zellij: l (GoToNextTab)
 switch_tab = "prefix+1..9"       # zellij: 1-8 (GoToTab)
 close_pane = "prefix+w"          # zellij: w (CloseFocus)
 split_vertical = "prefix+n"      # zellij: n (NewPane right)
+rename_tab = "prefix+r"          # 默认 prefix+shift+t，太绕
+resize_mode = "prefix+plus"      # 给 rename_tab 让出 prefix+r（zellij 里也是 = / - 调大小）
 zoom = "prefix+f"                # zellij: f (ToggleFocusFullscreen)
 edit_scrollback = "prefix+e"     # zellij: e (EditScrollback)
 workspace_picker = ["prefix+p", "prefix+space"] # 进入 Herdr 持久 Navigate 模式；Esc/prefix 退出
@@ -52,14 +54,18 @@ navigate_pane_right = "l"
 navigate_workspace_up = "up"
 navigate_workspace_down = "down"
 
+# 项目一键切换 pnpm dev（停别处、在当前 tab 复用/新开 pane 启动）；参数是项目目录名前缀
 [[keys.command]]
-key = "prefix+g"
-type = "plugin_action"
-command = "blurname.git-tab-name.refresh"
-description = "refresh tab name from git branch"
+key = "prefix+d"
+type = "shell"
+command = "$HOME/df/config/herdr/dev-switch.sh voyager"
 
 [ui]
 agent_panel_sort = "priority"
+
+[ui.toast]
+# voyager-dev.sh 用应用内 toast 反馈结果
+delivery = "herdr"
 
 [ui.sound]
 enabled = false

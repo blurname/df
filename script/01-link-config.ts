@@ -34,7 +34,6 @@ const links: LinkDef[] = [
   [".config/starship.toml", "starship.toml"],
   [".config/ghostty/config", "ghostty/config"],
   [".tmux.conf", "tmux/.tmux.conf"],
-  [".config/fish", "fish"],
   [".bashrc", ".bashrc"],
   [".zshrc", ".zshrc"],
   [".bash_profile", ".bash_profile"],
