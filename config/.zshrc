@@ -45,10 +45,13 @@ bindkey -e   # emacs keybindings (must precede adx so its binds land here)
 autoload -Uz compinit && compinit -u
 
 # ---- tools ---------------------------------------------------------------
-# zsh gets its own starship config (magenta "zsh" badge) so it's distinct from
-# the elvish prompt, which keeps reading ~/.config/starship.toml.
-export STARSHIP_CONFIG="$HOME/df/config/starship-zsh.toml"
-command -v starship >/dev/null && eval "$(starship init zsh)"
+# The zsh prompt is adx's own now (`adx prompt`, internal/prompt), set up by
+# `adx init zsh` further down and painted from a cached variable — nothing is
+# drawn here. starship cost ~21ms per prompt in a project directory, nearly all
+# of it detecting languages this prompt does not show. The magenta "zsh" badge
+# went with it: this prompt is only ever zsh's, so it named the obvious.
+# elvish still reads ~/.config/starship.toml, so starship stays installed.
+# ADX_PROMPT=0 hands the prompt back to zsh.
 command -v carapace >/dev/null && source <(carapace _carapace zsh)
 
 # fzf (env only; adx owns Ctrl-R, so fzf's key-bindings are intentionally not sourced)
@@ -78,7 +81,13 @@ f() { fzf }
 unalias -a
 alias ls='ls --color=auto'  # keep colored ls (the /etc alias we just removed)
 
-l()  { eza -la "$@" }       # rc.elv used eza; exa is what's installed here
+# l opens adx's navigation mode (hjkl to walk, 12j to jump by the relative line
+# number, / to search, q to leave) instead of printing a listing. It has to be
+# a function: only a function runs in this shell and can cd it, and cd is most
+# of what browsing is for. eza is still here for when a plain listing is what
+# you actually want.
+l()  { adx-nav "$@" }
+ll() { eza -la "$@" }       # the old l: a listing, printed and left behind
 c()  { clear }
 s()  { fastfetch }
 lg() { lazygit }

@@ -14,7 +14,21 @@
       "Bash(git push --force *)"
     ]
   },
-  "model": "opus[1m]",
+  "model": "claude-fable-5[1m]",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/Users/bl/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  },
   "effortLevel": "xhigh",
   "skipWorkflowUsageWarning": true
 }
