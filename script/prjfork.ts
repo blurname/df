@@ -2,8 +2,8 @@
 //
 // prjfork <source> <target> — fork a project directory.
 //
-// Derived from soma's workspace provisioner (soma/server/src/fleet/
-// workspace.ts, `source: "copy"` branch): a *local fork* that keeps the tree
+// Lifted from a private project's workspace provisioner (its "copy" mode):
+// a *local fork* that keeps the tree
 // as-is — including .git, so history/branches come along without the remote
 // weirdness a fresh `git clone` would introduce — but SKIPS regenerable junk
 // (node_modules, build outputs, caches). See EXCLUDE below; edit to taste.
