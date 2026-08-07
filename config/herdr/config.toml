@@ -67,6 +67,16 @@ command = "$HOME/df/config/herdr/dev-switch.sh voyager"
 #   3 gh      GitHub 上等你动手的东西
 # 单个视图也各有一个 action（blurname.adx.{agent,top,gh}），没绑键，从 herdr 的 action 菜单走。
 # ssh 是 blurname.adx.ssh，故意不在 hub 里：它的 Enter 是 exec，会开成一个独立 tab。
+# lazygit,开在按键时焦点 pane 所在的仓库。
+# 走 adx 插件是因为机制上必须:type="shell" 的键绑定没有终端,装不下 TUI;
+# 而 overlay 只有插件能开(pane.split 不接 placement,plugin.pane.open 接)。
+# adx 补的是**目录**——插件 pane 默认起在 workspace 的 cwd,不是你刚才看的那个 pane。
+[[keys.command]]
+key = "prefix+g"
+type = "plugin_action"
+command = "blurname.adx.git"
+description = "lazygit: this pane's repo"
+
 [[keys.command]]
 key = "prefix+p"
 type = "plugin_action"
@@ -76,9 +86,10 @@ description = "adx: agents / processes / github"
 [ui]
 agent_panel_sort = "priority"
 
+show_agent_labels_on_pane_borders = false
 [ui.toast]
 # voyager-dev.sh 用应用内 toast 反馈结果
-delivery = "herdr"
+delivery = "system"
 
 [ui.sound]
 enabled = false
