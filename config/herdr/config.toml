@@ -88,7 +88,7 @@ agent_panel_sort = "priority"
 
 show_agent_labels_on_pane_borders = false
 [ui.toast]
-# voyager-dev.sh 用应用内 toast 反馈结果
+# dev-switch.sh 用应用内 toast 反馈结果
 delivery = "system"
 
 [ui.sound]

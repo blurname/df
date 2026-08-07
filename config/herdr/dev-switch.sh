@@ -2,7 +2,7 @@
 """herdr 快捷键：在当前项目 tab 启动 pnpm dev，并停掉其他 tab 里的 dev。
 
 用法：dev-switch.sh <目录名前缀> [pane_id]
-  目录名前缀   项目根目录名需以此开头（如 voyager），焦点 pane 的 cwd 向上匹配
+  目录名前缀   项目根目录名需以此开头（如 myapp），焦点 pane 的 cwd 向上匹配
   pane_id     调试用，指定 pane 代替焦点 pane
 
 - 匹配不到项目根则 toast 提示并退出

@@ -59,7 +59,7 @@ function fail(reason: string): never {
 function usage(): never {
   process.stderr.write(
     "usage: prjfork <source> <target>   (both resolved against the current directory)\n" +
-      "  e.g. cd ~/prj && prjfork voyager voyager-3   fork ./voyager into ./voyager-3\n",
+      "  e.g. cd ~/prj && prjfork myapp myapp-3   fork ./myapp into ./myapp-3\n",
   );
   process.exit(1);
 }

@@ -55,4 +55,4 @@ git push        # gh pr checkout 已配好 upstream,正常情况直接推
 
 推送成功后汇报:改了哪些文件、commit hash、推到了哪个 remote/分支、仓库检查跑了什么结果。
 
-若本次改动解决的是 litemo 的行内评论,按 `/pr-comments` 第 5 节对相应 thread 自动 reply + resolve。
+若本次改动解决的是已授权评审者(名单见 `~/.claude/pr-reviewers.local`)的行内评论,按 `/pr-comments` 第 5 节对相应 thread 自动 reply + resolve。

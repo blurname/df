@@ -38,7 +38,7 @@
   - 后续：如要实现，应给 Herdr 增加 sticky prefix / persistent command mode 配置，而不是写 plugin。
 
 - agent panel 隐藏 workspace name
-  - 现象：左侧 `agents` 面板在多 tab workspace 下显示为 `<workspace name> · <tab name>`，例如 `voyager-1 · master`、`voyager-1 · main`。
+  - 现象：左侧 `agents` 面板在多 tab workspace 下显示为 `<workspace name> · <tab name>`，例如 `myapp-1 · master`、`myapp-1 · main`。
   - 需求：不想每行都显示 workspace name，只显示 tab name / branch name；下方仍显示 `idle · claude/codex`。
   - 当前判断：Herdr 0.7.1 没有配置项控制这个 label 拼接。`agent_panel_sort` 只能控制排序，不能控制展示上下文。
   - 源码位置：`src/ui/sidebar.rs` 的 `AgentPanelEntry.primary_label` 和 `format_agent_panel_primary_label`；`src/workspace/aggregate.rs` 会提供 tab label。

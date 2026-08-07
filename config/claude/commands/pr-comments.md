@@ -1,11 +1,11 @@
-拉取并整理当前 PR 的所有评论。**默认只读:除 litemo 的行内评论外,绝不发表、回复、编辑、resolve、approve 或以任何方式改动 PR。**
+拉取并整理当前 PR 的所有评论。**默认只读:除「已授权的评审者」(见第 5 节)的行内评论外,绝不发表、回复、编辑、resolve、approve 或以任何方式改动 PR。**
 
 ## 硬约束(默认只读)
 
 - 只用读取类命令:`gh pr view`、`gh api`(仅 GET)、`gh api graphql`(仅 query)。
 - **禁止**任何写操作:不要 `gh pr comment` / `gh pr review` / `gh pr edit` / `gh pr close`,不要 `gh api -X POST/PATCH/PUT/DELETE`,不要 resolve / unresolve review thread。
 - 不改动工作区文件,不 commit,不 push。本命令的产物只是给用户看的整理结果。
-- **唯一例外**:litemo 的行内评论,在其指出的问题被真正解决之后,按第 5 节自动 reply + resolve。除此之外一律不写 —— 别人的评论、会话区评论、review 汇总都不碰。
+- **唯一例外**:已授权评审者的行内评论,在其指出的问题被真正解决之后,按第 5 节自动 reply + resolve。除此之外一律不写 —— 别人的评论、会话区评论、review 汇总都不碰。
 
 ## 1. 确定目标 PR
 
@@ -71,11 +71,19 @@ query($owner:String!,$repo:String!,$number:Int!){
 - **冲突**:指出 reviewer 之间相互矛盾的意见,交给用户定夺。
 - **优先级 / 阻塞**:区分"挡住合并的"和"可选的";若有 CHANGES_REQUESTED,点出具体要解决哪几条才能转 approve。
 
-输出一份精简结论:按 `必改 → 建议 → 提问 → 可忽略` 排好的待办清单,每条附 `文件:行` 和一句话理由。仅给建议,不替用户动手改、回复或 resolve(litemo 的评论按第 5 节处理)。
+输出一份精简结论:按 `必改 → 建议 → 提问 → 可忽略` 排好的待办清单,每条附 `文件:行` 和一句话理由。仅给建议,不替用户动手改、回复或 resolve(已授权评审者的评论按第 5 节处理)。
 
-## 5. litemo 的评论:解决后自动 reply + resolve
+## 5. 已授权评审者的评论:解决后自动 reply + resolve
 
-**判定作者**:review thread 里的 `author.login` 是 `litemo`(不区分大小写;`litemo[bot]` 这类变体同样算)。其他人的评论不适用本节,依旧只读。
+**谁算已授权**:读 `~/.claude/pr-reviewers.local`,一行一个 GitHub handle
+(`#` 开头为注释)。这个名单是本地文件,不进任何仓库——评审者是谁属于具体项目,
+不属于这条通用命令。
+
+**文件不存在或为空时,本节整节不生效**,所有评论一律只读。fail closed:一份缺失
+的名单绝不能被理解成"所有人都已授权"。
+
+**判定作者**:review thread 里的 `author.login` 命中名单中任一条(不区分大小写;
+`<handle>[bot]` 这类变体同样算)。其他人的评论不适用本节,依旧只读。
 
 **触发时机 —— 先真正解决,再回复**:
 
