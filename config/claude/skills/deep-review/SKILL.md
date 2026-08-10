@@ -1,3 +1,8 @@
+---
+name: deep-review
+description: "用「能省就省」的标准对改动做深度复审,最高优先级盯本次会话里自己刚写或刚改的代码——自加的 eslint-disable、用 key 当 remount trigger、没人用的 optional props、说不清 WHY 的样式 hack、上游已保证 non-null 的防御性代码,这些自审盲区一律先怀疑再保留。当用户要求深度 review、二次复审、精简本次改动、或问「还能再简化吗」时使用。"
+---
+
 用 simplify 的标准再过一遍。**态度更新：能省就省，不要"够用就行"。**
 
 ## 自审盲区(优先警惕)

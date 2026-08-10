@@ -1,3 +1,8 @@
+---
+name: pr-comments
+description: "拉取并整理指定 PR(或当前分支对应 PR)的全部评论——行内评论、会话区评论、review 汇总——输出按文件/线程分组的结构化清单。默认严格只读:只用 gh 的读接口,绝不发表、回复、编辑、resolve、approve 或以任何方式改动 PR(唯一例外见正文第 5 节)。当用户要求看 PR 评论、整理 review 意见、汇总 reviewer 反馈、确认还有哪些意见没处理时使用。"
+---
+
 拉取并整理当前 PR 的所有评论。**默认只读:除「已授权的评审者」(见第 5 节)的行内评论外,绝不发表、回复、编辑、resolve、approve 或以任何方式改动 PR。**
 
 ## 硬约束(默认只读)
@@ -9,7 +14,7 @@
 
 ## 1. 确定目标 PR
 
-- 用户在 `$ARGUMENTS` 里给了 PR 号或 URL → 用它。
+- 用户调用时给了 PR 号或 URL → 用它。
 - 否则按当前分支推断:`gh pr view --json number,title,url,state -q .`。若当前分支没有关联 PR,直接告诉用户并停止(不要去猜)。
 
 先拿到 owner / repo / number 备用:
