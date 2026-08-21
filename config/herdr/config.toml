@@ -87,9 +87,10 @@ description = "adx: agents / processes / github"
 agent_panel_sort = "priority"
 
 show_agent_labels_on_pane_borders = false
+status_indicators = "symbols"
 [ui.toast]
 # dev-switch.sh 用应用内 toast 反馈结果
-delivery = "system"
+delivery = "off"
 
 [ui.sound]
 enabled = false
