@@ -30,6 +30,7 @@ rename_tab = "prefix+r"          # 默认 prefix+shift+t，太绕
 resize_mode = "prefix+plus"      # 给 rename_tab 让出 prefix+r（zellij 里也是 = / - 调大小）
 zoom = "prefix+f"                # zellij: f (ToggleFocusFullscreen)
 edit_scrollback = "prefix+e"     # zellij: e (EditScrollback)
+copy_mode = "prefix+u"           # 键盘选择复制（vim 键位）；默认的 prefix+[ 让给了 next_workspace
 workspace_picker = "prefix+space" # 进入 Herdr 持久 Navigate 模式；Esc/prefix 退出
                                   # （prefix+p 让给了 adx hub，见下面 [[keys.command]]）
 last_pane = "prefix+backtick"    # zellij: ` (ToggleTab 的近似)
@@ -40,6 +41,11 @@ cycle_pane_previous = "prefix+k" # zellij: k (FocusPreviousPane)
 
 next_agent= "prefix+comma"
 previous_agent= "prefix+period"
+
+# workspace(space)列表切换：[ 往下 / ] 往上
+# 顶掉了 copy_mode 的默认键 prefix+[（tmux 同款），copy_mode 改绑 prefix+u
+next_workspace = "prefix+["
+previous_workspace = "prefix+]"
 
 # h/j/k/l 被上面占用，方向聚焦改用方向键
 focus_pane_left = "prefix+left"
