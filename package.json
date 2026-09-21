@@ -13,9 +13,14 @@
     "flake-apply-darwin": "bash ./nixos/apply-system.sh darwin",
     "flake-gc": "sudo nix store gc --debug && sudo nix-collect-garbage -d ",
     "link-home-config": "bun run script/01-link-config.ts",
+    "pkg-status": "bun run script/pkg/cli.ts status",
+    "pkg-list": "bun run script/pkg/cli.ts list",
+    "pkg-install-apt": "bun run script/pkg/cli.ts install --backend apt",
+    "pkg-install-brew": "bun run script/pkg/cli.ts install --backend brew",
+    "pkg": "bun run script/pkg/cli.ts",
     "install-blurname-cli": "sudo npm i -g @blurname/cli",
     "vscode-ssh": "systemctl --user start vscode-remote-workaround",
-    "only-backup":"",
+    "only-backup": "",
     "_flake-install": "bash ./script/0-nixos-install.sh",
     "_darwin-init": "bash ./nixos/install-darwin.sh"
   }

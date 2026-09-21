@@ -1,0 +1,290 @@
+{
+  "install": {
+    "apt": [
+      "cli",
+      "dev",
+      "gui",
+      "font"
+    ],
+    "brew": [
+      "cli",
+      "dev"
+    ]
+  },
+  "groups": {
+    "cli": {
+      "bash": {
+        "brew": "bash",
+        "note": "debian: base system"
+      },
+      "elvish": "elvish",
+      "fish": {
+        "brew": "fish"
+      },
+      "starship": {
+        "brew": "starship",
+        "note": "debian: setup.sh installs upstream"
+      },
+      "carapace": {
+        "brew": "carapace"
+      },
+      "tmux": "tmux",
+      "zellij": {
+        "brew": "zellij",
+        "note": "debian: setup.sh installs upstream, not in trixie"
+      },
+      "fzf": "fzf",
+      "ripgrep": "ripgrep",
+      "fd": {
+        "apt": "fd-find",
+        "brew": "fd"
+      },
+      "bat": "bat",
+      "eza": "eza",
+      "jq": "jq",
+      "yazi": {
+        "brew": "yazi"
+      },
+      "htop": "htop",
+      "btop": "btop",
+      "bottom": {
+        "brew": "bottom"
+      },
+      "fastfetch": "fastfetch",
+      "neovim": "neovim",
+      "vim": {
+        "apt": "vim",
+        "note": "macOS: system vim"
+      },
+      "git": {
+        "apt": "git",
+        "note": "macOS: xcode command line tools"
+      },
+      "git-lfs": "git-lfs",
+      "lazygit": {
+        "brew": "lazygit",
+        "note": "debian: setup.sh installs upstream"
+      },
+      "jj": {
+        "brew": "jj"
+      },
+      "gh": {
+        "brew": "gh",
+        "note": "debian: setup.sh adds cli.github.com repo"
+      },
+      "herdr": {
+        "brew": "herdr",
+        "note": "debian: curl -fsSL herdr.dev/install.sh | sh"
+      },
+      "curl": {
+        "apt": "curl",
+        "note": "macOS: system curl"
+      },
+      "wget": {
+        "apt": "wget",
+        "brew": "wget"
+      },
+      "gnupg": {
+        "apt": "gnupg",
+        "brew": "gnupg"
+      },
+      "ca-certificates": {
+        "apt": "ca-certificates",
+        "note": "macOS: system trust store"
+      },
+      "lsb-release": {
+        "apt": "lsb-release"
+      },
+      "openssh-client": {
+        "apt": "openssh-client",
+        "note": "macOS: system ssh"
+      },
+      "bind9-dnsutils": {
+        "apt": "bind9-dnsutils",
+        "note": "setup.sh installs it as the virtual dnsutils"
+      },
+      "net-tools": {
+        "apt": "net-tools"
+      },
+      "bubblewrap": {
+        "apt": "bubblewrap",
+        "note": "linux sandboxing only"
+      },
+      "unzip": {
+        "apt": "unzip",
+        "note": "macOS: system unzip"
+      },
+      "zip": {
+        "apt": "zip",
+        "note": "macOS: system zip"
+      },
+      "p7zip": {
+        "apt": "p7zip-full",
+        "brew": "p7zip"
+      },
+      "unrar": {
+        "apt": "unrar",
+        "note": "debian: needs non-free; dropped from homebrew"
+      },
+      "ffmpeg": "ffmpeg",
+      "jpegoptim": "jpegoptim",
+      "pngquant": "pngquant",
+      "rclone": "rclone",
+      "mkcert": "mkcert",
+      "tailscale": {
+        "brew": "tailscale",
+        "note": "debian: pkgs.tailscale.com repo"
+      },
+      "cloudflared": {
+        "brew": "cloudflared",
+        "note": "debian: pkg.cloudflare.com repo"
+      },
+      "cloud-sql-proxy": {
+        "brew": "cloud-sql-proxy"
+      }
+    },
+    "dev": {
+      "build-essential": {
+        "apt": "build-essential",
+        "note": "macOS: xcode command line tools"
+      },
+      "pkg-config": {
+        "apt": "pkg-config"
+      },
+      "python3": {
+        "apt": "python3",
+        "note": "macOS: system python3"
+      },
+      "python3-pip": {
+        "apt": "python3-pip"
+      },
+      "python3-venv": {
+        "apt": "python3-venv"
+      },
+      "node": {
+        "brew": "node",
+        "note": "debian: setup.sh pins node 22 from nodejs.org"
+      },
+      "pnpm": {
+        "brew": "pnpm",
+        "note": "debian: get.pnpm.io/install.sh"
+      },
+      "bun": {
+        "note": "npm i -g bun on both"
+      },
+      "claude-code": {
+        "note": "npm i -g @anthropic-ai/claude-code on both"
+      },
+      "go": {
+        "brew": "go"
+      },
+      "zig": {
+        "brew": "zig",
+        "note": "debian: setup.sh pins 0.14 from ziglang.org"
+      },
+      "ghc": {
+        "brew": "ghc@9.10"
+      },
+      "cabal-install": {
+        "brew": "cabal-install"
+      },
+      "openjdk": {
+        "brew": "openjdk@21"
+      },
+      "postgresql": {
+        "brew": "postgresql@17"
+      },
+      "lima": {
+        "brew": "lima",
+        "note": "macOS only: runs the debian vm"
+      },
+      "xcodes": {
+        "brew": "xcodes",
+        "note": "macOS only"
+      },
+      "orbstack": {
+        "brew": {
+          "cask": "orbstack"
+        },
+        "note": "debian: curl get.docker.com | sh"
+      },
+      "gcloud-cli": {
+        "brew": {
+          "cask": "gcloud-cli"
+        }
+      },
+      "android-commandlinetools": {
+        "brew": {
+          "cask": "android-commandlinetools"
+        }
+      },
+      "android-platform-tools": {
+        "brew": {
+          "cask": "android-platform-tools"
+        }
+      }
+    },
+    "gui": {
+      "firefox": {
+        "apt": "firefox-esr"
+      },
+      "google-chrome": {
+        "note": "debian: setup.sh adds dl.google.com repo (x86_64 only); macOS: dmg"
+      },
+      "mpv": {
+        "apt": "mpv",
+        "brew": "mpv"
+      },
+      "flameshot": {
+        "apt": "flameshot"
+      },
+      "fcitx5": {
+        "apt": "fcitx5"
+      },
+      "fcitx5-chinese-addons": {
+        "apt": "fcitx5-chinese-addons"
+      },
+      "virt-manager": {
+        "apt": "virt-manager"
+      }
+    },
+    "app": {
+      "aerospace": {
+        "brew": {
+          "cask": "aerospace",
+          "tap": "nikitabobko/tap"
+        },
+        "note": "macOS tiling wm"
+      },
+      "android-studio": {
+        "brew": {
+          "cask": "android-studio"
+        }
+      },
+      "emacs-app": {
+        "brew": {
+          "cask": "emacs-app"
+        }
+      },
+      "godot": {
+        "brew": {
+          "cask": "godot"
+        }
+      }
+    },
+    "font": {
+      "fonts-noto-cjk": {
+        "apt": "fonts-noto-cjk"
+      },
+      "fonts-noto-cjk-extra": {
+        "apt": "fonts-noto-cjk-extra"
+      },
+      "iosevka": {
+        "brew": {
+          "cask": "font-iosevka"
+        },
+        "note": "debian: setup.sh pulls the github release"
+      }
+    }
+  }
+}
