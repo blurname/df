@@ -28,11 +28,6 @@
       "carapace": {
         "brew": "carapace"
       },
-      "tmux": "tmux",
-      "zellij": {
-        "brew": "zellij",
-        "note": "debian: setup.sh installs upstream, not in trixie"
-      },
       "fzf": "fzf",
       "ripgrep": "ripgrep",
       "fd": {
@@ -64,9 +59,6 @@
       "lazygit": {
         "brew": "lazygit",
         "note": "debian: setup.sh installs upstream"
-      },
-      "jj": {
-        "brew": "jj"
       },
       "gh": {
         "brew": "gh",
@@ -182,25 +174,12 @@
         "brew": "zig",
         "note": "debian: setup.sh pins 0.14 from ziglang.org"
       },
-      "ghc": {
-        "brew": "ghc@9.10"
-      },
-      "cabal-install": {
-        "brew": "cabal-install"
-      },
-      "openjdk": {
-        "brew": "openjdk@21"
-      },
       "postgresql": {
         "brew": "postgresql@17"
       },
       "lima": {
         "brew": "lima",
         "note": "macOS only: runs the debian vm"
-      },
-      "xcodes": {
-        "brew": "xcodes",
-        "note": "macOS only"
       },
       "orbstack": {
         "brew": {
