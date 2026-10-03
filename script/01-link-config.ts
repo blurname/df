@@ -34,6 +34,10 @@ const links: LinkDef[] = [
   [".config/carapace", "carapace"],
   [".config/starship.toml", "starship.toml"],
   [".config/ghostty/config", "ghostty/config"],
+  [
+    ".config/karabiner/assets/complex_modifications/windows-like-macos.json",
+    "karabiner/assets/complex_modifications/windows-like-macos.json",
+  ],
   [".tmux.conf", "tmux/.tmux.conf"],
   [".bashrc", ".bashrc"],
   [".zshrc", ".zshrc"],

@@ -34,5 +34,6 @@
     ]
   },
   "effortLevel": "xhigh",
-  "skipWorkflowUsageWarning": true
+  "skipWorkflowUsageWarning": true,
+  "theme": "auto"
 }
