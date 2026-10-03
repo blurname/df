@@ -3,11 +3,31 @@ onboarding = false
 
 [theme]
 # 终端是浅色背景，默认的 catppuccin（深色系）在白底上对比度不够
+# 只用亮色主题，所以不跟随明暗切换；16 个 token 全被下面的 custom 盖掉了，
+# name 只负责以后 herdr 新增 token 时给个浅色兜底。
 name = "catppuccin-latte"
-# 跟随系统明暗自动切换
-auto_switch = true
-light_name = "catppuccin-latte"
-dark_name = "catppuccin"
+auto_switch = false
+
+# 配色跟 ghostty 的调色板同源，生成：bun run ghostty-palette --herdr
+# latte 的 accent/overlay0 等在 #dadada 底上要么太跳（#1e66f5）要么太淡（1.9:1），
+# 这里按同一套对比度档位重算。
+[theme.custom]
+accent      = "#4a6f92"
+blue        = "#4a6f92"
+mauve       = "#855e85"
+red         = "#a55252"
+green       = "#517351"
+yellow      = "#866444"
+teal        = "#507272"
+peach       = "#694c2f"
+text        = "#4e4e4e"
+subtext0    = "#6b6b6b"
+overlay0    = "#7b7b7b"
+overlay1    = "#525252"
+panel_bg    = "#e4e4e4"
+surface0    = "#cdcdcd"
+surface1    = "#c1c1c1"
+surface_dim = "#d2d2d2"
 
 [terminal]
 # default_shell = "/bin/elvish"
@@ -103,4 +123,4 @@ enabled = false
 
 [experimental]
 # macOS: prefix mode 自动切 ASCII 输入源目前对微信输入法恢复不稳定，先关闭。
-switch_ascii_input_source_in_prefix = true
+switch_ascii_input_source_in_prefix = false
