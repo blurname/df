@@ -26,6 +26,7 @@ const links: LinkDef[] = [
   [".config/kitty", "kitty"],
   [".config/elvish", "elvish"],
   [".config/zellij", "zellij"],
+  [".config/herdr/config.toml", "herdr/config.toml"],
   [".config/bottom", "bottom"],
   [".config/btop", "btop"],
   [".config/hypr", "hypr"],
