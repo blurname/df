@@ -33,7 +33,7 @@ palette = 15=#525252
 keybind = alt+left=unbind
 keybind = alt+right=unbind
 keybind = performable:ctrl+c=copy_to_clipboard
-keybind = ctrl+v=paste_from_clipboard
+keybind = performable:ctrl+v=paste_from_clipboard
 # font-family = "Maple Mono NL NF CN"
 font-family = "Iosevka Fixed"
 # https://github.com/be5invis/Iosevka/blob/v33.3.1/doc/PACKAGE-LIST.md
