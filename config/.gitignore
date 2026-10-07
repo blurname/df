@@ -46,3 +46,4 @@ zellij/layout/mb.kdl
 /herdr/plugins/
 !/i3
 lazygit/state.yml
+lazygit/github_pull_requests.json
