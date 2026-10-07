@@ -1,10 +1,6 @@
 [user]
 	name = blurname
 	email = naughtybao@outlook.com
-
-[core]
-	editor = nvim
-
 [init]
 	defaultBranch = main
 

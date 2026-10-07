@@ -18,7 +18,6 @@
       "Bash(git push --force *)"
     ]
   },
-  "model": "opus[1m]",
   "hooks": {
     "SessionStart": [
       {
@@ -32,6 +31,9 @@
         ]
       }
     ]
+  },
+  "enabledPlugins": {
+    "vercel@claude-plugins-official": true
   },
   "effortLevel": "xhigh",
   "skipWorkflowUsageWarning": true,
