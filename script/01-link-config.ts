@@ -1,6 +1,6 @@
 #!/usr/bin/env bun
 
-import { existsSync, lstatSync, rmSync, symlinkSync, mkdirSync } from "fs";
+import { existsSync, lstatSync, readdirSync, rmSync, symlinkSync, mkdirSync } from "fs";
 import { dirname, join } from "path";
 import { homedir, platform } from "os";
 
@@ -43,10 +43,19 @@ const links: LinkDef[] = [
   [".zshrc", ".zshrc"],
   [".bash_profile", ".bash_profile"],
   [".claude/settings.json", "claude/settings.json"],
-  [".claude/commands", "claude/commands"],
+  [".claude/CLAUDE.md", "claude/CLAUDE.md"],
+  [".codex/AGENTS.md", "claude/CLAUDE.md"],
   [".gitconfig", "git/config"],
   [".config/i3", "i3"],
 ];
+
+// claude 和 codex 读各自的 skills 目录，但共用 df 里的同一份
+const skillLinks: LinkDef[] = readdirSync(join(DF, "claude/skills")).flatMap(
+  (name): LinkDef[] => [
+    [`.claude/skills/${name}`, `claude/skills/${name}`],
+    [`.codex/skills/${name}`, `claude/skills/${name}`],
+  ],
+);
 
 // 特殊路径链接（使用绝对路径）
 const specialLinks: AbsoluteLinkDef[] = [
@@ -78,7 +87,7 @@ function createLink(linkPath: string, targetPath: string): void {
 }
 
 // 处理常规链接
-for (const [linkRel, targetRel] of links) {
+for (const [linkRel, targetRel] of [...links, ...skillLinks]) {
   const linkPath = join(HOME, linkRel);
   const targetPath = join(DF, targetRel);
   createLink(linkPath, targetPath);
