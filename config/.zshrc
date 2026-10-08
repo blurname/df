@@ -107,20 +107,19 @@ cdAndEdit() {
 }
 
 # dotfiles
-e()   { nvim "$@" }
+e()   { adx-edit "$@" }
 nas() { bash ~/df/nixos/apply-system.sh }
 nes() { cdAndEdit ~/df/nixos/flake.nix }
 r()   { exec zsh }
 erc() { cdAndEdit ~/.zshrc }
-envimrc() { cdAndEdit ~/.config/nvim/entry.vim }
 
 # edit the project's meta file
 ep() {
-  if   [[ -f package.json ]]; then nvim ./package.json
-  elif [[ -f Cargo.toml   ]]; then nvim ./Cargo.toml
-  elif [[ -f init.vim     ]]; then nvim ./init.vim
-  elif [[ -f flake.nix    ]]; then nvim ./flake.nix
-  elif [[ -f README.md    ]]; then nvim ./README.md
+  if   [[ -f package.json ]]; then adx-edit ./package.json
+  elif [[ -f Cargo.toml   ]]; then adx-edit ./Cargo.toml
+  elif [[ -f init.vim     ]]; then adx-edit ./init.vim
+  elif [[ -f flake.nix    ]]; then adx-edit ./flake.nix
+  elif [[ -f README.md    ]]; then adx-edit ./README.md
   else print -r -- 'no metaFile here'
   fi
 }
