@@ -41,6 +41,7 @@ prefix = "alt+backtick"
 # zellij tmux-mode 习惯映射
 detach = "prefix+shift+d"
 new_tab = "prefix+t"             # zellij: t (NewTab)
+new_workspace = "prefix+m"
 previous_tab = "prefix+h"        # zellij: h (GoToPreviousTab)
 next_tab = "prefix+l"            # zellij: l (GoToNextTab)
 switch_tab = "prefix+1..9"       # zellij: 1-8 (GoToTab)
@@ -109,8 +110,17 @@ type = "plugin_action"
 command = "blurname.adx.hub"
 description = "adx: agents / processes / github"
 
+# 打开 agent 刚说到的路径：读按键时所在 pane 的最近输出，列出存在的路径（最新在前，带行号），
+# 回车在那个 pane 右侧分屏打开——文件用 $EDITOR 跳到行，目录开一个 cd 过去的 shell。
+[[keys.command]]
+key = "prefix+o"
+type = "plugin_action"
+command = "blurname.adx.paths"
+description = "adx: open a path from this pane"
+
 [ui]
 agent_panel_sort = "priority"
+prompt_new_tab_name = false
 
 show_agent_labels_on_pane_borders = false
 status_indicators = "symbols"
