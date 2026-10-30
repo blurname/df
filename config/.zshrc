@@ -18,7 +18,11 @@ path=(
 )
 
 # ---- environment ---------------------------------------------------------
-export TERM='xterm-256color'
+if [[ -n "$REX_BIN_DIR" ]]; then
+  path=("$REX_BIN_DIR" $path)
+else
+  export TERM='xterm-256color'
+fi
 export RUSTUP_DIST_SERVER="https://rsproxy.cn"
 export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
 export CARGO_HTTP_MULTIPLEXING="false"
