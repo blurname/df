@@ -46,6 +46,7 @@ const links: LinkDef[] = [
   [".claude/settings.json", "claude/settings.json"],
   [".claude/CLAUDE.md", "claude/CLAUDE.md"],
   [".codex/AGENTS.md", "claude/CLAUDE.md"],
+  [".codex/no-default-instructions.md", "codex/no-default-instructions.md"],
   [".gitconfig", "git/config"],
   [".config/i3", "i3"],
 ];
