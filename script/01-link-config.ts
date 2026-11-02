@@ -28,6 +28,7 @@ const links: LinkDef[] = [
   [".config/zellij", "zellij"],
   [".config/herdr/config.toml", "herdr/config.toml"],
   [".config/rex/init.lua", "rex/init.lua"],
+  [".config/rex/git-tabs.lua", "rex/git-tabs.lua"],
   [".config/bottom", "bottom"],
   [".config/btop", "btop"],
   [".config/hypr", "hypr"],
