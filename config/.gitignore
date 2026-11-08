@@ -42,6 +42,7 @@ zellij/layout/mb.kdl
 !/niri
 !/claude
 !/codex
+!/dsh
 !/git
 !/herdr
 /herdr/plugins/

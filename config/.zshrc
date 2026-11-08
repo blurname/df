@@ -254,6 +254,17 @@ prj() { cd ~/prj && exa -la }
 # fork a project dir (paths resolved from cwd): prjfork source target  → ./source copied to ./target-3
 prjfork() { bun ~/df/script/prjfork.ts "$@" }
 
+# ---- dsh-tui: mirror DSH config into ~/df after each run ------------------
+# dsh-tui rewrites its config through rename(2), so a symlink would silently
+# break; script/dsh-config.ts copies the 7 files instead. Keep the TUI's exit
+# code so failures still surface, and leave stderr visible if the push fails.
+dsh-tui() {
+  command dsh-tui "$@"
+  local rc=$?
+  bun ~/df/script/dsh-config.ts push >/dev/null
+  return $rc
+}
+
 # ---- adx (location + history; must be last so its bindings win) ----------
 eval "$(adx init zsh)"
 # rc.elv habit: Alt-w behaved like Alt-f (forward word / accept a word of ghost)
