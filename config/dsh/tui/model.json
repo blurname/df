@@ -1,4 +1,4 @@
 {
-  "provider": "deepseek-account",
-  "model": "deepseek-flash"
+  "provider": "opendesign",
+  "model": "deepseek-v4.1-flash"
 }

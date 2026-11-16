@@ -1,4 +1,35 @@
 # Your patch layer for this dsh profile, applied after every bundle layer:
 # a top-level YAML array of loader patch entries (id-targeted config
 # overrides, disables, and insert lists; `!!js` expressions allowed).
-[]
+- id: llm-pi-ai
+  name: "@deepseek-ai/dsh-llm-pi-ai"
+  config:
+    providers:
+      opendesign:
+        apiKeyEnv: OPENDESIGN_API_KEY
+        baseURL: https://amr-link.open-design.ai/v1
+        api: openai-completions
+        models:
+          - id: deepseek-v4.1-flash
+            # 网关 /v1/models 声明 input_modalities 为 text+image，但 pi-ai 的
+            # 静态目录里没有这个模型（它只有 deepseek-v4-pro，且标的是 text），
+            # 不声明就会回落到路由的 defaultInput: [text]，图片被投影成占位文本。
+            input: [text, image]
+            # 网关 metadata.context_limit 报的是 1048000；不写就落 defaultContextWindow 的 1e6。
+            contextWindow: 1048000
+          - id: deepseek-v4-flash-vision-exp
+            input: [text, image]
+            contextWindow: 1048000
+        retryPolicy:
+          mode: normal
+          maxRetries: 5
+          retryableCodes:
+            - EMPTY_RESPONSE
+            # 网关偶发把并行 tool call 都标成 index 0，pi-ai 按 index 复用 block
+            # 会把两个 JSON 粘成 "{...}{...}"，重试可绕过（默认不含该码）。
+            - MALFORMED_RESPONSE
+            - RATE_LIMIT
+            - SERVER
+            - TIMEOUT
+            - TRANSPORT
+            - STREAM_CLOSED
