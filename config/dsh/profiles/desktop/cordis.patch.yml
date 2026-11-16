@@ -1,0 +1,64 @@
+# Your patch layer for this dsh profile, applied after every bundle layer:
+# a top-level YAML array of loader patch entries (id-targeted config
+# overrides, disables, and insert lists; `!!js` expressions allowed).
+- id: ui-settings-account
+  name: "@deepseek-ai/dsh-client-ui-settings-account"
+  config:
+    version: 1
+    step: done
+    purpose: null
+    process: standard
+    completion: skipped
+    usage: compact
+    developerTools: false
+- id: ui-chat
+  name: "@deepseek-ai/dsh-client-ui-chat"
+  config:
+    transcriptView: standard
+    performanceUsage: compact
+- id: ui-settings
+  name: "@deepseek-ai/dsh-client-ui-settings"
+  config:
+    enabled: false
+- id: locale
+  name: "@deepseek-ai/dsh-client-locale"
+  config:
+    preference: zh
+- id: llm-pi-ai
+  name: "@deepseek-ai/dsh-llm-pi-ai"
+  config:
+    providers:
+      opendesign:
+        apiKeyEnv: OPENDESIGN_API_KEY
+        api: openai-completions
+        baseURL: https://amr-link.open-design.ai/v1
+        models:
+          - id: deepseek-v4-pro
+            name: deepseek-v4-pro
+            # 网关 /v1/models 声明 text-only，保持一致。
+            input: [text]
+            contextWindow: 1048000
+          - id: deepseek-v4.1-flash
+            name: deepseek-v4.1-flash
+            # pi-ai 静态目录里没有这个模型，不声明就回落到 defaultInput: [text]，
+            # 图片会被投影成占位文本。网关声明的是 text+image。
+            input: [text, image]
+            contextWindow: 1048000
+          - id: deepseek-v4.1-flash-eco
+            name: deepseek-v4.1-flash-eco
+            # 网关声明 text-only。
+            input: [text]
+            contextWindow: 1048000
+        retryPolicy:
+          mode: normal
+          maxRetries: 5
+          retryableCodes:
+            - EMPTY_RESPONSE
+            # 网关偶发把并行 tool call 都标成 index 0，pi-ai 按 index 复用
+            # block 会把两个 JSON 粘成 "{...}{...}"，默认重试码不含它。
+            - MALFORMED_RESPONSE
+            - RATE_LIMIT
+            - SERVER
+            - TIMEOUT
+            - TRANSPORT
+            - STREAM_CLOSED

@@ -23,6 +23,7 @@ const REPO = join(HOME, "df/config/dsh");
 /** [path under $HOME, matching path under config/dsh] */
 const PAIRS: [homeRel: string, repoRel: string][] = [
   [".dsh/profiles/dsh-tui/cordis.patch.yml", "profiles/dsh-tui/cordis.patch.yml"],
+  [".dsh/profiles/desktop/cordis.patch.yml", "profiles/desktop/cordis.patch.yml"],
   [".dsh/profiles/web/cordis.patch.yml", "profiles/web/cordis.patch.yml"],
   [".dsh/profiles/headless/cordis.patch.yml", "profiles/headless/cordis.patch.yml"],
   [".dsh-tui/settings.json", "tui/settings.json"],
@@ -147,7 +148,7 @@ switch (command) {
   pull    restore config/dsh into $HOME (new machine, after the first dsh-tui run)
   status  show which paths differ
 
-Synced: profile patches for dsh-tui/web/headless, plus ~/.dsh-tui
+Synced: profile patches for dsh-tui/desktop/web/headless, plus ~/.dsh-tui
 settings/theme/effort/model. Credentials, sessions and caches stay local.`);
     process.exit(command === undefined || command === "help" ? 0 : 1);
 }
