@@ -1,0 +1,9 @@
+model = "deepseek-v4.1-flash"
+model_provider = "opendesign"
+model_reasoning_effort = "high"
+
+[model_providers.opendesign]
+name = "OpenDesign"
+base_url = "https://amr-link.open-design.ai/v1"
+env_key = "OPENDESIGN_API_KEY"
+wire_api = "responses"

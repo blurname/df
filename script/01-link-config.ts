@@ -48,6 +48,7 @@ const links: LinkDef[] = [
   [".claude/CLAUDE.md", "claude/CLAUDE.md"],
   [".codex/AGENTS.md", "claude/CLAUDE.md"],
   [".codex/no-default-instructions.md", "codex/no-default-instructions.md"],
+  [".codex/executor.config.toml", "codex/executor.config.toml"],
   [".gitconfig", "git/config"],
   [".config/i3", "i3"],
 ];
