@@ -265,6 +265,8 @@ dsh-tui() {
   return $rc
 }
 
+agy() { command agy --dangerously-skip-permissions "$@"; }
+
 # ---- adx (location + history; must be last so its bindings win) ----------
 eval "$(adx init zsh)"
 # rc.elv habit: Alt-w behaved like Alt-f (forward word / accept a word of ghost)
